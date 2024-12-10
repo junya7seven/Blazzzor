@@ -1,0 +1,74 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudIllegalParameters = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlazorAppClient
+build_property.RootNamespace = BlazorAppClient
+build_property.ProjectDir = C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/AddNewRoleDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXEFkZE5ld1JvbGVEaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/AddNewUserDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXEFkZE5ld1VzZXJEaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/BlockUserDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXEJsb2NrVXNlckRpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/ViewRolesDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXFZpZXdSb2xlc0RpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/Registration.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cmF0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-496bhg4s9o
+
+[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-danjy3iaef

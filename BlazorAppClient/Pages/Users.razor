@@ -1,0 +1,150 @@
+﻿@page "/users"
+@inject HttpClient httpClient
+@inject NavigationManager NavigationManager
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+
+<PageTitle>Пользователи</PageTitle>
+
+<h1>Пользователи</h1>
+
+@if(isError)
+{
+    <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">Произошла ошибка: @ErrorMessage</MudAlert>
+}
+<MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="AddNewUserAsync">Добавить пользователя</MudButton>
+<MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="AddNewRoleAsync">Добавить новую роль</MudButton>
+
+<MudTable Items="@users">
+    <HeaderContent>
+        <MudTh>Имя пользователя</MudTh>
+        <MudTh>Имя</MudTh>
+        <MudTh>Фамилия</MudTh>
+        <MudTh>Почта</MudTh>
+        <MudTh>Дата регистрации</MudTh>
+        <MudTh>Последнее обновление</MudTh>
+        <MudTh>Статус блокировки</MudTh>
+        <MudTh>Конец блокировки</MudTh>
+        <MudTh>Роли</MudTh>
+        <MudTh>Редактировать</MudTh>
+        <MudTh>Заблокировать</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Имя пользователя">@context.UserName</MudTd>
+        <MudTd DataLabel="Имя">@context.FirstName</MudTd>
+        <MudTd DataLabel="Фамилия">@context.LastName</MudTd>
+        <MudTd DataLabel="Почта">@context.Email</MudTd>
+        <MudTd DataLabel="Дата регистрации">@context.CreatedAt</MudTd>
+        <MudTd DataLabel="Последнее обновление">@context.LastUpdateAt</MudTd>
+        <MudTd DataLabel="Статус блокировки">@context.isLocked</MudTd>
+        <MudTd DataLabel="Конец блокировки">@context.BlockedUntil</MudTd>
+        <MudTd DataLabel="Роли">
+            <div style="cursor: pointer;" @onclick="@(() => ViewUserRolesAsync(context))">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowUpward" Title="View Roles" />
+            </div>
+        </MudTd>
+        <MudTd DataLabel="Редактировать">
+            <div style="cursor: pointer;" @onclick="@(() => ViewUserRolesAsync(context))">
+                <MudIcon Icon="@Icons.Material.Filled.Edit" Title="Favorite" />
+            </div>
+        </MudTd>
+        <MudTd DataLabel="Заблокировать">
+            <div style="cursor: pointer;" @onclick="@(() => BlockUserAsync(context))">
+                <MudIcon Icon="@Icons.Material.Filled.Block" Title="Favorite" />
+            </div>
+        </MudTd>
+
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager />
+    </PagerContent>
+</MudTable>
+
+@code {
+    private List<UserDTO> users = new List<UserDTO>();
+    private bool isError { get; set; } = false;
+    public string ErrorMessage { get; set; } 
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetUserData();
+
+    }
+
+    private async Task GetUserData()
+    {
+        try
+        {
+            var response = await httpClient.GetAsync("user");
+            if (!response.IsSuccessStatusCode)
+            {
+                isError = true;
+                ErrorMessage = response.StatusCode.ToString();
+            }
+            users = await response.Content.ReadFromJsonAsync<List<UserDTO>>();
+        }
+        catch (Exception ex)
+        {
+            isError = true;
+            ErrorMessage = ex.Message;
+        }
+    }
+
+    private async Task ViewUserRolesAsync(UserDTO user)
+    {
+        var parameters = new DialogParameters<ViewRolesDialog> { { x => x.User, user } };
+
+        var dialog = await DialogService.ShowAsync<ViewRolesDialog>("Роли", parameters);
+        var result = await dialog.Result;
+
+        if (!result.Canceled)
+        {
+            Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
+        }
+    }
+
+    private async Task BlockUserAsync(UserDTO user)
+    {
+        var parameters = new DialogParameters<BlockUserDialog> { { x => x.User, user } };
+
+        var dialog = await DialogService.ShowAsync<BlockUserDialog>("Блокировка", parameters);
+        var result = await dialog.Result;
+
+        if (!result.Canceled)
+        {
+            Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
+        }
+    }
+
+    private async Task AddNewRoleAsync()
+    {
+
+        var dialog = await DialogService.ShowAsync<AddNewRoleDialog>("Блокировка");
+        var result = await dialog.Result;
+
+        if (!result.Canceled)
+        {
+            Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
+        }
+    }
+
+    private async Task AddNewUserAsync()
+    {
+        try
+        {
+            var dialog = await DialogService.ShowAsync<AddNewUserDialog>("Добавить пользователя");
+            var result = await dialog.Result;
+
+            if (!result.Canceled)
+            {
+                Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
+            }
+        }
+        catch (Exception ex)
+        {
+            isError = true;
+            ErrorMessage = ex.Message;
+            Snackbar.Add($"Ошибка: {ErrorMessage}", Severity.Error);
+        }
+    }
+}

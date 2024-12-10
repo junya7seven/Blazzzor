@@ -1,0 +1,17 @@
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.csproj.AssemblyReference.cache
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.AssemblyInfoInputs.cache
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.AssemblyInfo.cs
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.csproj.CoreCompileInputs.cache
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\bin\Debug\net8.0\Infrasrtucture.deps.json
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\bin\Debug\net8.0\Infrasrtucture.runtimeconfig.json
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\bin\Debug\net8.0\Infrasrtucture.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\bin\Debug\net8.0\Infrasrtucture.pdb
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\bin\Debug\net8.0\Entities.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\bin\Debug\net8.0\Entities.pdb
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrt.F9E2DD7B.Up2Date
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\refint\Infrasrtucture.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.pdb
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.genruntimeconfig.cache
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\ref\Infrasrtucture.dll
