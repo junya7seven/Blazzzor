@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "Application.DTO.LoginDTO",
+        "Type": "Application.Models.LoginModel",
         "IsRequired": true
       }
     ],
@@ -17,7 +17,43 @@
       {
         "Type": "System.Void",
         "MediaTypes": [],
-        "StatusCode": 201
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "BlazorTemplateAPI.Controllers.AuthController",
+    "Method": "RefresToken",
+    "RelativePath": "Auth/RefreshToken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.Models.RequestAccess",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -45,7 +81,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "Application.DTO.RegistrationDTO",
+        "Type": "Application.Models.RegistrationModel",
         "IsRequired": true
       }
     ],
@@ -101,7 +137,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "BlazorTemplateAPI.Models.DTO.UserAddDTO",
+        "Type": "Application.Models.RegistrationModel",
         "IsRequired": true
       }
     ],
@@ -159,8 +195,39 @@
   },
   {
     "ContainingType": "BlazorTemplate.Controllers.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "User/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "BlazorTemplate.Controllers.UserController",
     "Method": "DeleteUserByEmail",
-    "RelativePath": "User/{email}/{duration}",
+    "RelativePath": "User/Block/{email}/{duration}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -195,40 +262,9 @@
   },
   {
     "ContainingType": "BlazorTemplate.Controllers.UserController",
-    "Method": "GetUserById",
-    "RelativePath": "User/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "BlazorTemplate.Controllers.UserController",
-    "Method": "UpdateUser",
-    "RelativePath": "User/{userId}",
-    "HttpMethod": "PUT",
+    "Method": "DeleteUserById",
+    "RelativePath": "User/Block/{userId}/{duration}",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -238,8 +274,8 @@
         "IsRequired": true
       },
       {
-        "Name": "user",
-        "Type": "BlazorTemplateAPI.Models.DTO.UserDTO",
+        "Name": "duration",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -262,9 +298,40 @@
   },
   {
     "ContainingType": "BlazorTemplate.Controllers.UserController",
-    "Method": "DeleteUserById",
-    "RelativePath": "User/{userId}/{duration}",
+    "Method": "UnblockUserById",
+    "RelativePath": "User/UnBlock/{userId}",
     "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "BlazorTemplate.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "User/Update/{userId}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -274,8 +341,8 @@
         "IsRequired": true
       },
       {
-        "Name": "duration",
-        "Type": "System.Int32",
+        "Name": "updateUser",
+        "Type": "Application.Models.UpdateUser",
         "IsRequired": true
       }
     ],

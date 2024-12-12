@@ -3,6 +3,7 @@ using Entities.Interfaces;
 using Entities.Models;
 using Infrasrtucture.Data;
 using Infrasrtucture.Managers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,7 +37,11 @@ namespace Application
             configureOptions(jwtSettings);
 
 
-            services.AddAuthentication("Bearer")
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })  
         .AddJwtBearer(options =>
         {
             options.RequireHttpsMetadata = false;

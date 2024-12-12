@@ -1,13 +1,20 @@
 ﻿@page "/users"
+@using Microsoft.AspNetCore.Authorization
 @inject HttpClient httpClient
 @inject NavigationManager NavigationManager
 @inject IDialogService DialogService
 @inject ISnackbar Snackbar
+@inject IMapper Mapper
 
 <PageTitle>Пользователи</PageTitle>
 
 <h1>Пользователи</h1>
 
+
+
+
+<AuthorizeView Roles="admin">
+    <Authorized>
 @if(isError)
 {
     <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">Произошла ошибка: @ErrorMessage</MudAlert>
@@ -29,36 +36,42 @@
         <MudTh>Редактировать</MudTh>
         <MudTh>Заблокировать</MudTh>
     </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="Имя пользователя">@context.UserName</MudTd>
-        <MudTd DataLabel="Имя">@context.FirstName</MudTd>
-        <MudTd DataLabel="Фамилия">@context.LastName</MudTd>
-        <MudTd DataLabel="Почта">@context.Email</MudTd>
-        <MudTd DataLabel="Дата регистрации">@context.CreatedAt</MudTd>
-        <MudTd DataLabel="Последнее обновление">@context.LastUpdateAt</MudTd>
-        <MudTd DataLabel="Статус блокировки">@context.isLocked</MudTd>
-        <MudTd DataLabel="Конец блокировки">@context.BlockedUntil</MudTd>
-        <MudTd DataLabel="Роли">
-            <div style="cursor: pointer;" @onclick="@(() => ViewUserRolesAsync(context))">
-                <MudIcon Icon="@Icons.Material.Filled.ArrowUpward" Title="View Roles" />
-            </div>
-        </MudTd>
-        <MudTd DataLabel="Редактировать">
-            <div style="cursor: pointer;" @onclick="@(() => ViewUserRolesAsync(context))">
-                <MudIcon Icon="@Icons.Material.Filled.Edit" Title="Favorite" />
-            </div>
-        </MudTd>
-        <MudTd DataLabel="Заблокировать">
-            <div style="cursor: pointer;" @onclick="@(() => BlockUserAsync(context))">
-                <MudIcon Icon="@Icons.Material.Filled.Block" Title="Favorite" />
-            </div>
-        </MudTd>
+            <RowTemplate Context="rowContext">
+                <MudTd DataLabel="Имя пользователя">@rowContext.UserName</MudTd>
+                <MudTd DataLabel="Имя">@rowContext.FirstName</MudTd>
+                <MudTd DataLabel="Фамилия">@rowContext.LastName</MudTd>
+                <MudTd DataLabel="Почта">@rowContext.Email</MudTd>
+                <MudTd DataLabel="Дата регистрации">@rowContext.CreatedAt</MudTd>
+                <MudTd DataLabel="Последнее обновление">@rowContext.LastUpdateAt</MudTd>
+                <MudTd DataLabel="Статус блокировки">@rowContext.isLocked</MudTd>
+                <MudTd DataLabel="Конец блокировки">@rowContext.BlockedUntil</MudTd>
+            <MudTd DataLabel="Роли">
+                    <div style="cursor: pointer;" @onclick="@(() => ViewUserRolesAsync(rowContext))">
+                    <MudIcon Icon="@Icons.Material.Outlined.PeopleAlt" Title="View Roles" />
+                </div>
+            </MudTd>
+            <MudTd DataLabel="Редактировать">
+                    <div style="cursor: pointer;" @onclick="@(() => UpdateUserAsync(rowContext))">
+                    <MudIcon Icon="@Icons.Material.Filled.Edit" Title="Favorite" />
+                </div>
+            </MudTd>
+            <MudTd DataLabel="Заблокировать">
+                    <div style="cursor: pointer;" @onclick="@(() => BlockUserAsync(rowContext))">
+                    <MudIcon Icon="@Icons.Material.Filled.Block" Title="Favorite" />
+                </div>
+            </MudTd>
 
     </RowTemplate>
     <PagerContent>
         <MudTablePager />
     </PagerContent>
 </MudTable>
+
+    </Authorized>
+    <NotAuthorized>
+        <h3>У вас нет прав для доступа к этой странице.</h3>
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
     private List<UserDTO> users = new List<UserDTO>();
@@ -67,8 +80,8 @@
 
     protected override async Task OnInitializedAsync()
     {
+        StateHasChanged();
         await GetUserData();
-
     }
 
     private async Task GetUserData()
@@ -101,6 +114,7 @@
         {
             Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
         }
+        await ReloadPage();
     }
 
     private async Task BlockUserAsync(UserDTO user)
@@ -114,12 +128,13 @@
         {
             Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
         }
+        await ReloadPage();
     }
 
     private async Task AddNewRoleAsync()
     {
 
-        var dialog = await DialogService.ShowAsync<AddNewRoleDialog>("Блокировка");
+        var dialog = await DialogService.ShowAsync<AddNewRoleDialog>("Добавить роль");
         var result = await dialog.Result;
 
         if (!result.Canceled)
@@ -139,6 +154,7 @@
             {
                 Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
             }
+            await ReloadPage();
         }
         catch (Exception ex)
         {
@@ -146,5 +162,27 @@
             ErrorMessage = ex.Message;
             Snackbar.Add($"Ошибка: {ErrorMessage}", Severity.Error);
         }
+    }
+
+    private async Task UpdateUserAsync(UserDTO user)
+    {
+        var updateUser = Mapper.Map<UpdateUser>(user);
+        var parameters = new DialogParameters();
+        parameters.Add(nameof(UpdateUser), updateUser);
+        parameters.Add("UserId",user.UserId);
+
+        var dialog = await DialogService.ShowAsync<UpdateUserDialog>("Пользователь", parameters);
+        var result = await dialog.Result;
+
+        if (!result.Canceled)
+        {
+            Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
+        }
+        await ReloadPage();
+    }
+
+    private async Task ReloadPage()
+    {
+        await OnInitializedAsync();
     }
 }

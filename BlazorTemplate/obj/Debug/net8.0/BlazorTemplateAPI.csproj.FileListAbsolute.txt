@@ -174,3 +174,4 @@ C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\obj\Debug\net8.0\
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\obj\Debug\net8.0\BlazorTemplateAPI.genruntimeconfig.cache
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\obj\Debug\net8.0\ref\BlazorTemplateAPI.dll
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\bin\Debug\net8.0\Blazored.LocalStorage.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\obj\Debug\net8.0\BlazorTemplateAPI.sourcelink.json

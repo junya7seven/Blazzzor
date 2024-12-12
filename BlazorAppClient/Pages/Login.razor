@@ -1,51 +1,37 @@
-﻿@page "/Registration"
+﻿@page "/login"
 @inject ISnackbar Snackbar
 @inject HttpClient httpClient
 @inject NavigationManager NavigationManager
+@inject AuthService AuthService
 
 
-<PageTitle>Login</PageTitle>
+<PageTitle>Вход</PageTitle>
 
 <h1>Login</h1>
 
-<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+<EditForm Model="@User" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <MudGrid>
         <MudItem xs="12" sm="7">
             <MudCard>
                 <MudCardContent>
                     <MudTextField Label="Почта" HelperText="Введите почту"
-                                  @bind-Value="model.Email" For="@(() => model.Email)" />
+                                  @bind-Value="User.Email" For="@(() => User.Email)" />
                     
                     <MudTextField Label="Пароль" HelperText="Введите пароль" Class="mt-3"
-                                  @bind-Value="model.Password" For="@(() => model.Password)" InputType="InputType.Password" />
+                                  @bind-Value="User.Password" For="@(() => User.Password)" InputType="InputType.Password" />
                 </MudCardContent>
                 <MudCardActions>
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Войти</MudButton>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="Save">Войти</MudButton>
                 </MudCardActions>
             </MudCard>
-        </MudItem>
-        <MudItem xs="12" sm="5">
-            <MudPaper Class="pa-4 mud-height-full">
-                <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
-                @if (success)
-                {
-                    <MudText Color="Color.Success">Success</MudText>
-                }
-                else
-                {
-                    <MudText Color="@Color.Error">
-                        <ValidationSummary />
-                    </MudText>
-                }
-            </MudPaper>
         </MudItem>
     </MudGrid>
 </EditForm>
 
 
 @code {
-    LoginUser model = new LoginUser();
+    LoginUser User = new LoginUser();
     bool success;
 
     private void OnValidSubmit(EditContext context)
@@ -55,4 +41,21 @@
         StateHasChanged();
     }
 
+    private async Task Save()
+    {
+        try
+        {
+            var resultReg = await AuthService.LoginAsync(User);
+            if (resultReg)
+            {
+                StateHasChanged();
+                Snackbar.Add("Вы успешно вошли!", Severity.Success);
+                NavigationManager.NavigateTo("users");
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
 }

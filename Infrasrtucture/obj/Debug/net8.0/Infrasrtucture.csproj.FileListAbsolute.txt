@@ -15,3 +15,4 @@ C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\
 C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.pdb
 C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.genruntimeconfig.cache
 C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\ref\Infrasrtucture.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.sourcelink.json

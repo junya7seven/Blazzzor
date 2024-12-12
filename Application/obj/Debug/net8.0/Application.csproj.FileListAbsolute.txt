@@ -15,3 +15,4 @@ C:\Users\BarushevAA\source\repos\BlazorTemplate\Application\obj\Debug\net8.0\App
 C:\Users\BarushevAA\source\repos\BlazorTemplate\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
 C:\Users\BarushevAA\source\repos\BlazorTemplate\Application\bin\Debug\net8.0\Infrasrtucture.dll
 C:\Users\BarushevAA\source\repos\BlazorTemplate\Application\bin\Debug\net8.0\Infrasrtucture.pdb
+C:\Users\BarushevAA\source\repos\BlazorTemplate\Application\obj\Debug\net8.0\Application.sourcelink.json

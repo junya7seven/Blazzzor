@@ -1,5 +1,7 @@
-﻿using Blazored.LocalStorage;
+﻿using BlazorAppClient.Service.ErrorHelper;
+using Blazored.LocalStorage;
 using Shared;
+using System.Net.Http;
 using System.Net.Http.Json;
 
 namespace BlazorAppClient.Service
@@ -8,11 +10,68 @@ namespace BlazorAppClient.Service
     {
         private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;
+        private readonly CustomAuthenticationStateProvider _authenticationStateProvider;
 
-        public AuthService(HttpClient httpClient, ILocalStorageService localStorage)
+        public AuthService(HttpClient httpClient, ILocalStorageService localStorage, CustomAuthenticationStateProvider authenticationStateProvider)
         {
             _httpClient = httpClient;
             _localStorage = localStorage;
+            _authenticationStateProvider = authenticationStateProvider;
         }
+
+        public async Task<bool> RegistrationAsync(RegistrationUser user)
+        {
+            var response = await _httpClient.PostAsJsonAsync("Auth/Registration", user);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            var error = await response.Content.ReadAsStringAsync();
+            error = await response.Content.ReadAsStringAsync();
+            throw new Exception($"Ошибка входа: {ErrorParser.ErrorMessage(error)}");
+        }
+
+        public async Task<bool> LoginAsync(LoginUser user)
+        {
+            string error;
+            var response = await _httpClient.PostAsJsonAsync("Auth/Login", user);
+            if (!response.IsSuccessStatusCode)
+            {
+                error = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Ошибка входа: {ErrorParser.ErrorMessage(error)}");
+            }
+            var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
+            if (result != null && !string.IsNullOrEmpty(result.AccessToken))
+            {
+                await SetTokenAsync(result);
+                var data = await _localStorage.GetItemAsStringAsync("AccessToken");
+
+                var isAuth = await _authenticationStateProvider.GetAuthenticationStateAsync();
+
+
+                if(data == null)
+                {
+                    error = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Ошибка входа: {ErrorParser.ErrorMessage(error)}");
+                }
+                return true;
+            }
+            error = await response.Content.ReadAsStringAsync();
+            throw new Exception($"Ошибка входа: {ErrorParser.ErrorMessage(error)}");
+        }
+
+        private async Task SetTokenAsync(LoginResponse response)
+        {
+            if(response != null)
+            {
+                await _localStorage.SetItemAsStringAsync("AccessToken", response.AccessToken);
+                await _authenticationStateProvider.GetAuthenticationStateAsync();
+            }
+            else
+            {
+                throw new Exception("Не удалось записать сохранить токен");
+            }
+        }
+
     }
 }

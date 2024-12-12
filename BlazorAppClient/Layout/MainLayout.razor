@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@inject CustomAuthenticationStateProvider AuthenticationStateProvider
+
 
 <MudThemeProvider />
 <MudPopoverProvider />
@@ -6,7 +8,6 @@
 <MudDialogProvider />
 
 <MudSnackbarProvider />
-
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -15,6 +16,18 @@
     <main>
         <div class="top-row px-4">
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            <AuthorizeView>
+                <Authorized>
+                    <p >Привет @context.User.Identity.Name</p>
+                    <MudButton Variant="Variant.Text" OnClick="Logout">Выйти</MudButton>
+
+                </Authorized>
+                <NotAuthorized>
+                    <a href="login" target="_blank">Login</a>
+                    <a href="registration" target="_blank">Registration</a>
+                </NotAuthorized>
+            </AuthorizeView>
+
         </div>
 
         <article class="content px-4">
@@ -22,3 +35,15 @@
         </article>
     </main>
 </div>
+
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        StateHasChanged();
+    }
+
+    private async Task Logout()
+    {
+        await AuthenticationStateProvider.MarkUserAsLoggedOut();
+    }
+}

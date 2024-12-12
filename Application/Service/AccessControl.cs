@@ -40,8 +40,9 @@ namespace Application.Service
             var existsUser = await _userManager.GetUserByEmailAsync(email);
             if (existsUser == null)
             {
-                throw new ArgumentNullException($"Пользователь не может быть пустым");
+                throw new ArgumentNullException($"Такого пользователя не существует");
             }
+            // Проверка пароля
             if (existsUser.IsLocked == true)
             {
                 bool isBlockNow = existsUser.BlockedUntil > DateTime.Now;
@@ -57,7 +58,7 @@ namespace Application.Service
             {
                 Token = requestTokens.RefreshToken,
                 UserId = existsUser.UserId,
-                ExpiryDate = DateTime.Now.AddDays(_jwtSettings.RefreshTokenValidityDays),
+                ExpiryDate = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenValidityDays),
                 CreatedDate = DateTime.Now,
                 IsRevoked = false,
             };
@@ -67,14 +68,6 @@ namespace Application.Service
             }
             return requestTokens;
         }
-
-
-
-
-
-
-
-
 
         public async Task<RequestAccess?> GetRefreshTokenAsync(RequestAccess request)
         {
@@ -94,14 +87,14 @@ namespace Application.Service
                 throw new Exception($"Пользователь не найден или заблокирован");
             }
             var refreshToken = await _tokenManager.GetRefreshTokenAsync(request.RefreshToken, user.UserId);
-            if (refreshToken == null || refreshToken.IsRevoked || refreshToken.ExpiryDate <= DateTime.Now)
+            if (refreshToken == null || refreshToken.IsRevoked || refreshToken.ExpiryDate <= DateTime.UtcNow)
             {
                 throw new Exception($"Ошибка или срок действия токена истек");
             }
             var requestAccess = await GenerateTokens(user);
 
             refreshToken.Token = requestAccess.RefreshToken;
-            refreshToken.ExpiryDate = DateTime.Now.AddDays(_jwtSettings.RefreshTokenValidityDays);
+            refreshToken.ExpiryDate = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenValidityDays);
             refreshToken.CreatedDate = DateTime.Now;
             refreshToken.IsRevoked = false;
 
@@ -112,7 +105,7 @@ namespace Application.Service
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expiration = DateTime.Now.AddMinutes(_jwtSettings.TokenValidityMinutes);
+            var expiration = DateTime.UtcNow.AddMinutes(_jwtSettings.TokenValidityMinutes);
             var claims = await GetClaims(user);
             var token = new JwtSecurityToken(
                 issuer: _jwtSettings.Issuer,

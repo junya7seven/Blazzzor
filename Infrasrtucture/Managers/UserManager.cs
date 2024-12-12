@@ -55,6 +55,9 @@ namespace Infrasrtucture.Managers
             user.NormalUserName = user.UserName.ToLower();
             user.PasswordHash = user.PasswordHash;
 
+            user.CreatedAt = DateTime.Now;
+            user.IsLocked = false;
+
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             return user;
@@ -103,6 +106,7 @@ namespace Infrasrtucture.Managers
                 existUser.NormalEmail = user.Email.ToLower();
             }
             existUser.LastUpdateAt = DateTime.Now;
+            _context.Update(existUser);
             return await _context.SaveChangesAsync();
         }
 
@@ -120,6 +124,8 @@ namespace Infrasrtucture.Managers
 
             existUser.IsLocked = true;
             existUser.BlockedUntil = DateTime.Now.Add(duration);
+            var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(x => existUser.UserId == x.UserId);
+            refreshToken.IsRevoked = true;
             return await _context.SaveChangesAsync();
         }
         public async Task<int> BlockUserByIdAsync(Guid userId, TimeSpan duration = default)
@@ -136,7 +142,22 @@ namespace Infrasrtucture.Managers
 
             existUser.IsLocked = true;
             existUser.BlockedUntil = DateTime.Now.Add(duration);
+            var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(x => existUser.UserId == x.UserId);
+            refreshToken.IsRevoked = true;
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<int> UnblockUserByIdAsync(Guid userId)
+        {
+            var existUser = await GetUserByIdAsync(userId);
+            if (existUser == null)
+            {
+                throw new KeyNotFoundException($"Такой пользователь не найден");
+            }
+            existUser.IsLocked = false;
+            existUser.BlockedUntil = DateTime.MinValue;
+            return await _context.SaveChangesAsync();
+        }
+
     }
 }

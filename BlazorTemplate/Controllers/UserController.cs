@@ -4,6 +4,7 @@ using BlazorTemplateAPI.Models.DTO;
 using Entities.Interfaces;
 using Entities.Models;
 using Infrasrtucture.Managers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.CompilerServices;
 
@@ -11,6 +12,7 @@ namespace BlazorTemplate.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -38,6 +40,10 @@ namespace BlazorTemplate.Controllers
                     LastName = item.LastName,
                     FirstName = item.FirstName,
                     Password = item.PasswordHash,
+                    CreatedAt = item.CreatedAt,
+                    LastUpdateAt = item.LastUpdateAt,
+                    isLocked = item.IsLocked,
+                    BlockedUntil = item.BlockedUntil,
                     Roles = item.UserRoles.Select(ur => ur.Role).ToList()
                 };
                 userDTO.Add(user);
@@ -114,23 +120,29 @@ namespace BlazorTemplate.Controllers
         }
         // PUT api/user/[userId]
         // BODY: (JSON)
-        [HttpPut("{userId}")]
+        [HttpPut("Update/{userId}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> UpdateUser(Guid userId, [FromBody] UserDTO user)
+        public async Task<IActionResult> UpdateUser(Guid userId, [FromBody] UpdateUser updateUser)
         {
-            var t = "765636bc-b712-446e-c66b-08dd15c6c51a";
-            Guid id = Guid.Parse(t);
-            var existUser = await _userManager.GetUserByIdAsync(id);
-            if (user.UserName != null) existUser.UserName = user.UserName;
-            if (user.Email != null) existUser.Email = user.Email;
-            _ = await _userManager.UpdateUserAsync(userId, existUser);
+            var user = new ApplicationUser
+            {
+                UserName = updateUser.UserName,
+                FirstName = updateUser.FirstName,
+                LastName = updateUser.LastName,
+                Email = updateUser.Email,
+            };
+            var result = await _userManager.UpdateUserAsync(userId, user);
+            if (result <= 0)
+            {
+                return BadRequest();
+            }
             return NoContent();
         }
 
         // POST api/user/[userId]/[duration]
         // Default 100 years
-        [HttpPost("{userId:guid}/{duration}")]
+        [HttpPost("Block/{userId:guid}/{duration}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public async Task<IActionResult> DeleteUserById(Guid userId, int duration = default)
@@ -144,8 +156,8 @@ namespace BlazorTemplate.Controllers
             return NoContent();
         }
 
-        // POST api/user/[userId]/[duration]
-        [HttpPost("{email}/{duration:int}")]
+        // POST api/user/[userId]/[duration] UnblockUserByIdAsync
+        [HttpPost("Block/{email}/{duration:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public async Task<IActionResult> DeleteUserByEmail(string email, int duration = default)
@@ -156,6 +168,19 @@ namespace BlazorTemplate.Controllers
             }
             TimeSpan timeSpan = TimeSpan.FromHours(duration);
             var _ = await _userManager.BlockUserByEmailAsync(email, timeSpan);
+            return NoContent();
+        }
+        // POST api/user/[userId]/[duration] UnblockUserByIdAsync
+        [HttpPost("UnBlock/{userId:guid}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> UnblockUserById(Guid userId)
+        {
+            var result = await _userManager.UnblockUserByIdAsync(userId);
+            if(result <= 0)
+            {
+                return BadRequest();
+            }
             return NoContent();
         }
     }

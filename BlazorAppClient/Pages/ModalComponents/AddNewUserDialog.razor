@@ -4,15 +4,16 @@
 <MudDialog>
     <DialogContent>
         <MudText>Введите данные для нового пользователя:</MudText>
-        @for (int i = 0; i < userProp.Count; i++)
-        {
-            var propertyName = userProp[i];
-            var propertyValue = User.GetType().GetProperty(propertyName)?.GetValue(User);
-
-            <MudTextField @bind-Value="propertyValues[propertyName]"
-                          Label="@propertyName"
-                          Required="true" />
-        }
+        <EditForm Model="@userProp" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            @foreach (var propertyName in userProp)
+            {
+                <MudTextField Label="@propertyName"
+                              @bind-Value="propertyValues[propertyName]" For="@(() => propertyValues[propertyName])"
+                              Required="true" />
+            }
+        </EditForm>
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="@Close">Отмена</MudButton>
@@ -24,12 +25,13 @@
     [CascadingParameter]
     private MudDialogInstance MudDialog { get; set; }
 
-    [Parameter]
     public RegistrationUser User { get; set; } = new RegistrationUser();
 
-    List<string> userProp { get; set; } = new List<string>();
+    private IEnumerable<string> userProp { get; set; }
 
     Dictionary<string, string> propertyValues { get; set; } = new Dictionary<string, string>();
+
+    bool success;
 
     protected override async Task OnInitializedAsync()
     {
@@ -44,35 +46,46 @@
 
     private void GetUserProp()
     {
-        Type userDTO = typeof(RegistrationUser);
-        PropertyInfo[] prop = userDTO.GetProperties();
+        var properties = typeof(RegistrationUser).GetProperties();
 
-        foreach (var item in prop)
+        userProp = properties.Select(p => p.Name);
+
+        foreach (var prop in properties)
         {
-            userProp.Add(item.Name);
+            if (!propertyValues.ContainsKey(prop.Name))
+                propertyValues[prop.Name] = null;
         }
     }
 
     private void Close() => MudDialog.Cancel();
 
+
     private async Task Save()
     {
         foreach (var key in propertyValues.Keys)
         {
-            var propertyInfo = User.GetType().GetProperty(key);
-            if (propertyInfo != null && propertyInfo.CanWrite)
-            {
-                if (propertyInfo.PropertyType == typeof(string))
-                {
-                    propertyInfo.SetValue(User, propertyValues[key]);
-                }
-                else if (propertyInfo.PropertyType == typeof(int) && int.TryParse(propertyValues[key], out int intVal))
-                {
-                    propertyInfo.SetValue(User, intVal);
-                }
-            }
+            SetPropertyValue(key);
         }
         await AddUser();
+    }
+
+    private void SetPropertyValue(string key)
+    {
+        if (key == null)
+            return;
+        var propertyInfo = User.GetType().GetProperty(key);
+        if (propertyInfo != null && propertyInfo.CanWrite)
+        {
+
+            if (propertyInfo.PropertyType == typeof(string))
+            {
+                propertyInfo.SetValue(User, propertyValues[key]);
+            }
+            else if (propertyInfo.PropertyType == typeof(int) && int.TryParse(propertyValues[key], out int intVal))
+            {
+                propertyInfo.SetValue(User, intVal);
+            }
+        }
     }
 
     private async Task AddUser()
@@ -80,13 +93,19 @@
         var response = await httpClient.PostAsJsonAsync("User", User);
         if (response.IsSuccessStatusCode)
         {
-            StateHasChanged();
             Snackbar.Add("Пользователь успешно добавлен!", Severity.Success);
             MudDialog.Close(DialogResult.Ok(User));
+            StateHasChanged();
             return;
         }
         var error = await response.Content.ReadAsStringAsync();
         Snackbar.Add(error, Severity.Error);
         MudDialog.Close();
+    }
+
+    private void OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
     }
 }

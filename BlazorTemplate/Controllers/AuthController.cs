@@ -45,7 +45,7 @@ namespace BlazorTemplateAPI.Controllers
             return Created();
         }
         [HttpPost("Login")]
-        [ProducesResponseType(201)]
+        [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
 
@@ -58,6 +58,23 @@ namespace BlazorTemplateAPI.Controllers
                 throw new Exception($"Ошибка авторизации");
             }
 
+            return Ok(new RequestAccess
+            {
+                AccessToken = res.AccessToken,
+                RefreshToken = res.RefreshToken,
+            });
+        }
+        [HttpPost("RefreshToken")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> RefresToken(RequestAccess request)
+        {
+            var res = await _accessControl.GetRefreshTokenAsync(request);
+            if (res == null)
+            {
+                throw new Exception($"Обновление токена не удалось");
+            }
             return Ok(new RequestAccess
             {
                 AccessToken = res.AccessToken,
