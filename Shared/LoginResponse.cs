@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shared
 {
-    public class LoginResponse
+    public class AccessResponse
     {
         public string AccessToken { get; set; }
         public string RefreshToken { get; set; }

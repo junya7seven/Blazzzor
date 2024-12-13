@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -10,22 +11,27 @@ namespace Shared
     public class RegistrationUser
     {
         [Required]
-        [Length(6,64,ErrorMessage = "Мин. 6 символов, макс 64")]
+        [Length(6, 64, ErrorMessage = "Мин. 6 символов, макс 64")]
         [RegularExpression(@"^[a-zA-Zа-яА-Я0-9]+$", ErrorMessage = "Поле должно содержать только буквы и цифры.")]
+        [DefaultValue("Bobster777")]
         public string UserName { get; set; }
         [Required]
         [Length(6, 64, ErrorMessage = "Мин. 6 символов, макс 64")]
-        [RegularExpression(@"^[a-zA-Zа-яА-Я0-9]+$", ErrorMessage = "Поле должно содержать только буквы и цифры.")]
+        [RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Поле должно содержать только буквы.")]
+        [DefaultValue("Аркадий")]
         public string FirstName { get; set; }
         [Required]
         [Length(6, 64, ErrorMessage = "Мин. 6 символов, макс 64")]
-        [RegularExpression(@"^[a-zA-Zа-яА-Я0-9]+$", ErrorMessage = "Поле должно содержать только буквы и цифры.")]
+        [RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Поле должно содержать только буквы.")]
+        [DefaultValue("Паровозов")]
         public string LastName { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
+        [DefaultValue("Arkady2007@gmail.com")]
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        [DefaultValue("password123!@")]
+        public string PasswordHash { get; set; }
     }
 }

@@ -32,6 +32,6 @@ namespace Application.Models
         [Required]
         [DataType(DataType.Password)]
         [DefaultValue("password123!@")]
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
     }
 }

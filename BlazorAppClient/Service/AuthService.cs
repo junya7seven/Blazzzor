@@ -10,13 +10,11 @@ namespace BlazorAppClient.Service
     {
         private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;
-        private readonly CustomAuthenticationStateProvider _authenticationStateProvider;
 
-        public AuthService(HttpClient httpClient, ILocalStorageService localStorage, CustomAuthenticationStateProvider authenticationStateProvider)
+        public AuthService(HttpClient httpClient, ILocalStorageService localStorage)
         {
             _httpClient = httpClient;
             _localStorage = localStorage;
-            _authenticationStateProvider = authenticationStateProvider;
         }
 
         public async Task<bool> RegistrationAsync(RegistrationUser user)
@@ -40,13 +38,11 @@ namespace BlazorAppClient.Service
                 error = await response.Content.ReadAsStringAsync();
                 throw new Exception($"Ошибка входа: {ErrorParser.ErrorMessage(error)}");
             }
-            var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
+            var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
             if (result != null && !string.IsNullOrEmpty(result.AccessToken))
             {
                 await SetTokenAsync(result);
                 var data = await _localStorage.GetItemAsStringAsync("AccessToken");
-
-                var isAuth = await _authenticationStateProvider.GetAuthenticationStateAsync();
 
 
                 if(data == null)
@@ -60,18 +56,33 @@ namespace BlazorAppClient.Service
             throw new Exception($"Ошибка входа: {ErrorParser.ErrorMessage(error)}");
         }
 
-        private async Task SetTokenAsync(LoginResponse response)
+        private async Task SetTokenAsync(TokenResponse response)
         {
             if(response != null)
             {
                 await _localStorage.SetItemAsStringAsync("AccessToken", response.AccessToken);
-                await _authenticationStateProvider.GetAuthenticationStateAsync();
             }
             else
             {
                 throw new Exception("Не удалось записать сохранить токен");
             }
         }
+
+        public async Task<string> RefreshToken(string token)
+        {
+            var response = await _httpClient.PostAsync($"Auth/RefreshToken/{token}", null);
+            if (response.IsSuccessStatusCode)
+            {
+                var tokens = await response.Content.ReadFromJsonAsync<TokenResponse>();
+                if (tokens != null)
+                {
+                    await SetTokenAsync(tokens);
+                    return tokens.AccessToken;
+                }
+            }
+            return null;
+        }
+
 
     }
 }

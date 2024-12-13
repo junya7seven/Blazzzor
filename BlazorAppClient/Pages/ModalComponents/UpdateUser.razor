@@ -1,0 +1,115 @@
+﻿@inject ISnackbar Snackbar
+@inject HttpClient httpClient
+
+<MudDialog>
+    <DialogContent>
+        <MudText>Обновите данные пользователя:</MudText>
+        <EditForm Model="updateUser" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            @foreach (var propertyName in userProp)
+            {
+                <MudTextField Label="@propertyName"
+                              @bind-Value="propertyValues[propertyName]"
+                              Required="true" />
+            }
+        </EditForm>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="@Close">Отмена</MudButton>
+        <MudButton OnClick="@Save">Сохранить</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public UpdateUser updateUser { get; set; } = new UpdateUser();
+    [Parameter]
+    public Guid UserId { get; init; }
+
+    private IEnumerable<string> userProp { get; set; }
+
+    Dictionary<string, string> propertyValues { get; set; } = new Dictionary<string, string>();
+
+    bool success;
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetUserProp();
+
+        foreach (var prop in userProp)
+        {
+            var value = updateUser.GetType().GetProperty(prop)?.GetValue(updateUser)?.ToString();
+            propertyValues[prop] = value;
+        }
+        string a = "asd";
+    }
+
+    private void GetUserProp()
+    {
+        var properties = typeof(UpdateUser).GetProperties();
+
+        userProp = properties.Select(p => p.Name);
+
+        foreach (var prop in properties)
+        {
+            if (!propertyValues.ContainsKey(prop.Name))
+                propertyValues[prop.Name] = null;
+        }
+    }
+
+    private void Close() => MudDialog.Cancel();
+
+
+    private async Task Save()
+    {
+        foreach (var key in propertyValues.Keys)
+        {
+            SetPropertyValue(key);
+        }
+        await UpdateUser();
+    }
+
+    private void SetPropertyValue(string key)
+    {
+        if (key == null)
+            return;
+        var propertyInfo = updateUser.GetType().GetProperty(key);
+        if (propertyInfo != null && propertyInfo.CanWrite)
+        {
+
+            if (propertyInfo.PropertyType == typeof(string))
+            {
+                propertyInfo.SetValue(updateUser, propertyValues[key]);
+            }
+            else if (propertyInfo.PropertyType == typeof(int) && int.TryParse(propertyValues[key], out int intVal))
+            {
+                propertyInfo.SetValue(updateUser, intVal);
+            }
+        }
+    }
+
+    private async Task UpdateUser()
+    {
+        var response = await httpClient.PutAsJsonAsync($"User/Update/{UserId}", updateUser);
+        if (response.IsSuccessStatusCode)
+        {
+            StateHasChanged();
+            Snackbar.Add("Пользователь успешно обновлен!", Severity.Success);
+            MudDialog.Close(DialogResult.Ok(updateUser));
+            return;
+        }
+        var error = await response.Content.ReadAsStringAsync();
+        Snackbar.Add(error, Severity.Error);
+        MudDialog.Close();
+    }
+
+    private void OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
+    }
+}

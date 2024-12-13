@@ -1114,3 +1114,13 @@ C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\obj\Debug\net8.0\webcil\AutoMapper.wasm
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\obj\Debug\net8.0\compressed\z22twgh807.gz
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0\wwwroot\_framework\LibaryModalDialogPages.pdb
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0\wwwroot\_framework\LibaryModalDialogPages.wasm
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0\wwwroot\_framework\LibaryModalDialogPages.wasm.gz
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0\wwwroot\_framework\LibaryModalDialogPages.pdb.gz
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0\LibaryModalDialogPages.staticwebassets.runtime.json
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0\LibaryModalDialogPages.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\bin\Debug\net8.0\LibaryModalDialogPages.pdb
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\obj\Debug\net8.0\webcil\LibaryModalDialogPages.wasm
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\obj\Debug\net8.0\compressed\5hskvzvr4u.gz
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorAppClient\obj\Debug\net8.0\compressed\7vbd3qinsp.gz

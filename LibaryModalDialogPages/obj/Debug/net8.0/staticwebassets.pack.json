@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "PackagePath": "staticwebassets\\background.png"
+    },
+    {
+      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "PackagePath": "staticwebassets\\exampleJsInterop.js"
+    },
+    {
+      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LibaryModalDialogPages.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.LibaryModalDialogPages.props",
+      "PackagePath": "build\\LibaryModalDialogPages.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.LibaryModalDialogPages.props",
+      "PackagePath": "buildMultiTargeting\\LibaryModalDialogPages.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.LibaryModalDialogPages.props",
+      "PackagePath": "buildTransitive\\LibaryModalDialogPages.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

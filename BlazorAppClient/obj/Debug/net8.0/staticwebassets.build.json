@@ -1,17 +1,36 @@
 {
   "Version": 1,
-  "Hash": "9HAf8qkGEStUUPisdG1safL1GAcr1kU9SRbRSrzGn5E=",
+  "Hash": "7dXCBLL1aDzG2IZCRRIM9u46xVVh36K13vqHeJxr7YY=",
   "Source": "BlazorAppClient",
   "BasePath": "/",
   "Mode": "Root",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
+      "Version": 2,
+      "Source": "LibaryModalDialogPages",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "BlazorAppClient\\wwwroot",
       "Source": "BlazorAppClient",
       "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\wwwroot\\",
       "BasePath": "/",
+      "Pattern": "**"
+    },
+    {
+      "Name": "LibaryModalDialogPages\\wwwroot",
+      "Source": "LibaryModalDialogPages",
+      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\",
+      "BasePath": "_content/LibaryModalDialogPages",
       "Pattern": "**"
     }
   ],
@@ -357,6 +376,44 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\BarushevAA\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
+    },
+    {
+      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\LibaryModalDialogPages.pdb",
+      "SourceId": "BlazorAppClient",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/LibaryModalDialogPages.pdb",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "symbol",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\bin\\Debug\\net8.0\\LibaryModalDialogPages.pdb"
+    },
+    {
+      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\LibaryModalDialogPages.wasm",
+      "SourceId": "BlazorAppClient",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/LibaryModalDialogPages.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\obj\\Debug\\net8.0\\webcil\\LibaryModalDialogPages.wasm"
     },
     {
       "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.wasm",
@@ -4957,6 +5014,25 @@
       "OriginalItemSpec": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.Handles.wasm"
     },
     {
+      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\obj\\Debug\\net8.0\\compressed\\5hskvzvr4u.gz",
+      "SourceId": "BlazorAppClient",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/LibaryModalDialogPages.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\LibaryModalDialogPages.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\LibaryModalDialogPages.wasm"
+    },
+    {
       "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\obj\\Debug\\net8.0\\compressed\\5ume89sss7.gz",
       "SourceId": "BlazorAppClient",
       "SourceType": "Computed",
@@ -5297,6 +5373,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Security.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\obj\\Debug\\net8.0\\compressed\\7vbd3qinsp.gz",
+      "SourceId": "BlazorAppClient",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/LibaryModalDialogPages.pdb.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\LibaryModalDialogPages.pdb",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\LibaryModalDialogPages.pdb"
     },
     {
       "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\obj\\Debug\\net8.0\\compressed\\7xol7vuom1.gz",
@@ -8641,6 +8736,63 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
+    },
+    {
+      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "SourceId": "LibaryModalDialogPages",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\",
+      "BasePath": "_content/LibaryModalDialogPages",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\background.png"
+    },
+    {
+      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "LibaryModalDialogPages",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\",
+      "BasePath": "_content/LibaryModalDialogPages",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
+    },
+    {
+      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "SourceId": "LibaryModalDialogPages",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\",
+      "BasePath": "_content/LibaryModalDialogPages",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
     }
   ]
 }

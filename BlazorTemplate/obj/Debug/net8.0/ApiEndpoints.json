@@ -38,14 +38,14 @@
   {
     "ContainingType": "BlazorTemplateAPI.Controllers.AuthController",
     "Method": "RefresToken",
-    "RelativePath": "Auth/RefreshToken",
+    "RelativePath": "Auth/RefreshToken/{accessToken}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "Application.Models.RequestAccess",
+        "Name": "accessToken",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -54,6 +54,15 @@
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -80,7 +89,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
+        "Name": "model",
         "Type": "Application.Models.RegistrationModel",
         "IsRequired": true
       }
@@ -136,7 +145,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
+        "Name": "model",
         "Type": "Application.Models.RegistrationModel",
         "IsRequired": true
       }

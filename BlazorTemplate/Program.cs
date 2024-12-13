@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using BlazorTemplateAPI.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 
 builder.Services.AddApplicationServices<ApplicationUser>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
+builder.Services.AddAutoMapper(typeof(UserProfile));
 
 builder.Services.AddJwtAuthentication<ApplicationUser>(options =>
 {
@@ -62,17 +64,18 @@ builder.Services.AddJwtAuthentication<ApplicationUser>(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("AllowSpecificOrigin", policy =>
     {
         policy.WithOrigins("https://localhost:7234")
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
 
 var app = builder.Build();
-app.UseCors();
+app.UseCors("AllowSpecificOrigin");
 
 if (app.Environment.IsDevelopment())
 {

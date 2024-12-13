@@ -1,6 +1,7 @@
 ﻿using Entities.Interfaces;
 using Entities.Models;
 using Infrasrtucture.Data;
+using Infrasrtucture.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ namespace Infrasrtucture.Managers
 
             user.NormalEmail = user.Email.ToLower();
             user.NormalUserName = user.UserName.ToLower();
-            user.PasswordHash = user.PasswordHash;
+            user.PasswordHash = PasswordHasher.HashPassword(user.PasswordHash);
 
             user.CreatedAt = DateTime.Now;
             user.IsLocked = false;

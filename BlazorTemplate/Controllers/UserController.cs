@@ -1,4 +1,5 @@
 using Application.Models;
+using AutoMapper;
 using BlazorTemplate.Models;
 using BlazorTemplateAPI.Models.DTO;
 using Entities.Interfaces;
@@ -12,14 +13,16 @@ namespace BlazorTemplate.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
+    
     public class UserController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IMapper _mapper;
 
-        public UserController(UserManager<ApplicationUser> userManager)
+        public UserController(UserManager<ApplicationUser> userManager, IMapper mapper)
         {
             _userManager = userManager;
+            _mapper = mapper;
         }
 
         // GET /user
@@ -100,22 +103,16 @@ namespace BlazorTemplate.Controllers
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(User))]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> CreateUser([FromBody] RegistrationModel user)
+        public async Task<IActionResult> CreateUser([FromBody] RegistrationModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            var rightUser = new ApplicationUser
-            {
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                PasswordHash = user.Password
-            };
-            var result = await _userManager.CreateUserAsync(rightUser);
+            var user = _mapper.Map<ApplicationUser>(model);
+
+            var result = await _userManager.CreateUserAsync(user);
             return Ok();
         }
         // PUT api/user/[userId]
@@ -125,13 +122,10 @@ namespace BlazorTemplate.Controllers
         [ProducesResponseType(400)]
         public async Task<IActionResult> UpdateUser(Guid userId, [FromBody] UpdateUser updateUser)
         {
-            var user = new ApplicationUser
-            {
-                UserName = updateUser.UserName,
-                FirstName = updateUser.FirstName,
-                LastName = updateUser.LastName,
-                Email = updateUser.Email,
-            };
+
+            var user = _mapper.Map<ApplicationUser>(updateUser);
+
+
             var result = await _userManager.UpdateUserAsync(userId, user);
             if (result <= 0)
             {

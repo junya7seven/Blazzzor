@@ -752,6 +752,23 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "LibaryModalDialogPages/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "Microsoft.AspNetCore.Components.Authorization": "8.0.11",
+          "Microsoft.AspNetCore.Components.Web": "8.0.10",
+          "MudBlazor": "7.15.0",
+          "Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LibaryModalDialogPages.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LibaryModalDialogPages.dll": {}
+        }
+      },
       "Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -1512,6 +1529,23 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "LibaryModalDialogPages/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "Microsoft.AspNetCore.Components.Authorization": "8.0.11",
+          "Microsoft.AspNetCore.Components.Web": "8.0.10",
+          "MudBlazor": "7.15.0",
+          "Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LibaryModalDialogPages.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LibaryModalDialogPages.dll": {}
         }
       },
       "Shared/1.0.0": {
@@ -2862,6 +2896,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "LibaryModalDialogPages/1.0.0": {
+      "type": "project",
+      "path": "../LibaryModalDialogPages/LibaryModalDialogPages.csproj",
+      "msbuildProject": "../LibaryModalDialogPages/LibaryModalDialogPages.csproj"
+    },
     "Shared/1.0.0": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
@@ -2872,6 +2911,7 @@
     "net8.0": [
       "AutoMapper >= 13.0.1",
       "Blazored.LocalStorage >= 4.5.0",
+      "LibaryModalDialogPages >= 1.0.0",
       "Microsoft.AspNetCore.Components.Authorization >= 8.0.11",
       "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.10",
       "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 9.0.0",
@@ -2918,6 +2958,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj": {
+              "projectPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj"
+            },
             "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Shared\\Shared.csproj": {
               "projectPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Shared\\Shared.csproj"
             }

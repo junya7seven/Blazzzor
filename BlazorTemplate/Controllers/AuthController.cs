@@ -1,5 +1,7 @@
-﻿using Application.Models;
+﻿using Application;
+using Application.Models;
 using Application.Service;
+using AutoMapper;
 using BlazorTemplate.Models;
 using BlazorTemplateAPI.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +13,13 @@ namespace BlazorTemplateAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly AccessControl<ApplicationUser> _accessControl;
-        public AuthController(AccessControl<ApplicationUser> accessControl)
+        private readonly JwtSettings _jwtSettings;
+        private readonly IMapper _mapper;
+        public AuthController(AccessControl<ApplicationUser> accessControl, JwtSettings jwtSettings, IMapper mapper)
         {
             _accessControl = accessControl;
+            _jwtSettings = jwtSettings;
+            _mapper = mapper;
         }
 
         [HttpPost("Registration")]
@@ -21,23 +27,17 @@ namespace BlazorTemplateAPI.Controllers
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
 
-        public async Task<IActionResult> Registration(RegistrationModel user)
+        public async Task<IActionResult> Registration(RegistrationModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            var userReg = new ApplicationUser
-            {
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                PasswordHash = user.Password
-            };
+            var user = _mapper.Map<ApplicationUser>(model);
 
-            var result = await _accessControl.RegistrationAsync(userReg);
+
+            var result = await _accessControl.RegistrationAsync(user);
             if (result <= 0)
             {
                 throw new Exception($"Регистрация не удалась");
@@ -57,29 +57,58 @@ namespace BlazorTemplateAPI.Controllers
             {
                 throw new Exception($"Ошибка авторизации");
             }
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = false,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenValidityDays)
+            };
 
+            Response.Cookies.Append("refreshToken", res.RefreshToken, cookieOptions);
+
+            var refreshToken = Request.Cookies["refreshToken"];
             return Ok(new RequestAccess
             {
                 AccessToken = res.AccessToken,
                 RefreshToken = res.RefreshToken,
             });
         }
-        [HttpPost("RefreshToken")]
+        [HttpPost("RefreshToken/{accessToken}")]
         [ProducesResponseType(200)]
+        [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> RefresToken(RequestAccess request)
+        public async Task<IActionResult> RefresToken(string accessToken)
         {
-            var res = await _accessControl.GetRefreshTokenAsync(request);
-            if (res == null)
+            var refreshToken = Request.Cookies["refreshToken"];
+            if (string.IsNullOrEmpty(refreshToken))
+                return Unauthorized();
+
+            var tokens = new RequestAccess
+            {
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
+            };
+
+            var newTokens = await _accessControl.GetRefreshTokenAsync(tokens);
+            if (newTokens == null)
             {
                 throw new Exception($"Обновление токена не удалось");
             }
-            return Ok(new RequestAccess
+
+            var cookieOptions = new CookieOptions
             {
-                AccessToken = res.AccessToken,
-                RefreshToken = res.RefreshToken,
-            });
+                HttpOnly = true,
+                Secure = false,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenValidityDays)
+            };
+
+            Response.Cookies.Append("refreshToken", newTokens.RefreshToken, cookieOptions);
+
+            return Ok(new
+            {   AccessToken = newTokens.AccessToken});
         }
     }
 }

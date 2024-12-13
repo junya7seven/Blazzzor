@@ -1,4 +1,5 @@
-﻿using Application.Models;
+﻿using Infrasrtucture.Helpers;
+using Application.Models;
 using Entities.Interfaces;
 using Entities.Models;
 using Microsoft.IdentityModel.Tokens;
@@ -30,7 +31,6 @@ namespace Application.Service
             {
                 throw new ArgumentNullException($"Пользователь не может быть пустым");
             }
-            user.PasswordHash = "haspassword";
             var addUser = await _userManager.CreateUserAsync(user);
             return addUser==null ? 0 : 1;
         }
@@ -42,7 +42,12 @@ namespace Application.Service
             {
                 throw new ArgumentNullException($"Такого пользователя не существует");
             }
-            // Проверка пароля
+
+            if (!PasswordHasher.VerifyPassword(existsUser.PasswordHash, password))
+            {
+                throw new ArgumentException($"Неверный логин или пароль");
+            }
+
             if (existsUser.IsLocked == true)
             {
                 bool isBlockNow = existsUser.BlockedUntil > DateTime.Now;
@@ -95,7 +100,7 @@ namespace Application.Service
 
             refreshToken.Token = requestAccess.RefreshToken;
             refreshToken.ExpiryDate = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenValidityDays);
-            refreshToken.CreatedDate = DateTime.Now;
+            refreshToken.CreatedDate = DateTime.UtcNow;
             refreshToken.IsRevoked = false;
 
             await _tokenManager.AddRefreshTokenAsync(refreshToken);
