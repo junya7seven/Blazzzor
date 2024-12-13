@@ -84,6 +84,11 @@
         await GetUserData();
     }
 
+    private async Task ReloadPage()
+    {
+        await OnInitializedAsync();
+    }
+
     private async Task GetUserData()
     {
         try
@@ -179,10 +184,5 @@
             Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
         }
         await ReloadPage();
-    }
-
-    private async Task ReloadPage()
-    {
-        await OnInitializedAsync();
     }
 }

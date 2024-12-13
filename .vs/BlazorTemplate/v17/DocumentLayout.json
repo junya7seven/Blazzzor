@@ -3,52 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\modalpages\\updateuserdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\modalpages\\updateuserdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\modalpages\\viewrolesdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\modalpages\\viewrolesdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\blazorappclient\\pages\\modalcomponents\\addnewuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\pages\\modalcomponents\\addnewuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E230E153-802C-4C82-86C3-65911FFBD610}|Infrasrtucture\\Infrasrtucture.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\infrasrtucture\\helpers\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E230E153-802C-4C82-86C3-65911FFBD610}|Infrasrtucture\\Infrasrtucture.csproj|solutionrelative:infrasrtucture\\helpers\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\blazorappclient\\pages\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\pages\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DFDD6C5-6DC9-442B-971E-DABCEFFB1F56}|Shared\\Shared.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\shared\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DFDD6C5-6DC9-442B-971E-DABCEFFB1F56}|Shared\\Shared.csproj|solutionrelative:shared\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\blazorappclient\\pages\\modalcomponents\\viewroles.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\pages\\modalcomponents\\viewroles.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\blazorappclient\\pages\\modalcomponents\\updateuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\pages\\modalcomponents\\updateuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\blazorappclient\\pages\\modalcomponents\\blockuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\pages\\modalcomponents\\blockuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\modalpages\\blockuserdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\modalpages\\blockuserdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\modalpages\\updateuserdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\modalpages\\updateuserdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\modalpages\\addnewuserdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\modalpages\\addnewuserdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\modalpages\\viewrolesdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\modalpages\\viewrolesdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\modalpages\\addnewroledialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\modalpages\\addnewroledialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\libarymodaldialogpages\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73C8A319-43B5-4D17-8794-4A02C3702131}|LibaryModalDialogPages\\LibaryModalDialogPages.csproj|solutionrelative:libarymodaldialogpages\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\blazorappclient\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DFDD6C5-6DC9-442B-971E-DABCEFFB1F56}|Shared\\Shared.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\shared\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DFDD6C5-6DC9-442B-971E-DABCEFFB1F56}|Shared\\Shared.csproj|solutionrelative:shared\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\barushevaa\\source\\repos\\blazortemplate\\blazorappclient\\service\\customauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -91,24 +83,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "PasswordHasher.cs",
+              "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Infrasrtucture\\Helpers\\PasswordHasher.cs",
+              "RelativeDocumentMoniker": "Infrasrtucture\\Helpers\\PasswordHasher.cs",
+              "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Infrasrtucture\\Helpers\\PasswordHasher.cs",
+              "RelativeToolTip": "Infrasrtucture\\Helpers\\PasswordHasher.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBYAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T13:21:47.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\_Imports.razor",
+              "RelativeDocumentMoniker": "BlazorAppClient\\_Imports.razor",
+              "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\_Imports.razor",
+              "RelativeToolTip": "BlazorAppClient\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-13T12:57:10.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "_Imports.razor",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\_Imports.razor",
               "RelativeDocumentMoniker": "LibaryModalDialogPages\\_Imports.razor",
               "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\_Imports.razor",
               "RelativeToolTip": "LibaryModalDialogPages\\_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-13T12:47:21.607Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "LoginUser.cs",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Shared\\LoginUser.cs",
               "RelativeDocumentMoniker": "Shared\\LoginUser.cs",
@@ -116,142 +134,89 @@
               "RelativeToolTip": "Shared\\LoginUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T12:47:18.86Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T12:47:18.86Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ViewRoles.razor",
-              "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\ModalComponents\\ViewRoles.razor",
-              "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\ModalComponents\\ViewRoles.razor",
-              "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\ModalComponents\\ViewRoles.razor",
-              "RelativeToolTip": "BlazorAppClient\\Pages\\ModalComponents\\ViewRoles.razor",
-              "ViewState": "AgIAACgAAAAAAAAAAAAiwDoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-13T12:45:37.986Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UpdateUser.razor",
-              "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\ModalComponents\\UpdateUser.razor",
-              "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\ModalComponents\\UpdateUser.razor",
-              "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\ModalComponents\\UpdateUser.razor",
-              "RelativeToolTip": "BlazorAppClient\\Pages\\ModalComponents\\UpdateUser.razor",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAiwHMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-13T12:45:33.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BlockUser.razor",
-              "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\ModalComponents\\BlockUser.razor",
-              "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\ModalComponents\\BlockUser.razor",
-              "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\ModalComponents\\BlockUser.razor",
-              "RelativeToolTip": "BlazorAppClient\\Pages\\ModalComponents\\BlockUser.razor",
-              "ViewState": "AgIAADYAAAAAAAAAAAAmwFcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-13T12:45:28.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "UpdateUserDialog.razor",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\UpdateUserDialog.razor",
               "RelativeDocumentMoniker": "LibaryModalDialogPages\\ModalPages\\UpdateUserDialog.razor",
               "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\UpdateUserDialog.razor",
               "RelativeToolTip": "LibaryModalDialogPages\\ModalPages\\UpdateUserDialog.razor",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAiwGIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAUwF0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-13T12:42:44.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ViewRolesDialog.razor",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\ViewRolesDialog.razor",
               "RelativeDocumentMoniker": "LibaryModalDialogPages\\ModalPages\\ViewRolesDialog.razor",
               "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\ViewRolesDialog.razor",
               "RelativeToolTip": "LibaryModalDialogPages\\ModalPages\\ViewRolesDialog.razor",
-              "ViewState": "AgIAABAAAAAAAAAAAAAiwCIAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwDAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-13T12:42:26.63Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "BlockUserDialog.razor",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\BlockUserDialog.razor",
               "RelativeDocumentMoniker": "LibaryModalDialogPages\\ModalPages\\BlockUserDialog.razor",
               "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\BlockUserDialog.razor",
               "RelativeToolTip": "LibaryModalDialogPages\\ModalPages\\BlockUserDialog.razor",
-              "ViewState": "AgIAADYAAAAAAAAAAAAiwEsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAiwEUAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-13T12:42:09.47Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
               "Title": "AddNewUserDialog.razor",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\AddNewUserDialog.razor",
               "RelativeDocumentMoniker": "LibaryModalDialogPages\\ModalPages\\AddNewUserDialog.razor",
               "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\AddNewUserDialog.razor",
               "RelativeToolTip": "LibaryModalDialogPages\\ModalPages\\AddNewUserDialog.razor",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAiwGIAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-13T12:42:00.84Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddNewUser.razor",
-              "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\ModalComponents\\AddNewUser.razor",
-              "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\ModalComponents\\AddNewUser.razor",
-              "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\ModalComponents\\AddNewUser.razor",
-              "RelativeToolTip": "BlazorAppClient\\Pages\\ModalComponents\\AddNewUser.razor",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAiwFoAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-13T11:45:13.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Users.razor",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\Users.razor",
               "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\Users.razor",
               "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\Users.razor",
               "RelativeToolTip": "BlazorAppClient\\Pages\\Users.razor",
-              "ViewState": "AgIAAAoAAAAAAAAAAIAwwKgAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAAFcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-13T11:44:54.495Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "AddNewRoleDialog.razor",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\AddNewRoleDialog.razor",
               "RelativeDocumentMoniker": "LibaryModalDialogPages\\ModalPages\\AddNewRoleDialog.razor",
               "ToolTip": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\ModalPages\\AddNewRoleDialog.razor",
               "RelativeToolTip": "LibaryModalDialogPages\\ModalPages\\AddNewRoleDialog.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-13T11:44:33.16Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Program.cs",
               "RelativeDocumentMoniker": "BlazorAppClient\\Program.cs",
@@ -259,12 +224,11 @@
               "RelativeToolTip": "BlazorAppClient\\Program.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T11:41:41.77Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T11:41:41.77Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorTemplate\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "BlazorTemplate\\Controllers\\UserController.cs",
@@ -272,12 +236,11 @@
               "RelativeToolTip": "BlazorTemplate\\Controllers\\UserController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T11:40:13.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T11:40:13.885Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "CustomAuthenticationStateProvider.cs",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Service\\CustomAuthenticationStateProvider.cs",
               "RelativeDocumentMoniker": "BlazorAppClient\\Service\\CustomAuthenticationStateProvider.cs",
@@ -285,42 +248,38 @@
               "RelativeToolTip": "BlazorAppClient\\Service\\CustomAuthenticationStateProvider.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAswCAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T11:34:56.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "dbo.Roles [\u0414\u0430\u043D\u043D\u044B\u0435]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.Roles.sql",
-              "ToolTip": "dbo.Roles [\u0414\u0430\u043D\u043D\u044B\u0435]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-12-13T11:33:09.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "dbo.UserRoles [\u0414\u0430\u043D\u043D\u044B\u0435]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.UserRoles.sql",
-              "ToolTip": "dbo.UserRoles [\u0414\u0430\u043D\u043D\u044B\u0435]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-12-13T11:33:06.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T11:34:56.674Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "dbo.User [\u0414\u0430\u043D\u043D\u044B\u0435]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.User.sql",
-              "ToolTip": "dbo.User [\u0414\u0430\u043D\u043D\u044B\u0435]",
+              "Title": "dbo.Roles.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.Roles.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.Roles.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-12-13T11:33:05.07Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T11:33:09.057Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
+              "Title": "dbo.UserRoles.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.UserRoles.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.UserRoles.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-13T11:33:06.771Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "dbo.User.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.User.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.User.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-13T11:33:05.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Service\\AuthService.cs",
               "RelativeDocumentMoniker": "BlazorAppClient\\Service\\AuthService.cs",
@@ -328,12 +287,11 @@
               "RelativeToolTip": "BlazorAppClient\\Service\\AuthService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T11:30:09.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T11:30:09.403Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "Registration.razor",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\Pages\\Registration.razor",
               "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\Registration.razor",
@@ -341,12 +299,11 @@
               "RelativeToolTip": "BlazorAppClient\\Pages\\Registration.razor",
               "ViewState": "AgIAAFQAAAAAAAAAAAAcwGQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-13T11:30:05.014Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T11:30:05.014Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 14,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorTemplate\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "BlazorTemplate\\Controllers\\AuthController.cs",
@@ -354,8 +311,7 @@
               "RelativeToolTip": "BlazorTemplate\\Controllers\\AuthController.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAQwB4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T10:12:50.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T10:12:50.024Z"
             }
           ]
         }

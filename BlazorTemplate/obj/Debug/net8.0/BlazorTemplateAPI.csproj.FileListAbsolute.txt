@@ -190,3 +190,5 @@ C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\bin\Debug\net8.0\
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\bin\Debug\net8.0\Microsoft.Extensions.Localization.dll
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\bin\Debug\net8.0\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\bin\Debug\net8.0\MudBlazor.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\bin\Debug\net8.0\Shared.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\BlazorTemplate\bin\Debug\net8.0\Shared.pdb

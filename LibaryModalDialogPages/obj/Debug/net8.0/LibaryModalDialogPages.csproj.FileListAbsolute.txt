@@ -20,3 +20,6 @@ C:\Users\BarushevAA\source\repos\BlazorTemplate\LibaryModalDialogPages\obj\Debug
 C:\Users\BarushevAA\source\repos\BlazorTemplate\LibaryModalDialogPages\obj\Debug\net8.0\refint\LibaryModalDialogPages.dll
 C:\Users\BarushevAA\source\repos\BlazorTemplate\LibaryModalDialogPages\obj\Debug\net8.0\LibaryModalDialogPages.pdb
 C:\Users\BarushevAA\source\repos\BlazorTemplate\LibaryModalDialogPages\obj\Debug\net8.0\ref\LibaryModalDialogPages.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\LibaryModalDialogPages\bin\Debug\net8.0\Shared.dll
+C:\Users\BarushevAA\source\repos\BlazorTemplate\LibaryModalDialogPages\bin\Debug\net8.0\Shared.pdb
+C:\Users\BarushevAA\source\repos\BlazorTemplate\LibaryModalDialogPages\obj\Debug\net8.0\LibaryMo.4439B8FE.Up2Date

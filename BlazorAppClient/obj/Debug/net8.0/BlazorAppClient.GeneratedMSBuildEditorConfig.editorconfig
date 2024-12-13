@@ -33,26 +33,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/AddNewUser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXEFkZE5ld1VzZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/Asdas.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXEFzZGFzLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/BlockUser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXEJsb2NrVXNlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/UpdateUser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXFVwZGF0ZVVzZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/ModalComponents/ViewRoles.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWxDb21wb25lbnRzXFZpZXdSb2xlcy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/BarushevAA/source/repos/BlazorTemplate/BlazorAppClient/Pages/Registration.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cmF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

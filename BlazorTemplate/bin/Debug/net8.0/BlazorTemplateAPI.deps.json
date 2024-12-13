@@ -1256,12 +1256,22 @@
       },
       "LibaryModalDialogPages/1.0.0": {
         "dependencies": {
+          "AutoMapper": "13.0.1",
           "Microsoft.AspNetCore.Components.Authorization": "8.0.11",
           "Microsoft.AspNetCore.Components.Web": "8.0.10",
-          "MudBlazor": "7.15.0"
+          "MudBlazor": "7.15.0",
+          "Shared": "1.0.0"
         },
         "runtime": {
           "LibaryModalDialogPages.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Shared/1.0.0": {
+        "runtime": {
+          "Shared.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1949,6 +1959,11 @@
       "sha512": ""
     },
     "LibaryModalDialogPages/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
