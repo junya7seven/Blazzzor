@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Entities",
+    "\\Infrasrtucture",
+    "\\Infrasrtucture\\Helpers"
+  ],
+  "SelectedNode": "\\Infrasrtucture\\Helpers\\PasswordHasher.cs",
+  "PreviewInSolutionExplorer": false
+}

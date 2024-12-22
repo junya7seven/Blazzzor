@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\wwwroot\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg",
+      "PackagePath": "staticwebassets\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorTemplateAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorTemplateAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorTemplateAPI.props",
+      "PackagePath": "build\\BlazorTemplateAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorTemplateAPI.props",
+      "PackagePath": "buildMultiTargeting\\BlazorTemplateAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorTemplateAPI.props",
+      "PackagePath": "buildTransitive\\BlazorTemplateAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

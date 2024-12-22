@@ -1,0 +1,36 @@
+﻿@page "/profile"
+@inject HttpClient httpClient
+@inject NavigationManager NavigationManager
+
+
+<h3>Profile</h3>
+
+<InputFile OnChange="HandleFileUpload" />
+<img src="@ProfileImageUrl" alt="Profile Image" style="width: 150px; height: 150px; object-fit: cover;" />
+
+
+@code {
+    private string ProfileImageUrl;
+
+    private async Task HandleFileUpload(InputFileChangeEventArgs e)
+    {
+        var t = "8737d3ae-8d7f-4fa6-18a6-08dd220af3aa";
+        Guid id = Guid.Parse(t);
+        var file = e.File;
+        using var content = new MultipartFormDataContent();
+        var streamContent = new StreamContent(file.OpenReadStream());
+        content.Add(streamContent, "file", file.Name);
+
+        var response = await httpClient.PostAsync($"Image/upload?userId={t}", content);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var result = await response.Content.ReadFromJsonAsync<dynamic>();
+            ProfileImageUrl = result?.FilePath; 
+        }
+        else
+        {
+            Console.WriteLine("Error uploading file.");
+        }
+    }
+}

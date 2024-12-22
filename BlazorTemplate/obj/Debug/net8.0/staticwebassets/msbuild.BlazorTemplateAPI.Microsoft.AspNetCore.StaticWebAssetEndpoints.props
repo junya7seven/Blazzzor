@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/BlazorTemplateAPI/uploads/profile-images/b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.bgvm7dnji3.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profile-images\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bgvm7dnji3"},{"Name":"integrity","Value":"sha256-RcyqniwONFyogYTbSl0MpUUu1N1JtbfSlLd3Oowy\u002Bdg="},{"Name":"label","Value":"_content/BlazorTemplateAPI/uploads/profile-images/b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2136665"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022RcyqniwONFyogYTbSl0MpUUu1N1JtbfSlLd3Oowy\u002Bdg=\u0022"},{"Name":"Last-Modified","Value":"Sat, 21 Dec 2024 22:00:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BlazorTemplateAPI/uploads/profile-images/b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profile-images\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-RcyqniwONFyogYTbSl0MpUUu1N1JtbfSlLd3Oowy\u002Bdg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"2136665"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022RcyqniwONFyogYTbSl0MpUUu1N1JtbfSlLd3Oowy\u002Bdg=\u0022"},{"Name":"Last-Modified","Value":"Sat, 21 Dec 2024 22:00:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>
