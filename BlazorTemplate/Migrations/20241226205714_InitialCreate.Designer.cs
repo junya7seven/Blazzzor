@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BlazorTemplate.Migrations
+namespace BlazorTemplateAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20241206065003_InitialCreate3")]
-    partial class InitialCreate3
+    [Migration("20241226205714_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,25 @@ namespace BlazorTemplate.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("RefreshTokens");
+                });
+
+            modelBuilder.Entity("Entities.Models.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Entities.Models.User", b =>
@@ -114,35 +133,42 @@ namespace BlazorTemplate.Migrations
                     b.UseTphMappingStrategy();
                 });
 
-            modelBuilder.Entity("Entities.Models.UserRole", b =>
+            modelBuilder.Entity("Entities.Models.UserProfileImage", b =>
                 {
-                    b.Property<Guid>("UserRoleId")
+                    b.Property<Guid>("UserProfileImageId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("NormalRoleName")
+                    b.Property<string>("ProfileImagePath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("UserRoleId");
-
-                    b.HasIndex("RoleName")
-                        .IsUnique();
+                    b.HasKey("UserProfileImageId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Roles");
+                    b.ToTable("ProfileImages");
                 });
 
-            modelBuilder.Entity("BlazorTemplate.ApplicationUser", b =>
+            modelBuilder.Entity("Entities.Models.UserRole", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRoles");
+                });
+
+            modelBuilder.Entity("BlazorTemplate.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Entities.Models.User");
 
@@ -168,13 +194,32 @@ namespace BlazorTemplate.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Entities.Models.UserProfileImage", b =>
+                {
+                    b.HasOne("Entities.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Entities.Models.UserRole", b =>
                 {
+                    b.HasOne("Entities.Models.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Entities.Models.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Role");
 
                     b.Navigation("User");
                 });

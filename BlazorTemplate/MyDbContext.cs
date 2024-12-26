@@ -8,7 +8,9 @@ namespace BlazorTemplate
     public class MyDbContext : ApplicationDbContext<ApplicationUser>
     {
         public DbSet<UserProfileImage> ProfileImages { get; set; }
-        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
+        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) 
+        { 
+        }
     }
 
 

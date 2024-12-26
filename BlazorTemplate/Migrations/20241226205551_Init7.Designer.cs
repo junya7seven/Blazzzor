@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BlazorTemplate.Migrations
+namespace BlazorTemplateAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20241206112019_Add table UserRole to Role")]
-    partial class AddtableUserRoletoRole
+    [Migration("20241226205551_Init7")]
+    partial class Init7
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,6 +133,26 @@ namespace BlazorTemplate.Migrations
                     b.UseTphMappingStrategy();
                 });
 
+            modelBuilder.Entity("Entities.Models.UserProfileImage", b =>
+                {
+                    b.Property<Guid>("UserProfileImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ProfileImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserProfileImageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProfileImages");
+                });
+
             modelBuilder.Entity("Entities.Models.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -174,10 +194,21 @@ namespace BlazorTemplate.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Entities.Models.UserProfileImage", b =>
+                {
+                    b.HasOne("Entities.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Entities.Models.UserRole", b =>
                 {
                     b.HasOne("Entities.Models.Role", "Role")
-                        .WithMany("UserRoles")
+                        .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -191,11 +222,6 @@ namespace BlazorTemplate.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Entities.Models.Role", b =>
-                {
-                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("Entities.Models.User", b =>

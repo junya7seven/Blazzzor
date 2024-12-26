@@ -1235,11 +1235,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\obj\\",
+      "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1260,11 +1260,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Entities.csproj"
+            "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\Entities\\Entities.csproj"
             },
-            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj": {
-              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj"
+            "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\Infrasrtucture\\Infrasrtucture.csproj": {
+              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\Infrasrtucture\\Infrasrtucture.csproj"
             }
           }
         }

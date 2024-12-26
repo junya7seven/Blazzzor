@@ -1,48 +1,60 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\",
+  "WorkspaceRootPath": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6C307DFF-FE45-44F9-BFCD-C89BF00DD614}|Entities\\Entities.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\entities\\models\\sessions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C307DFF-FE45-44F9-BFCD-C89BF00DD614}|Entities\\Entities.csproj|solutionrelative:entities\\models\\sessions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazorappclient\\pages\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\pages\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C307DFF-FE45-44F9-BFCD-C89BF00DD614}|Entities\\Entities.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\entities\\models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6C307DFF-FE45-44F9-BFCD-C89BF00DD614}|Entities\\Entities.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\entities\\models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6C307DFF-FE45-44F9-BFCD-C89BF00DD614}|Entities\\Entities.csproj|solutionrelative:entities\\models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\blazortemplate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazortemplate\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\blazortemplate\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazortemplate\\controllers\\userrolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\controllers\\userrolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazortemplate\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazortemplate\\controllers\\imagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\controllers\\imagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazortemplate\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\blazorappclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazortemplate\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazortemplate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazorappclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\blazorappclient\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazorappclient\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\blazorappclient\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|c:\\users\\junya\\source\\repos\\blazzzor12\\blazorappclient\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}|BlazorAppClient\\BlazorAppClient.csproj|solutionrelative:blazorappclient\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.ProfileImages.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\blazortemplate\\controllers\\imagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\controllers\\imagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|c:\\users\\junya\\source\\repos\\blazzzor\\blazortemplate\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8FF6062-BBA6-45FC-AC84-BCCC59BE626D}|BlazorTemplate\\BlazorTemplateAPI.csproj|solutionrelative:blazortemplate\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,50 +64,88 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Users.razor",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorAppClient\\Pages\\Users.razor",
+              "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\Users.razor",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorAppClient\\Pages\\Users.razor",
+              "RelativeToolTip": "BlazorAppClient\\Pages\\Users.razor",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAawBgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T20:50:12.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserRoleController.cs",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Controllers\\UserRoleController.cs",
+              "RelativeDocumentMoniker": "BlazorTemplate\\Controllers\\UserRoleController.cs",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Controllers\\UserRoleController.cs",
+              "RelativeToolTip": "BlazorTemplate\\Controllers\\UserRoleController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T20:50:06.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "BlazorTemplate\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Controllers\\UserController.cs",
+              "RelativeToolTip": "BlazorTemplate\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T20:49:49.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\appsettings.json",
+              "RelativeDocumentMoniker": "BlazorTemplate\\appsettings.json",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\appsettings.json",
+              "RelativeToolTip": "BlazorTemplate\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-26T20:49:37.648Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "RefreshToken.cs",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Models\\RefreshToken.cs",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\Entities\\Models\\RefreshToken.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\RefreshToken.cs",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Models\\RefreshToken.cs",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\Entities\\Models\\RefreshToken.cs",
               "RelativeToolTip": "Entities\\Models\\RefreshToken.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-22T16:00:30.712Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Sessions.cs",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Models\\Sessions.cs",
-              "RelativeDocumentMoniker": "Entities\\Models\\Sessions.cs",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Models\\Sessions.cs",
-              "RelativeToolTip": "Entities\\Models\\Sessions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:59:16.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorAppClient\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorAppClient\\Program.cs",
               "RelativeDocumentMoniker": "BlazorAppClient\\Program.cs",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorAppClient\\Program.cs",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorAppClient\\Program.cs",
               "RelativeToolTip": "BlazorAppClient\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:10:53.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T15:10:53.846Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "dbo.ProfileImages.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.ProfileImages.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UserContext/True/SqlTable/dbo.ProfileImages.sql",
@@ -104,24 +154,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Login.razor",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorAppClient\\Pages\\Login.razor",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorAppClient\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\Login.razor",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorAppClient\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorAppClient\\Pages\\Login.razor",
               "RelativeToolTip": "BlazorAppClient\\Pages\\Login.razor",
               "ViewState": "AgIAABIAAAAAAAAAAADwvyAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-22T07:20:17.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:20:17.434Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "Profile.razor",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorAppClient\\Pages\\Profile.razor",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorAppClient\\Pages\\Profile.razor",
               "RelativeDocumentMoniker": "BlazorAppClient\\Pages\\Profile.razor",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorAppClient\\Pages\\Profile.razor",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorAppClient\\Pages\\Profile.razor",
               "RelativeToolTip": "BlazorAppClient\\Pages\\Profile.razor",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -129,20 +178,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "ImageController.cs",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\Controllers\\ImageController.cs",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Controllers\\ImageController.cs",
               "RelativeDocumentMoniker": "BlazorTemplate\\Controllers\\ImageController.cs",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\Controllers\\ImageController.cs",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Controllers\\ImageController.cs",
               "RelativeToolTip": "BlazorTemplate\\Controllers\\ImageController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwEQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-21T19:52:28.794Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
@@ -154,36 +203,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MyDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\MyDbContext.cs",
-              "RelativeDocumentMoniker": "BlazorTemplate\\MyDbContext.cs",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\MyDbContext.cs",
-              "RelativeToolTip": "BlazorTemplate\\MyDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T21:53:45.674Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\Program.cs",
-              "RelativeDocumentMoniker": "BlazorTemplate\\Program.cs",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\Program.cs",
-              "RelativeToolTip": "BlazorTemplate\\Program.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADEAAAAEAAAAAAAAAA==",
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "BlazorTemplate\\MyDbContext.cs",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\MyDbContext.cs",
+              "RelativeToolTip": "BlazorTemplate\\MyDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T19:50:59.153Z",
+              "WhenOpened": "2024-12-21T21:53:45.674Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Program.cs",
+              "RelativeDocumentMoniker": "BlazorTemplate\\Program.cs",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Program.cs",
+              "RelativeToolTip": "BlazorTemplate\\Program.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T19:50:59.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\Controllers\\AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "BlazorTemplate\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\junya\\source\\repos\\Blazzzor12\\BlazorTemplate\\Controllers\\AuthController.cs",
               "RelativeToolTip": "BlazorTemplate\\Controllers\\AuthController.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAQwEsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "h3PNLLeNATT2kNZDTZlkKOdmBh1x490f7ffWXk1qFew=",
+  "Hash": "pwFbWcgnH2H4iyMemxNmlb2Vm8GDs1Z6TQ1hCWgwzM0=",
   "Source": "BlazorTemplateAPI",
   "BasePath": "_content/BlazorTemplateAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
       "Version": 2,
       "Source": "LibaryModalDialogPages",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -22,14 +22,14 @@
     {
       "Name": "BlazorTemplateAPI\\wwwroot",
       "Source": "BlazorTemplateAPI",
-      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\BlazorTemplate\\wwwroot\\",
       "BasePath": "_content/BlazorTemplateAPI",
       "Pattern": "**"
     },
     {
       "Name": "LibaryModalDialogPages\\wwwroot",
       "Source": "LibaryModalDialogPages",
-      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "Pattern": "**"
     }
@@ -78,10 +78,10 @@
       "OriginalItemSpec": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js"
     },
     {
-      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\wwwroot\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\BlazorTemplate\\wwwroot\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg",
       "SourceId": "BlazorTemplateAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\BlazorTemplate\\wwwroot\\",
       "BasePath": "_content/BlazorTemplateAPI",
       "RelativePath": "uploads/profile-images/b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -99,10 +99,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg"
     },
     {
-      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\background.png",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "RelativePath": "background#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -117,13 +117,13 @@
       "Integrity": "WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png"
+      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\background.png"
     },
     {
-      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "RelativePath": "exampleJsInterop#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -138,13 +138,13 @@
       "Integrity": "FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js"
+      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js"
     },
     {
-      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\index.html",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "RelativePath": "index#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -159,13 +159,13 @@
       "Integrity": "BcIGxNq6WsyO3doH/hpwE1YnUOpwUOpa0OBuZr9WnaQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html"
+      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\index.html"
     }
   ],
   "Endpoints": [
     {
       "Route": "_content/LibaryModalDialogPages/background.png",
-      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\background.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -190,7 +190,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Dec 2024 17:16:50 GMT"
+          "Value": "Thu, 26 Dec 2024 20:49:08 GMT"
         }
       ],
       "EndpointProperties": [
@@ -202,7 +202,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/background.x2rx4ajns0.png",
-      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\background.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -227,7 +227,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Dec 2024 17:16:50 GMT"
+          "Value": "Thu, 26 Dec 2024 20:49:08 GMT"
         }
       ],
       "EndpointProperties": [
@@ -247,7 +247,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/exampleJsInterop.6pqz8bsss0.js",
-      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -272,7 +272,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Dec 2024 17:16:50 GMT"
+          "Value": "Thu, 26 Dec 2024 20:49:08 GMT"
         }
       ],
       "EndpointProperties": [
@@ -292,7 +292,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/exampleJsInterop.js",
-      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -317,7 +317,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Dec 2024 17:16:50 GMT"
+          "Value": "Thu, 26 Dec 2024 20:49:08 GMT"
         }
       ],
       "EndpointProperties": [
@@ -329,7 +329,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/index.bc408okm6w.html",
-      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -354,7 +354,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Dec 2024 17:16:50 GMT"
+          "Value": "Thu, 26 Dec 2024 20:49:08 GMT"
         }
       ],
       "EndpointProperties": [
@@ -374,7 +374,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/index.html",
-      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\LibaryModalDialogPages\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -399,7 +399,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Dec 2024 17:16:50 GMT"
+          "Value": "Thu, 26 Dec 2024 20:49:08 GMT"
         }
       ],
       "EndpointProperties": [
@@ -485,7 +485,7 @@
     },
     {
       "Route": "uploads/profile-images/b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.bgvm7dnji3.jpg",
-      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\wwwroot\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\BlazorTemplate\\wwwroot\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -506,7 +506,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Dec 2024 22:00:41 GMT"
+          "Value": "Thu, 26 Dec 2024 20:49:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -530,7 +530,7 @@
     },
     {
       "Route": "uploads/profile-images/b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg",
-      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\wwwroot\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor12\\BlazorTemplate\\wwwroot\\uploads\\profile-images\\b1d709de-22ad-4df3-e845-08dd21f76aa2_477c19fb-d706-4827-8677-23e9813b28fe.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -551,7 +551,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Dec 2024 22:00:41 GMT"
+          "Value": "Thu, 26 Dec 2024 20:49:08 GMT"
         },
         {
           "Name": "Cache-Control",

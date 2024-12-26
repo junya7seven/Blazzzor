@@ -13,8 +13,6 @@
 
 
 
-<AuthorizeView Roles="admin">
-    <Authorized>
 @if(isError)
 {
     <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">Произошла ошибка: @ErrorMessage</MudAlert>
@@ -34,7 +32,6 @@
         <MudTh>Конец блокировки</MudTh>
         <MudTh>Роли</MudTh>
         <MudTh>Редактировать</MudTh>
-        <MudTh>Заблокировать</MudTh>
     </HeaderContent>
             <RowTemplate Context="rowContext">
                 <MudTd DataLabel="Имя пользователя">@rowContext.UserName</MudTd>
@@ -55,11 +52,6 @@
                     <MudIcon Icon="@Icons.Material.Filled.Edit" Title="Favorite" />
                 </div>
             </MudTd>
-            <MudTd DataLabel="Заблокировать">
-                    <div style="cursor: pointer;" @onclick="@(() => BlockUserAsync(rowContext))">
-                    <MudIcon Icon="@Icons.Material.Filled.Block" Title="Favorite" />
-                </div>
-            </MudTd>
 
     </RowTemplate>
     <PagerContent>
@@ -67,11 +59,6 @@
     </PagerContent>
 </MudTable>
 
-    </Authorized>
-    <NotAuthorized>
-        <h3>У вас нет прав для доступа к этой странице.</h3>
-    </NotAuthorized>
-</AuthorizeView>
 
 @code {
     private List<UserDTO> users = new List<UserDTO>();

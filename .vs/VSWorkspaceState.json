@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Entities",
-    "\\Infrasrtucture",
-    "\\Infrasrtucture\\Helpers"
+    ""
   ],
-  "SelectedNode": "\\Infrasrtucture\\Helpers\\PasswordHasher.cs",
+  "SelectedNode": "\\BlazorTemplate.sln",
   "PreviewInSolutionExplorer": false
 }

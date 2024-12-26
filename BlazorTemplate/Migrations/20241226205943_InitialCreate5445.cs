@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace BlazorTemplate.Migrations
+namespace BlazorTemplateAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Changedbdependencies : Migration
+    public partial class InitialCreate5445 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

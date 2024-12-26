@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BlazorTemplate.Migrations
+namespace BlazorTemplateAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20241221193654_Init")]
-    partial class Init
+    [Migration("20241226205943_InitialCreate5445")]
+    partial class InitialCreate5445
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,6 +133,26 @@ namespace BlazorTemplate.Migrations
                     b.UseTphMappingStrategy();
                 });
 
+            modelBuilder.Entity("Entities.Models.UserProfileImage", b =>
+                {
+                    b.Property<Guid>("UserProfileImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ProfileImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserProfileImageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProfileImages");
+                });
+
             modelBuilder.Entity("Entities.Models.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -167,6 +187,17 @@ namespace BlazorTemplate.Migrations
                 {
                     b.HasOne("Entities.Models.User", "User")
                         .WithMany("RefreshTokens")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Entities.Models.UserProfileImage", b =>
+                {
+                    b.HasOne("Entities.Models.User", "User")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
