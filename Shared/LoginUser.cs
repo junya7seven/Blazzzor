@@ -10,6 +10,7 @@ namespace Shared
     public class LoginUser
     {
         [Required]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Неверный формат почты")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required]

@@ -125,9 +125,11 @@ namespace Infrasrtucture.Managers
 
             existUser.IsLocked = true;
             existUser.BlockedUntil = DateTime.Now.Add(duration);
-            var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(x => existUser.UserId == x.UserId);
-            refreshToken.IsRevoked = true;
-            return await _context.SaveChangesAsync();
+            if (await CheckUserSessions(existUser.UserId))
+            {
+                return await _context.SaveChangesAsync();
+            }
+            return 0;
         }
         public async Task<int> BlockUserByIdAsync(Guid userId, TimeSpan duration = default)
         {
@@ -143,22 +145,54 @@ namespace Infrasrtucture.Managers
 
             existUser.IsLocked = true;
             existUser.BlockedUntil = DateTime.Now.Add(duration);
-            var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(x => existUser.UserId == x.UserId);
-            refreshToken.IsRevoked = true;
-            return await _context.SaveChangesAsync();
+            if(await BlockAllTokens(existUser.UserId))
+            {
+                return await _context.SaveChangesAsync();
+            }
+            return 0;
+        }
+        private async Task<bool> BlockAllTokens(Guid userId)
+        {
+            var refreshTokens = await _context.RefreshTokens.Where(x => x.UserId == userId && !x.IsRevoked && x.ExpiryDate > DateTime.UtcNow).ToListAsync();
+            foreach(var item in refreshTokens)
+            {
+                item.IsRevoked = true;
+            }
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<int> UnblockUserByIdAsync(Guid userId)
         {
             var existUser = await GetUserByIdAsync(userId);
-            if (existUser == null)
+            if (existUser == null )
             {
-                throw new KeyNotFoundException($"Такой пользователь не найден");
+                throw new KeyNotFoundException($"Такой пользователь не найден ");
+            }
+            if(existUser.IsLocked == false)
+            {
+                throw new ArgumentException("Пользователь не заблокирован");
             }
             existUser.IsLocked = false;
             existUser.BlockedUntil = DateTime.MinValue;
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<bool> CheckUserSessions(Guid userId)
+        {
+            var refreshTokens = await _context.RefreshTokens.Where(x => x.UserId == userId && !x.IsRevoked && x.ExpiryDate > DateTime.UtcNow).ToListAsync();
+            if(refreshTokens.Count > 3)
+            {
+                foreach (var item in refreshTokens)
+                {
+                    item.IsRevoked = true;
+                }
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
 
     }
 }

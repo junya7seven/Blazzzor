@@ -3,6 +3,7 @@
 @inject HttpClient httpClient
 @inject NavigationManager NavigationManager
 @inject AuthService AuthService
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 
 <PageTitle>Вход</PageTitle>
@@ -45,8 +46,8 @@
     {
         try
         {
-            var resultReg = await AuthService.LoginAsync(User);
-            if (resultReg)
+            var resultLog = await AuthService.LoginAsync(User);
+            if (resultLog)
             {
                 StateHasChanged();
                 Snackbar.Add("Вы успешно вошли!", Severity.Success);

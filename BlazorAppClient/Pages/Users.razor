@@ -5,16 +5,11 @@
 @inject IDialogService DialogService
 @inject ISnackbar Snackbar
 @inject IMapper Mapper
-
+@attribute [Authorize(Policy = "RequireAdminRole")]
 <PageTitle>Пользователи</PageTitle>
 
+
 <h1>Пользователи</h1>
-
-
-
-
-<AuthorizeView Roles="admin">
-    <Authorized>
 @if(isError)
 {
     <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">Произошла ошибка: @ErrorMessage</MudAlert>
@@ -24,165 +19,33 @@
 
 <MudTable Items="@users">
     <HeaderContent>
-        <MudTh>Имя пользователя</MudTh>
-        <MudTh>Имя</MudTh>
-        <MudTh>Фамилия</MudTh>
-        <MudTh>Почта</MudTh>
-        <MudTh>Дата регистрации</MudTh>
-        <MudTh>Последнее обновление</MudTh>
-        <MudTh>Статус блокировки</MudTh>
-        <MudTh>Конец блокировки</MudTh>
-        <MudTh>Роли</MudTh>
-        <MudTh>Редактировать</MudTh>
-        <MudTh>Заблокировать</MudTh>
+                @foreach (var item in userProp)
+                {
+                    <MudTh @onclick="() => SortTableByColumn(item)" Style="cursor:pointer">@item</MudTh>
+                }
+                <MudTh>Роли</MudTh>
+                <MudTh>Редактировать</MudTh>
+                <MudTh>Заблокировать</MudTh>
     </HeaderContent>
             <RowTemplate Context="rowContext">
-                <MudTd DataLabel="Имя пользователя">@rowContext.UserName</MudTd>
-                <MudTd DataLabel="Имя">@rowContext.FirstName</MudTd>
-                <MudTd DataLabel="Фамилия">@rowContext.LastName</MudTd>
-                <MudTd DataLabel="Почта">@rowContext.Email</MudTd>
-                <MudTd DataLabel="Дата регистрации">@rowContext.CreatedAt</MudTd>
-                <MudTd DataLabel="Последнее обновление">@rowContext.LastUpdateAt</MudTd>
-                <MudTd DataLabel="Статус блокировки">@rowContext.isLocked</MudTd>
-                <MudTd DataLabel="Конец блокировки">@rowContext.BlockedUntil</MudTd>
+                @foreach (var prop in userProp)
+                {
+                    <MudTd DataLabel="@prop">@rowContext.GetType().GetProperty(prop)?.GetValue(rowContext)?.ToString()</MudTd>
+                }
             <MudTd DataLabel="Роли">
-                    <div style="cursor: pointer;" @onclick="@(() => ViewUserRolesAsync(rowContext))">
-                    <MudIcon Icon="@Icons.Material.Outlined.PeopleAlt" Title="View Roles" />
-                </div>
+                    <MudIcon Style="cursor:pointer" @onclick="@(() => ViewUserRolesAsync(rowContext))" Icon="@Icons.Material.Outlined.PeopleAlt" Title="Просмотр ролей" />
             </MudTd>
             <MudTd DataLabel="Редактировать">
-                    <div style="cursor: pointer;" @onclick="@(() => UpdateUserAsync(rowContext))">
-                    <MudIcon Icon="@Icons.Material.Filled.Edit" Title="Favorite" />
-                </div>
+                        <MudIcon Style="cursor:pointer" @onclick="@(() => UpdateUserAsync(rowContext))" Icon="@Icons.Material.Filled.Edit" Title="Редактирование" />
             </MudTd>
             <MudTd DataLabel="Заблокировать">
-                    <div style="cursor: pointer;" @onclick="@(() => BlockUserAsync(rowContext))">
-                    <MudIcon Icon="@Icons.Material.Filled.Block" Title="Favorite" />
-                </div>
+                        <MudIcon Style="cursor:pointer" @onclick="@(() => BlockUserAsync(rowContext))" Icon="@Icons.Material.Filled.Block" Title="Блокировка" />
             </MudTd>
-
     </RowTemplate>
     <PagerContent>
         <MudTablePager />
     </PagerContent>
 </MudTable>
 
-    </Authorized>
-    <NotAuthorized>
-        <h3>У вас нет прав для доступа к этой странице.</h3>
-    </NotAuthorized>
-</AuthorizeView>
 
-@code {
-    private List<UserDTO> users = new List<UserDTO>();
-    private bool isError { get; set; } = false;
-    public string ErrorMessage { get; set; } 
 
-    protected override async Task OnInitializedAsync()
-    {
-        StateHasChanged();
-        await GetUserData();
-    }
-
-    private async Task ReloadPage()
-    {
-        await OnInitializedAsync();
-    }
-
-    private async Task GetUserData()
-    {
-        try
-        {
-            var response = await httpClient.GetAsync("user");
-            if (!response.IsSuccessStatusCode)
-            {
-                isError = true;
-                ErrorMessage = response.StatusCode.ToString();
-            }
-            users = await response.Content.ReadFromJsonAsync<List<UserDTO>>();
-        }
-        catch (Exception ex)
-        {
-            isError = true;
-            ErrorMessage = ex.Message;
-        }
-    }
-
-    private async Task ViewUserRolesAsync(UserDTO user)
-    {
-        var parameters = new DialogParameters<ViewRolesDialog> { { x => x.User, user } };
-
-        var dialog = await DialogService.ShowAsync<ViewRolesDialog>("Роли", parameters);
-        var result = await dialog.Result;
-
-        if (!result.Canceled)
-        {
-            Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
-        }
-        await ReloadPage();
-    }
-
-    private async Task BlockUserAsync(UserDTO user)
-    {
-        var parameters = new DialogParameters<BlockUserDialog> { { x => x.User, user } };
-
-        var dialog = await DialogService.ShowAsync<BlockUserDialog>("Блокировка", parameters);
-        var result = await dialog.Result;
-
-        if (!result.Canceled)
-        {
-            Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
-        }
-        await ReloadPage();
-    }
-
-    private async Task AddNewRoleAsync()
-    {
-
-        var dialog = await DialogService.ShowAsync<AddNewRoleDialog>("Добавить роль");
-        var result = await dialog.Result;
-
-        if (!result.Canceled)
-        {
-            Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
-        }
-    }
-
-    private async Task AddNewUserAsync()
-    {
-        try
-        {
-            var dialog = await DialogService.ShowAsync<AddNewUserDialog>("Добавить пользователя");
-            var result = await dialog.Result;
-
-            if (!result.Canceled)
-            {
-                Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
-            }
-            await ReloadPage();
-        }
-        catch (Exception ex)
-        {
-            isError = true;
-            ErrorMessage = ex.Message;
-            Snackbar.Add($"Ошибка: {ErrorMessage}", Severity.Error);
-        }
-    }
-
-    private async Task UpdateUserAsync(UserDTO user)
-    {
-        var updateUser = Mapper.Map<UpdateUser>(user);
-        var parameters = new DialogParameters();
-        parameters.Add(nameof(UpdateUser), updateUser);
-        parameters.Add("UserId",user.UserId);
-
-        var dialog = await DialogService.ShowAsync<UpdateUserDialog>("Пользователь", parameters);
-        var result = await dialog.Result;
-
-        if (!result.Canceled)
-        {
-            Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
-        }
-        await ReloadPage();
-    }
-}

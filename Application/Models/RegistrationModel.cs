@@ -26,6 +26,7 @@ namespace Application.Models
         [DefaultValue("Паровозов")]
         public string LastName { get; set; }
         [Required]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Неверный формат почты")]
         [DataType(DataType.EmailAddress)]
         [DefaultValue("Arkady2007@gmail.com")]
         public string Email { get; set; }

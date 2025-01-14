@@ -47,7 +47,7 @@ namespace BlazorTemplateAPI
             var response = new
             {
                 StatusCode = (int)statusCode,
-                ex.Message
+                ErrorMessage = ex.Message
             };
             return context.Response.WriteAsJsonAsync(response);
         }

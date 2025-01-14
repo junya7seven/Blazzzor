@@ -10,7 +10,7 @@
         </MudText>
     </TitleContent>
     <DialogContent>
-        <MudTextField @bind-Value="RoleName" Label="Имя роли" ReadOnly="false" />
+            <MudTextField @bind-Value="RoleName" Label="Имя роли" Required="true" />
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Отменить</MudButton>
@@ -24,29 +24,29 @@
 
     public string RoleName { get; set; }
 
-
     private void Cancel() => MudDialog.Cancel();
 
-    public async Task AddRole()
+    private async Task AddRole()
     {
-        if(string.IsNullOrEmpty(RoleName))
+        if (!string.IsNullOrEmpty(RoleName) && !new RegularExpressionAttribute(@"^[a-zA-Zа-яА-Я0-9]+$").IsValid(RoleName))
         {
-            Snackbar.Add("Произошла ошибка!", Severity.Error);
-            MudDialog.Close();
+            Snackbar.Add($"Роль должна содержать только a-zA-Zа-яА-Я0-9 ", Severity.Error);
+            MudDialog.Close(DialogResult.Ok(RoleName));
             return;
+        }
+        var response = await httpClient.PostAsync($"UserRole/{RoleName}", null);
+
+        if (response.IsSuccessStatusCode)
+        {
+            Snackbar.Add("Роль успешно добавлена!", Severity.Success);
+            MudDialog.Close(DialogResult.Ok(RoleName));
         }
         else
         {
-            var response = await httpClient.PostAsync($"UserRole/{RoleName}",null);
-            if (response.IsSuccessStatusCode)
-            {
-                Snackbar.Add("Роль успешно добавлена!", Severity.Success);
-                MudDialog.Close(DialogResult.Ok(RoleName));
-                return;
-            }
             var error = await response.Content.ReadAsStringAsync();
             Snackbar.Add(error, Severity.Error);
             MudDialog.Close();
         }
     }
 }
+

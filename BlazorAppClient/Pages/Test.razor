@@ -1,0 +1,124 @@
+﻿@page "/test"
+@inject HttpClient httpClient
+
+<h3>Test</h3>
+<MudTable Items="@User">
+    <HeaderContent>
+        @foreach(var item in userProp)
+        {
+            <MudTh @onclick="() => SomeMethod(item)" Style="cursor:pointer" >@item</MudTh>
+        }
+        <MudTh>Роли</MudTh>
+        <MudTh>Редактировать</MudTh>
+        <MudTh>Заблокировать</MudTh>
+    </HeaderContent>
+    <RowTemplate Context="rowContext">
+        @foreach (var prop in userProp)
+        {
+            <MudTd DataLabel="@prop">@rowContext.GetType().GetProperty(prop)?.GetValue(rowContext)?.ToString()</MudTd>
+        }
+        <MudTd DataLabel="Роли">
+                <MudIcon Icon="@Icons.Material.Outlined.PeopleAlt" Title="View Roles" />
+        </MudTd>
+        <MudTd DataLabel="Редактировать">
+                <MudIcon Icon="@Icons.Material.Filled.Edit" Title="Favorite" />
+        </MudTd>
+        <MudTd DataLabel="Заблокировать">
+                <MudIcon Icon="@Icons.Material.Filled.Block" Title="Favorite" />
+        </MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager />
+    </PagerContent>
+</MudTable>
+@code {
+    private IEnumerable<string> userProp { get; set; }
+    private List<UserDTO> User = new List<UserDTO>();
+
+    Dictionary<string, string> propertyValues { get; set; } = new Dictionary<string, string>();
+
+    bool success;
+    private bool isError { get; set; } = false;
+    public string ErrorMessage { get; set; }
+
+    private bool isDesc = false;
+
+    private async Task SomeMethod(string some)
+    {
+        Console.WriteLine($"asdasdajsdjasjajsdoajsd {some}");
+    }
+
+
+    private async Task GetUserData()
+    {
+        try
+        {
+            var response = await httpClient.GetAsync("user");
+            if (!response.IsSuccessStatusCode)
+            {
+                isError = true;
+                ErrorMessage = response.StatusCode.ToString();
+            }
+            User = await response.Content.ReadFromJsonAsync<List<UserDTO>>();
+        }
+        catch (Exception ex)
+        {
+            isError = true;
+            ErrorMessage = ex.Message;
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetUserProp();
+
+        foreach (var prop in userProp)
+        {
+            var value = User.GetType().GetProperty(prop)?.GetValue(User)?.ToString();
+            propertyValues[prop] = value;
+        }
+        await GetUserData();
+    }
+
+    private void GetUserProp()
+    {
+        var properties = typeof(UserDTO).GetProperties();
+
+        userProp = properties.Where(p => p.Name != "Roles").Select(p => p.Name);
+
+        foreach (var prop in properties)
+        {
+            if (!propertyValues.ContainsKey(prop.Name))
+                propertyValues[prop.Name] = null;
+        }
+    }
+
+
+
+    private async Task Save()
+    {
+        foreach (var key in propertyValues.Keys)
+        {
+            SetPropertyValue(key);
+        }
+    }
+
+    private void SetPropertyValue(string key)
+    {
+        if (key == null)
+            return;
+        var propertyInfo = User.GetType().GetProperty(key);
+        if (propertyInfo != null && propertyInfo.CanWrite)
+        {
+
+            if (propertyInfo.PropertyType == typeof(string))
+            {
+                propertyInfo.SetValue(User, propertyValues[key]);
+            }
+            else if (propertyInfo.PropertyType == typeof(int) && int.TryParse(propertyValues[key], out int intVal))
+            {
+                propertyInfo.SetValue(User, intVal);
+            }
+        }
+    }
+}

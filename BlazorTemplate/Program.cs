@@ -55,7 +55,7 @@ builder.Services.AddJwtAuthentication<ApplicationUser>(options =>
     options.Issuer = "https://localhost:7234";
     options.Audience = "https://localhost:7234";
     options.SecretKey = "MySecretKey123456789asdasdasdas0";
-    options.TokenValidityMinutes = 1;
+    options.TokenValidityMinutes = 90;
     options.RefreshTokenValidityDays = 7;
 });
 

@@ -60,7 +60,7 @@ namespace BlazorTemplateAPI.Controllers
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                Secure = false,
+                Secure = true,
                 SameSite = SameSiteMode.Strict,
                 Expires = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenValidityDays)
             };

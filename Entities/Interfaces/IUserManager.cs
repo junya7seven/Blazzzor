@@ -17,5 +17,6 @@ namespace Entities.Interfaces
         Task<int> UpdateUserAsync(Guid userId, TUser user);
         Task<int> BlockUserByEmailAsync(string email, TimeSpan duration);
         Task<int> BlockUserByIdAsync(Guid id, TimeSpan duration);
+        Task<bool> CheckUserSessions(Guid userId);
     }
 }

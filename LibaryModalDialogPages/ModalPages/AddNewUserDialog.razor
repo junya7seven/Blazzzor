@@ -5,20 +5,21 @@
 <MudDialog>
     <DialogContent>
         <MudText>Введите данные для нового пользователя:</MudText>
-        <EditForm Model="@userProp" OnValidSubmit="OnValidSubmit">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-            @foreach (var propertyName in userProp)
+        <EditForm Model="@User">
+            @foreach (var property in userProps)
             {
-                <MudTextField Label="@propertyName"
-                              @bind-Value="propertyValues[propertyName]" For="@(() => propertyValues[propertyName])"
+                var displayAttribute = property.GetCustomAttribute<DisplayAttribute>();
+                var displayName = displayAttribute?.Name ?? property.Name;
+                var propertyName = property.Name;
+                <MudTextField Label="@displayName"
+                              @bind-Value="propertyValues[propertyName]"
                               Required="true" />
             }
         </EditForm>
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="@Close">Отмена</MudButton>
-        <MudButton OnClick="@Save">Сохранить</MudButton>
+        <MudButton OnClick="@Save">Сохранить</MudButton> 
     </DialogActions>
 </MudDialog>
 
@@ -28,35 +29,33 @@
 
     public RegistrationUser User { get; set; } = new RegistrationUser();
 
-    private IEnumerable<string> userProp { get; set; }
-
     Dictionary<string, string> propertyValues { get; set; } = new Dictionary<string, string>();
 
-    bool success;
+    public PropertyInfo[] userProps { get; set; }
+
 
     protected override async Task OnInitializedAsync()
     {
-        GetUserProp();
 
-        foreach (var prop in userProp)
+        var type = typeof(RegistrationUser);
+        userProps = GetProp(type);
+        foreach (var property in userProps)
         {
-            var value = User.GetType().GetProperty(prop)?.GetValue(User)?.ToString();
-            propertyValues[prop] = value;
+            var value = property.GetValue(User)?.ToString();
+            propertyValues[property.Name] = value;
         }
+
     }
 
-    private void GetUserProp()
+    private PropertyInfo[] GetProp(Type type)
     {
-        var properties = typeof(RegistrationUser).GetProperties();
-
-        userProp = properties.Select(p => p.Name);
-
-        foreach (var prop in properties)
-        {
-            if (!propertyValues.ContainsKey(prop.Name))
-                propertyValues[prop.Name] = null;
-        }
+        var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        var displayProperties = properties
+            .Where(property => property.GetCustomAttribute<DisplayAttribute>() != null)
+            .ToArray();
+        return displayProperties;
     }
+
 
     private void Close() => MudDialog.Cancel();
 
@@ -67,6 +66,7 @@
         {
             SetPropertyValue(key);
         }
+
         await AddUser();
     }
 
@@ -102,11 +102,5 @@
         var error = await response.Content.ReadAsStringAsync();
         Snackbar.Add(error, Severity.Error);
         MudDialog.Close();
-    }
-
-    private void OnValidSubmit(EditContext context)
-    {
-        success = true;
-        StateHasChanged();
     }
 }

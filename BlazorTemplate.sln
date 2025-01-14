@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppClient", "BlazorAppClient\BlazorAppClient.csproj", "{7E5E8C6F-09BD-4743-A83F-C0FCDC69240F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibaryModalDialogPages", "LibaryModalDialogPages\LibaryModalDialogPages.csproj", "{73C8A319-43B5-4D17-8794-4A02C3702131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibaryModalDialogPages", "LibaryModalDialogPages\LibaryModalDialogPages.csproj", "{73C8A319-43B5-4D17-8794-4A02C3702131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

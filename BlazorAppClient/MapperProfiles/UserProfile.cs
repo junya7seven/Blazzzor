@@ -8,7 +8,7 @@ namespace BlazorAppClient.MapperProfiles
         public UserProfile()
         {
             CreateMap<UserDTO,UpdateUser>().ReverseMap();
-
+            CreateMap<UserDTO,UserTable>().ReverseMap();
         }
     }
 }

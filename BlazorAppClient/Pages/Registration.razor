@@ -7,7 +7,7 @@
 
 <h1>Registration</h1>
 
-<EditForm Model="@User" OnValidSubmit="OnValidSubmit">
+<EditForm Model="@User">
     <DataAnnotationsValidator />
     <MudGrid>
         <MudItem xs="12" sm="7">
@@ -16,7 +16,7 @@
                     @foreach (var propertyName in userProp)
                     {
                         <MudTextField Label="@propertyName"
-                                      @bind-Value="propertyValues[propertyName]" For="@(() => propertyName)"
+                                      @bind-Value="propertyValues[propertyName]"
                                       Required="true" />
                     }
                 </MudCardContent>
@@ -29,10 +29,7 @@
 </EditForm>
 
 @code {
-
-
-
-
+    string creditCardNr { get; set; }
     public RegistrationUser User { get; set; } = new RegistrationUser();
 
     private IEnumerable<string> userProp { get; set; }
@@ -98,6 +95,11 @@
     {
         try
         {
+            if(!await ValidationModel())
+            {
+                Snackbar.Add("Неверно заполнены данные", Severity.Error);
+                return;
+            }
             var resultReg = await AuthService.RegistrationAsync(User);
             if (resultReg)
             {
@@ -108,14 +110,24 @@
         }
         catch (Exception ex)
         {
-            Snackbar.Add(ex.Message, Severity.Error);
+            Snackbar.Add("Неверно заполнены данные", Severity.Error);
         }
     }
 
-    private void OnValidSubmit(EditContext context)
+    private async Task<bool> ValidationModel()
     {
-        success = true;
-        StateHasChanged();
+        var context = new ValidationContext(User);
+        var results = new List<ValidationResult>();
+        if (!Validator.TryValidateObject(User, context, results, true))
+        {
+
+            foreach (var error in results)
+            {
+                Snackbar.Add($"{error.ErrorMessage}", Severity.Error);
+            }
+            return false;
+        }
+        return true;
     }
 
 

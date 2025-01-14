@@ -50,7 +50,7 @@ namespace Application.Service
 
             if (existsUser.IsLocked == true)
             {
-                bool isBlockNow = existsUser.BlockedUntil > DateTime.Now;
+                bool isBlockNow = existsUser.BlockedUntil > DateTime.UtcNow;
                 if (isBlockNow)
                 {
                     throw new ArgumentException($"Пользователь заблокирован {existsUser.BlockedUntil}");
@@ -58,13 +58,18 @@ namespace Application.Service
                 existsUser.IsLocked = false;
 
             }
+            var existSessions = await _userManager.CheckUserSessions(existsUser.UserId);
+            if(existSessions)
+            {
+                throw new Exception($"Слишком много открытых сессий. Попробуйте войти еще раз");
+            }
             var requestTokens = await GenerateTokens(existsUser);
             var tokenEntry = new RefreshToken
             {
                 Token = requestTokens.RefreshToken,
                 UserId = existsUser.UserId,
                 ExpiryDate = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenValidityDays),
-                CreatedDate = DateTime.Now,
+                CreatedDate = DateTime.UtcNow,
                 IsRevoked = false,
             };
             if (!await _tokenManager.AddRefreshTokenAsync(tokenEntry))

@@ -10,11 +10,14 @@ namespace BlazorAppClient.Service
     {
         private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;
+        private readonly CustomAuthenticationStateProvider _customAuthenticationStateProvider;
 
-        public AuthService(HttpClient httpClient, ILocalStorageService localStorage)
+        public AuthService(HttpClient httpClient, ILocalStorageService localStorage, 
+            CustomAuthenticationStateProvider customAuthenticationStateProvider)
         {
             _httpClient = httpClient;
             _localStorage = localStorage;
+            _customAuthenticationStateProvider = customAuthenticationStateProvider;
         }
 
         public async Task<bool> RegistrationAsync(RegistrationUser user)
@@ -43,7 +46,7 @@ namespace BlazorAppClient.Service
             {
                 await SetTokenAsync(result);
                 var data = await _localStorage.GetItemAsStringAsync("AccessToken");
-
+                await _customAuthenticationStateProvider.GetAuthenticationStateAsync();
 
                 if(data == null)
                 {
@@ -68,20 +71,7 @@ namespace BlazorAppClient.Service
             }
         }
 
-        public async Task<string> RefreshToken(string token)
-        {
-            var response = await _httpClient.PostAsync($"Auth/RefreshToken/{token}", null);
-            if (response.IsSuccessStatusCode)
-            {
-                var tokens = await response.Content.ReadFromJsonAsync<TokenResponse>();
-                if (tokens != null)
-                {
-                    await SetTokenAsync(tokens);
-                    return tokens.AccessToken;
-                }
-            }
-            return null;
-        }
+        
 
 
     }

@@ -1,0 +1,31 @@
+﻿@page "/check"
+@using System.Text.RegularExpressions
+
+<h3>XSS Test</h3>
+
+<EditForm Model="inputModel">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudTextField @bind-Value="inputModel.UserInput" Label="Введите текст" Required="true" />
+    <MudButton Color="Color.Success" OnClick="HandleValidSubmit">Отправить</MudButton>
+</EditForm>
+
+<h4>Результат:</h4>
+<div>@((MarkupString)output)</div>
+
+@code {
+    private InputModel inputModel = new InputModel();
+    private string output;
+
+    private void HandleValidSubmit()
+    {
+        output = inputModel.UserInput;
+
+    }
+
+    public class InputModel
+    {
+        public string UserInput { get; set; } = string.Empty;
+    }
+}

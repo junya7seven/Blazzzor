@@ -2,6 +2,7 @@
 using Entities.Interfaces;
 using Entities.Models;
 using Infrasrtucture.Managers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorTemplate.Controllers
@@ -9,6 +10,7 @@ namespace BlazorTemplate.Controllers
 
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Roles = "admin")]
     public class UserRoleController : ControllerBase
     {
         private readonly RoleManager<ApplicationUser> _roleManager;
