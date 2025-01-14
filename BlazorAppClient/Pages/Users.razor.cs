@@ -4,23 +4,54 @@ using System.Net.Http.Json;
 using Shared;
 using System.Linq.Expressions;
 using static MudBlazor.CategoryTypes;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 
 namespace BlazorAppClient.Pages
 {
     public partial class Users
     {
-        private IEnumerable<string> userProp { get; set; }
-        private List<UserDTO> users = new List<UserDTO>();
-
-        Dictionary<string, string> propertyValues { get; set; } = new Dictionary<string, string>();
         private bool isError { get; set; } = false;
         public string ErrorMessage { get; set; }
 
         private bool isDesc = false;
 
         private string searchString1 = "";
+        private IEnumerable<string> userProp { get; set; }
+        private List<UserDTO> users = new List<UserDTO>();
 
+        private Dictionary<string, string> columnHeaders = new();
+        private Dictionary<string, bool> sortDirections = new();
+
+        protected override async Task OnInitializedAsync()
+        {
+            GetUserProp();
+
+            // Отладка: выводим заголовки
+            foreach (var header in columnHeaders)
+            {
+                Console.WriteLine($"Property: {header.Key}, DisplayName: {header.Value}");
+            }
+
+            await GetUserData();
+        }
+
+        private void GetUserProp()
+        {
+            var properties = typeof(UserDTO).GetProperties();
+
+            userProp = properties
+                .Where(p => p.Name != nameof(UserDTO.Roles))
+                .Select(p => p.Name)
+                .ToList();
+
+            foreach (var prop in properties)
+            {
+                var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
+                columnHeaders[prop.Name] = displayAttr?.Name ?? prop.Name;
+            }
+        }
         private async Task ReloadPage()
         {
             await OnInitializedAsync();
@@ -129,7 +160,7 @@ namespace BlazorAppClient.Pages
             var propertyInfo = typeof(UserDTO).GetProperty(column);
 
             if (propertyInfo == null)
-                return; 
+                return;
 
             var parameter = Expression.Parameter(typeof(UserDTO), "x");
             var property = Expression.Property(parameter, propertyInfo);
@@ -143,30 +174,6 @@ namespace BlazorAppClient.Pages
 
         }
 
-        protected override async Task OnInitializedAsync()
-        {
-            GetUserProp();
-
-            foreach (var prop in userProp)
-            {
-                var value = users.GetType().GetProperty(prop)?.GetValue(users)?.ToString();
-                propertyValues[prop] = value;
-            }
-            await GetUserData();
-        }
-
-        private void GetUserProp()
-           {
-               var properties = typeof(UserDTO).GetProperties();
-       
-               userProp = properties.Where(p => p.Name != nameof(UserDTO.Roles)).Select(p => p.Name);
-
-               foreach (var prop in properties)
-               {
-                   if (!propertyValues.ContainsKey(prop.Name))
-                       propertyValues[prop.Name] = null;
-               }
-           }
 
 
     }

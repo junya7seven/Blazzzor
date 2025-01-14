@@ -1,0 +1,6 @@
+C:\Users\junya\Source\Repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\Source\Repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\Source\Repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\Source\Repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\Source\Repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\Source\Repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json

@@ -1,16 +1,20 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
       "PackagePath": "staticwebassets\\background.png"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "PackagePath": "staticwebassets\\exampleJsInterop.js"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LibaryModalDialogPages.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LibaryModalDialogPages.Microsoft.AspNetCore.StaticWebAssets.props",

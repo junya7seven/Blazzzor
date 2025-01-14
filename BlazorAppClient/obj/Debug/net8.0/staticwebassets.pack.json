@@ -1,44 +1,44 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\obj\\Debug\\net8.0\\compressed\\iyahrehnc2.gz",
-      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
-    },
-    {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorAppClient.styles.css",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorAppClient.styles.css",
       "PackagePath": "staticwebassets\\BlazorAppClient.styles.css"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\wwwroot\\icon-192.png",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\wwwroot\\index.html",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\BlazorAppClient\\wwwroot\\sample-data\\weather.json",
+      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorAppClient\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorAppClient.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorAppClient.Microsoft.AspNetCore.StaticWebAssets.props",

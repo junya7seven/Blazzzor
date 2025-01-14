@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "GGy0pSJf1JVI5Rd5PS+eXcHSvXjbPNWPvm6sZ4juPwY=",
+  "Hash": "ZdcGiXuZ5MQmtM6gsGU1DSTo7eRwSnQL7u4lCQrE74Q=",
   "Source": "BlazorTemplateAPI",
   "BasePath": "_content/BlazorTemplateAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
       "Version": 2,
       "Source": "LibaryModalDialogPages",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -22,17 +22,17 @@
     {
       "Name": "LibaryModalDialogPages\\wwwroot",
       "Source": "LibaryModalDialogPages",
-      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\BarushevAA\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.css",
+      "Identity": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.css",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\BarushevAA\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.css",
       "AssetKind": "All",
@@ -43,15 +43,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mhumzvqd1g",
+      "Integrity": "2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\BarushevAA\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.css"
+      "OriginalItemSpec": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.css"
     },
     {
-      "Identity": "C:\\Users\\BarushevAA\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js",
+      "Identity": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\BarushevAA\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.js",
       "AssetKind": "All",
@@ -62,66 +64,396 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "rnojub5shy",
+      "Integrity": "lz0Xidl9yw53lEeYs4XMU39zSRQzpCIyWOQSAG0/0GU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\BarushevAA\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js"
+      "OriginalItemSpec": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js"
     },
     {
-      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
-      "RelativePath": "background.png",
+      "RelativePath": "background#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "x2rx4ajns0",
+      "Integrity": "WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\background.png"
+      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png"
     },
     {
-      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
-      "RelativePath": "exampleJsInterop.js",
+      "RelativePath": "exampleJsInterop#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "6pqz8bsss0",
+      "Integrity": "FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
+      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js"
     },
     {
-      "Identity": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
-      "RelativePath": "index.html",
+      "RelativePath": "index#[.{fingerprint}]?.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "bc408okm6w",
+      "Integrity": "BcIGxNq6WsyO3doH/hpwE1YnUOpwUOpa0OBuZr9WnaQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\index.html"
+      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "_content/LibaryModalDialogPages/background.png",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 20:22:18 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY="
+        }
+      ]
+    },
+    {
+      "Route": "_content/LibaryModalDialogPages/background.x2rx4ajns0.png",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 20:22:18 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x2rx4ajns0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/LibaryModalDialogPages/background.png"
+        }
+      ]
+    },
+    {
+      "Route": "_content/LibaryModalDialogPages/exampleJsInterop.6pqz8bsss0.js",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 20:22:18 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6pqz8bsss0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/LibaryModalDialogPages/exampleJsInterop.js"
+        }
+      ]
+    },
+    {
+      "Route": "_content/LibaryModalDialogPages/exampleJsInterop.js",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 20:22:18 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4="
+        }
+      ]
+    },
+    {
+      "Route": "_content/LibaryModalDialogPages/index.bc408okm6w.html",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BcIGxNq6WsyO3doH/hpwE1YnUOpwUOpa0OBuZr9WnaQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 20:22:18 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bc408okm6w"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BcIGxNq6WsyO3doH/hpwE1YnUOpwUOpa0OBuZr9WnaQ="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/LibaryModalDialogPages/index.html"
+        }
+      ]
+    },
+    {
+      "Route": "_content/LibaryModalDialogPages/index.html",
+      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BcIGxNq6WsyO3doH/hpwE1YnUOpwUOpa0OBuZr9WnaQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 20:22:18 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BcIGxNq6WsyO3doH/hpwE1YnUOpwUOpa0OBuZr9WnaQ="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css",
+      "AssetFile": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "580975"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 29 Oct 2024 20:30:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js",
+      "AssetFile": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49823"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lz0Xidl9yw53lEeYs4XMU39zSRQzpCIyWOQSAG0/0GU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 29 Oct 2024 20:30:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lz0Xidl9yw53lEeYs4XMU39zSRQzpCIyWOQSAG0/0GU="
+        }
+      ]
     }
   ]
 }

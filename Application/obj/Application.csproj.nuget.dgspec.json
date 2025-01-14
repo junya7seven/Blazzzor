@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Application\\Application.csproj": {}
+    "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Application\\Application.csproj": {
+    "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\BarushevAA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Application\\obj\\",
+        "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\BarushevAA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\junya\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,18 +26,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Entities\\Entities.csproj"
+              "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj"
               },
-              "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Infrasrtucture\\Infrasrtucture.csproj": {
-                "projectPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Infrasrtucture\\Infrasrtucture.csproj"
+              "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj": {
+                "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj"
               }
             }
           }
@@ -50,8 +49,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -82,24 +82,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Entities\\Entities.csproj": {
+    "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\BarushevAA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\BarushevAA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\junya\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -108,7 +108,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -125,8 +124,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -147,24 +147,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Infrasrtucture\\Infrasrtucture.csproj": {
+    "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Infrasrtucture\\Infrasrtucture.csproj",
+        "projectUniqueName": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj",
         "projectName": "Infrasrtucture",
-        "projectPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Infrasrtucture\\Infrasrtucture.csproj",
-        "packagesPath": "C:\\Users\\BarushevAA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Infrasrtucture\\obj\\",
+        "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj",
+        "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\BarushevAA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\junya\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -173,15 +173,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\BarushevAA\\source\\repos\\BlazorTemplate\\Entities\\Entities.csproj"
+              "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj"
               }
             }
           }
@@ -194,8 +193,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -234,7 +234,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
