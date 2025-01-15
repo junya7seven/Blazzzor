@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G5Ciwlq3v74=",
+  "dgSpecHash": "2yq5Tm7iFq0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
+  "projectFilePath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\junya\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\junya\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.11\\microsoft.aspnetcore.authorization.8.0.11.nupkg.sha512",

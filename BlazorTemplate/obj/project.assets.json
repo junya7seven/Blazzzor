@@ -5422,9 +5422,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorTemplate\\BlazorTemplateAPI.csproj",
+      "projectUniqueName": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\BlazorTemplateAPI.csproj",
       "projectName": "BlazorTemplateAPI",
-      "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorTemplate\\BlazorTemplateAPI.csproj",
+      "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\BlazorTemplateAPI.csproj",
       "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorTemplate\\obj\\",
       "projectStyle": "PackageReference",
@@ -5447,17 +5447,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj"
+            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Application\\Application.csproj"
             },
-            "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj"
+            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Entities.csproj"
             },
-            "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj": {
-              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj"
+            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj": {
+              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj"
             },
-            "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj": {
-              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj"
+            "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj": {
+              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj"
             }
           }
         }

@@ -4,20 +4,19 @@
 <MudDialog>
     <DialogContent>
         <MudText>Обновите данные пользователя:</MudText>
-        <EditForm Model="updateUser" OnValidSubmit="OnValidSubmit">
+        <EditForm Model="updateUser" OnValidSubmit="Save">
             <DataAnnotationsValidator />
             <ValidationSummary />
-            @foreach (var propertyName in userProp)
+            @foreach (var field in userFields)
             {
-                <MudTextField Label="@propertyName"
-                              @bind-Value="propertyValues[propertyName]"
-                              Required="true" />
+                @RenderField(field.Label, field.PropertyInfo)
             }
         </EditForm>
+
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="@Close">Отмена</MudButton>
-        <MudButton OnClick="@Save">Сохранить</MudButton>
+        <MudButton OnClick="Save" Color="Color.Primary">Сохранить</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -27,89 +26,86 @@
 
     [Parameter]
     public UpdateUser updateUser { get; set; } = new UpdateUser();
+
     [Parameter]
     public Guid UserId { get; init; }
 
-    private IEnumerable<string> userProp { get; set; }
+    private List<(string PropertyName, string Label, PropertyInfo PropertyInfo)> userFields;
 
-    Dictionary<string, string> propertyValues { get; set; } = new Dictionary<string, string>();
-
-    bool success;
-
-    protected override async Task OnInitializedAsync()
-    {
-        GetUserProp();
-
-        foreach (var prop in userProp)
-        {
-            var value = updateUser.GetType().GetProperty(prop)?.GetValue(updateUser)?.ToString();
-            propertyValues[prop] = value;
-        }
-        string a = "asd";
-    }
-
-    private void GetUserProp()
-    {
-        var properties = typeof(UpdateUser).GetProperties();
-
-        userProp = properties.Select(p => p.Name);
-
-        foreach (var prop in properties)
-        {
-            if (!propertyValues.ContainsKey(prop.Name))
-                propertyValues[prop.Name] = null;
-        }
-    }
-
-    private void Close() => MudDialog.Cancel();
-
-
+    private bool IsValidForm => userFields.All(f => f.PropertyInfo.GetValue(updateUser) != null);
     private async Task Save()
     {
-        foreach (var key in propertyValues.Keys)
-        {
-            SetPropertyValue(key);
-        }
         await UpdateUser();
     }
-
-    private void SetPropertyValue(string key)
+    protected override Task OnInitializedAsync()
     {
-        if (key == null)
-            return;
-        var propertyInfo = updateUser.GetType().GetProperty(key);
-        if (propertyInfo != null && propertyInfo.CanWrite)
-        {
+        userFields = typeof(UpdateUser).GetProperties()
+            .Where(p => p.CanWrite)
+            .Select(p => (
+                PropertyName: p.Name,
+                Label: p.GetCustomAttribute<DisplayAttribute>()?.Name ?? p.Name,
+                PropertyInfo: p
+            ))
+            .ToList();
 
-            if (propertyInfo.PropertyType == typeof(string))
-            {
-                propertyInfo.SetValue(updateUser, propertyValues[key]);
-            }
-            else if (propertyInfo.PropertyType == typeof(int) && int.TryParse(propertyValues[key], out int intVal))
-            {
-                propertyInfo.SetValue(updateUser, intVal);
-            }
-        }
+        return Task.CompletedTask;
     }
+
+    private RenderFragment RenderField(string label, PropertyInfo propertyInfo) => builder =>
+    {
+    var value = propertyInfo.GetValue(updateUser);
+    var propertyType = propertyInfo.PropertyType;
+
+    if (propertyType == typeof(string))
+    {
+        builder.OpenComponent(0, typeof(MudTextField<string>));
+        builder.AddAttribute(1, "Label", label);
+        builder.AddAttribute(2, "Value", (string)value);
+        builder.AddAttribute(3, "ValueChanged", EventCallback.Factory.Create<string>(this, v => propertyInfo.SetValue(updateUser, v)));
+        builder.AddAttribute(4, "Required", true);
+        builder.CloseComponent();
+    }
+    else if (propertyType == typeof(DateTime))
+    {
+        builder.OpenComponent(0, typeof(MudDatePicker));
+        builder.AddAttribute(1, "Label", label);
+        builder.AddAttribute(2, "Value", (DateTime?)value);
+        builder.AddAttribute(3, "ValueChanged", EventCallback.Factory.Create<DateTime?>(this, v => propertyInfo.SetValue(updateUser, v)));
+        builder.AddAttribute(4, "Required", true);
+        builder.CloseComponent();
+    }
+    else if (propertyType == typeof(int))
+    {
+        builder.OpenComponent(0, typeof(MudTextField<int>));
+        builder.AddAttribute(1, "Label", label);
+        builder.AddAttribute(2, "Value", (int?)value ?? 0);
+        builder.AddAttribute(3, "ValueChanged", EventCallback.Factory.Create<int>(this, v => propertyInfo.SetValue(updateUser, v)));
+        builder.AddAttribute(4, "Required", true);
+        builder.CloseComponent();
+    }
+    else
+    {
+        builder.AddContent(0, $"Unsupported type: {propertyType.Name}");
+    }
+    };
+
+    private void Close() => MudDialog.Cancel();
 
     private async Task UpdateUser()
     {
         var response = await httpClient.PutAsJsonAsync($"User/Update/{UserId}", updateUser);
+
         if (response.IsSuccessStatusCode)
         {
-            StateHasChanged();
             Snackbar.Add("Пользователь успешно обновлен!", Severity.Success);
             MudDialog.Close(DialogResult.Ok(updateUser));
-            return;
         }
-        var error = await response.Content.ReadAsStringAsync();
-        Snackbar.Add(error, Severity.Error);
-        MudDialog.Close();
-    }
-
-    private void OnValidSubmit(EditContext context)
-    {
-        success = true;
-        StateHasChanged();
+        else
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            Snackbar.Add(error, Severity.Error);
+            MudDialog.Close();
+        }
     }
 }
+

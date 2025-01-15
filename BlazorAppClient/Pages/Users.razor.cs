@@ -17,7 +17,8 @@ namespace BlazorAppClient.Pages
 
         private bool isDesc = false;
 
-        private string searchString1 = "";
+        private bool isLoading;
+
         private IEnumerable<string> userProp { get; set; }
         private List<UserDTO> users = new List<UserDTO>();
 
@@ -26,18 +27,13 @@ namespace BlazorAppClient.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            GetUserProp();
-
-            // Отладка: выводим заголовки
-            foreach (var header in columnHeaders)
-            {
-                Console.WriteLine($"Property: {header.Key}, DisplayName: {header.Value}");
-            }
-
+            isLoading = true;
+            GetUserProperties();
             await GetUserData();
+            isLoading = false;
         }
 
-        private void GetUserProp()
+        private void GetUserProperties()
         {
             var properties = typeof(UserDTO).GetProperties();
 
@@ -46,11 +42,10 @@ namespace BlazorAppClient.Pages
                 .Select(p => p.Name)
                 .ToList();
 
-            foreach (var prop in properties)
-            {
-                var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
-                columnHeaders[prop.Name] = displayAttr?.Name ?? prop.Name;
-            }
+            columnHeaders = properties.ToDictionary(
+                prop => prop.Name,
+                prop => prop.GetCustomAttribute<DisplayAttribute>()?.Name ?? prop.Name
+            );
         }
         private async Task ReloadPage()
         {

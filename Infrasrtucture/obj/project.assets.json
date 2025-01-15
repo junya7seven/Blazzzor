@@ -2889,9 +2889,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj",
+      "projectUniqueName": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj",
       "projectName": "Infrasrtucture",
-      "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj",
+      "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj",
       "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\obj\\",
       "projectStyle": "PackageReference",
@@ -2914,8 +2914,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj"
+            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Entities.csproj"
             }
           }
         }

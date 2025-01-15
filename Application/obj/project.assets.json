@@ -1235,9 +1235,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\obj\\",
       "projectStyle": "PackageReference",
@@ -1260,11 +1260,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Entities\\Entities.csproj"
+            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Entities\\Entities.csproj"
             },
-            "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj": {
-              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj"
+            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj": {
+              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj"
             }
           }
         }

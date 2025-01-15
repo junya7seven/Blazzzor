@@ -16,49 +16,49 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = BlazorAppClient
 build_property.RootNamespace = BlazorAppClient
-build_property.ProjectDir = C:\Users\junya\Source\Repos\Blazzzor\BlazorAppClient\
+build_property.ProjectDir = C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\junya\Source\Repos\Blazzzor\BlazorAppClient
+build_property.MSBuildProjectDirectory = C:\Users\junya\source\repos\Blazzzor\BlazorAppClient
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/App.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/Pages/Login.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/Pages/Registration.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/Pages/Registration.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cmF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/Pages/Test.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/Pages/Test.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/Pages/Users.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/Pages/Users.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/Pages/Xss.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/Pages/Xss.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcWHNzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/_Imports.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/Layout/MainLayout.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-496bhg4s9o
 
-[C:/Users/junya/Source/Repos/Blazzzor/BlazorAppClient/Layout/NavMenu.razor]
+[C:/Users/junya/source/repos/Blazzzor/BlazorAppClient/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-danjy3iaef

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibaryModalDialogPages")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b80357affa6b1d21634f2dddac6a29c7b232894")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ae7061adc00cf9f99ac607821a1a1beb1c897e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibaryModalDialogPages")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibaryModalDialogPages")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

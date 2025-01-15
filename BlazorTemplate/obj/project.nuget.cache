@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QsKDgULOZbE=",
+  "dgSpecHash": "QqJTwRM7L7A=",
   "success": true,
-  "projectFilePath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorTemplate\\BlazorTemplateAPI.csproj",
+  "projectFilePath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\BlazorTemplateAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\junya\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\junya\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

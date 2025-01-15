@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "ZdcGiXuZ5MQmtM6gsGU1DSTo7eRwSnQL7u4lCQrE74Q=",
+  "Hash": "h0c81+yWZvRs8F+75XtaSbvjGReEfpRMrQbAeXp+6lw=",
   "Source": "BlazorTemplateAPI",
   "BasePath": "_content/BlazorTemplateAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
+      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
       "Version": 2,
       "Source": "LibaryModalDialogPages",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -22,7 +22,7 @@
     {
       "Name": "LibaryModalDialogPages\\wwwroot",
       "Source": "LibaryModalDialogPages",
-      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "Pattern": "**"
     }
@@ -71,10 +71,10 @@
       "OriginalItemSpec": "C:\\Users\\junya\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js"
     },
     {
-      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "RelativePath": "background#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -89,13 +89,13 @@
       "Integrity": "WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png"
+      "OriginalItemSpec": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png"
     },
     {
-      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "RelativePath": "exampleJsInterop#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -110,13 +110,13 @@
       "Integrity": "FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js"
+      "OriginalItemSpec": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js"
     },
     {
-      "Identity": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
       "SourceId": "LibaryModalDialogPages",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\",
       "BasePath": "_content/LibaryModalDialogPages",
       "RelativePath": "index#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -131,13 +131,13 @@
       "Integrity": "BcIGxNq6WsyO3doH/hpwE1YnUOpwUOpa0OBuZr9WnaQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html"
+      "OriginalItemSpec": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html"
     }
   ],
   "Endpoints": [
     {
       "Route": "_content/LibaryModalDialogPages/background.png",
-      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -174,7 +174,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/background.x2rx4ajns0.png",
-      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -219,7 +219,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/exampleJsInterop.6pqz8bsss0.js",
-      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -264,7 +264,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/exampleJsInterop.js",
-      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -301,7 +301,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/index.bc408okm6w.html",
-      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -346,7 +346,7 @@
     },
     {
       "Route": "_content/LibaryModalDialogPages/index.html",
-      "AssetFile": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "AssetFile": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {

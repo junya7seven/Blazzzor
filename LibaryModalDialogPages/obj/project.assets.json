@@ -788,9 +788,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
+      "projectUniqueName": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
       "projectName": "LibaryModalDialogPages",
-      "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
+      "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj",
       "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\obj\\",
       "projectStyle": "PackageReference",
@@ -813,8 +813,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Shared\\Shared.csproj"
+            "C:\\Users\\junya\\source\\repos\\Blazzzor\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Shared\\Shared.csproj"
             }
           }
         }

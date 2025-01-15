@@ -1,15 +1,15 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
+      "Id": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\background.png",
       "PackagePath": "staticwebassets\\background.png"
     },
     {
-      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
+      "Id": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\exampleJsInterop.js",
       "PackagePath": "staticwebassets\\exampleJsInterop.js"
     },
     {
-      "Id": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
+      "Id": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {

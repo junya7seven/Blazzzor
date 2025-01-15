@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y9k4C45VRyY=",
+  "dgSpecHash": "YwVtzQUojqU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\junya\\.nuget\\packages\\blazored.localstorage\\4.5.0\\blazored.localstorage.4.5.0.nupkg.sha512",
     "C:\\Users\\junya\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.11\\microsoft.aspnetcore.authentication.jwtbearer.8.0.11.nupkg.sha512",
