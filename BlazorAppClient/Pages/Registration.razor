@@ -1,0 +1,140 @@
+﻿@page "/Registration"
+@inject ISnackbar Snackbar
+@inject AuthService AuthService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Регистрация</PageTitle>
+
+<h1>Registration</h1>
+
+<EditForm Model="@User" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudCard>
+                <MudCardContent>
+                    @foreach (var propertyName in userProp)
+                    {
+                        <MudTextField Label="@propertyName"
+                                      @bind-Value="propertyValues[propertyName]"
+                                      For="@(() => propertyValues[propertyName])"
+                                      Required="true" />
+                    }
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="Save">Register</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
+
+@code {
+    string creditCardNr { get; set; }
+    public RegistrationUser User { get; set; } = new RegistrationUser();
+
+    private IEnumerable<string> userProp { get; set; }
+
+    Dictionary<string, string> propertyValues { get; set; } = new Dictionary<string, string>();
+
+    bool success;
+    private void OnValidSubmit(EditContext context)
+    {
+
+        success = true;
+        StateHasChanged();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        GetUserProp();
+
+        foreach (var prop in userProp)
+        {
+            var value = User.GetType().GetProperty(prop)?.GetValue(User)?.ToString();
+            propertyValues[prop] = value;
+        }
+    }
+
+    private void GetUserProp()
+    {
+        var properties = typeof(RegistrationUser).GetProperties();
+
+        userProp = properties.Select(p => p.Name);
+
+        foreach (var prop in properties)
+        {
+            if (!propertyValues.ContainsKey(prop.Name))
+                propertyValues[prop.Name] = null;
+        }
+    }
+
+
+    private async Task Save()
+    {
+        foreach (var key in propertyValues.Keys)
+        {
+            SetPropertyValue(key);
+        }
+        await AddUser();
+    }
+
+    private void SetPropertyValue(string key)
+    {
+        if (key == null)
+            return;
+        var propertyInfo = User.GetType().GetProperty(key);
+        if (propertyInfo != null && propertyInfo.CanWrite)
+        {
+
+            if (propertyInfo.PropertyType == typeof(string))
+            {
+                propertyInfo.SetValue(User, propertyValues[key]);
+            }
+            else if (propertyInfo.PropertyType == typeof(int) && int.TryParse(propertyValues[key], out int intVal))
+            {
+                propertyInfo.SetValue(User, intVal);
+            }
+        }
+    }
+
+    private async Task AddUser()
+    {
+        try
+        {
+            if(!await ValidationModel())
+            {
+                Snackbar.Add("Неверно заполнены данные", Severity.Error);
+                return;
+            }
+            var resultReg = await AuthService.RegistrationAsync(User);
+            if (resultReg)
+            {
+                StateHasChanged();
+                Snackbar.Add("Вы успешно зарегистрировались!", Severity.Success);
+                NavigationManager.NavigateTo("login");
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add("Неверно заполнены данные", Severity.Error);
+        }
+    }
+
+    private async Task<bool> ValidationModel()
+    {
+        var context = new ValidationContext(User);
+        var results = new List<ValidationResult>();
+        if (!Validator.TryValidateObject(User, context, results, true))
+        {
+
+            foreach (var error in results)
+            {
+                Snackbar.Add($"{error.ErrorMessage}", Severity.Error);
+            }
+            return false;
+        }
+        return true;
+    }
+
+
+}

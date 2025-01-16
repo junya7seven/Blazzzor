@@ -1,0 +1,143 @@
+
+@inject ISnackbar Snackbar
+@inject HttpClient httpClient
+
+<MudDialog>
+    <DialogContent>
+        <MudText>Введите данные для нового пользователя:</MudText>
+        <EditForm Model="@User">
+            @foreach (var property in userProps)
+            {
+                var displayAttribute = property.GetCustomAttribute<DisplayAttribute>();
+                var displayName = displayAttribute?.Name ?? property.Name;
+                var propertyName = property.Name;
+                <MudTextField Label="@displayName"
+                              @bind-Value="propertyValues[propertyName]"
+                              Required="true" />
+            }
+        </EditForm>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="@Close">Отмена</MudButton>
+        <MudButton OnClick="@Save">Сохранить</MudButton> 
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private MudDialogInstance MudDialog { get; set; }
+
+    public RegistrationUser User { get; set; } = new RegistrationUser();
+
+    Dictionary<string, string> propertyValues { get; set; } = new Dictionary<string, string>();
+
+    public PropertyInfo[] userProps { get; set; }
+    private ErrorResponse errorResponse;
+    private string ErrorMessage;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var type = typeof(RegistrationUser);
+        userProps = GetProp(type);
+        foreach (var property in userProps)
+        {
+            var value = property.GetValue(User)?.ToString();
+            propertyValues[property.Name] = value;
+        }
+
+    }
+
+    private PropertyInfo[] GetProp(Type type)
+    {
+        var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        var displayProperties = properties
+            .Where(property => property.GetCustomAttribute<DisplayAttribute>() != null)
+            .ToArray();
+        return displayProperties;
+    }
+
+
+    private void Close() => MudDialog.Cancel();
+
+
+    private async Task Save()
+    {
+        foreach (var key in propertyValues.Keys)
+        {
+            SetPropertyValue(key);
+        }
+        if (!await ValidationModel())
+        {
+            MudDialog.Close(DialogResult.Ok(User));
+            return;
+        }
+        await AddUser();
+    }
+
+    private void SetPropertyValue(string key)
+    {
+        if (key == null)
+            return;
+        var propertyInfo = User.GetType().GetProperty(key);
+        if (propertyInfo != null && propertyInfo.CanWrite)
+        {
+
+            if (propertyInfo.PropertyType == typeof(string))
+            {
+                propertyInfo.SetValue(User, propertyValues[key]);
+            }
+            else if (propertyInfo.PropertyType == typeof(int) && int.TryParse(propertyValues[key], out int intVal))
+            {
+                propertyInfo.SetValue(User, intVal);
+            }
+        }
+    }
+
+    private async Task AddUser()
+    {
+        try
+        {
+            var response = await httpClient.PostAsJsonAsync("Auth/Registration", User);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Пользователь успешно добавлен!", Severity.Success);
+                StateHasChanged();
+                MudDialog.Close(DialogResult.Ok(User));
+            }
+            else
+            {
+                errorResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+                Snackbar.Add($"Ошибка добавления пользователя: {errorResponse.ErrorMessage}", Severity.Error);
+                MudDialog.Close(DialogResult.Ok(User));
+            }
+        }
+        catch (HttpRequestException ex)
+        {
+            Snackbar.Add($"Ошибка сети: {ex.Message}", Severity.Error);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Произошла ошибка: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private async Task<bool> ValidationModel()
+    {
+        var context = new ValidationContext(User);
+        var results = new List<ValidationResult>();
+        if (!Validator.TryValidateObject(User, context, results, true))
+        {
+
+            foreach (var error in results)
+            {
+                ErrorMessage += $"{error.ErrorMessage}\n";
+            }
+            Snackbar.Add($"{ErrorMessage}", Severity.Error);
+            return false;
+        }
+        return true;
+    }
+}

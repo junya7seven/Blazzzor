@@ -1,0 +1,122 @@
+﻿@inject ISnackbar Snackbar
+@inject HttpClient httpClient
+
+<MudDialog>
+    <DialogContent>
+        <MudText>Обновите данные пользователя:</MudText>
+        <EditForm Model="updateUser" OnValidSubmit="Save">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+                @foreach (var field in userFields)
+                {
+                    @RenderField(field.Label, field.PropertyInfo)
+                }
+        </EditForm>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="@Close">Отмена</MudButton>
+        <MudButton OnClick="@Save">Сохранить</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public UpdateUser updateUser { get; set; } = new UpdateUser();
+    private ErrorResponse errorResponse;
+
+    [Parameter]
+    public Guid UserId { get; init; }
+
+    private List<(string PropertyName, string Label, PropertyInfo PropertyInfo)> userFields;
+
+    private bool IsValidForm => userFields.All(f => f.PropertyInfo.GetValue(updateUser) != null);
+    private async Task Save()
+    {
+        await UpdateUser();
+    }
+    protected override Task OnInitializedAsync()
+    {
+        userFields = typeof(UpdateUser).GetProperties()
+            .Where(p => p.CanWrite)
+            .Select(p => (
+                PropertyName: p.Name,
+                Label: p.GetCustomAttribute<DisplayAttribute>()?.Name ?? p.Name,
+                PropertyInfo: p
+            ))
+            .ToList();
+
+        return Task.CompletedTask;
+    }
+
+    private RenderFragment RenderField(string label, PropertyInfo propertyInfo) => builder =>
+    {
+        var value = propertyInfo.GetValue(updateUser);
+        var propertyType = propertyInfo.PropertyType;
+
+        if (propertyType == typeof(string))
+        {
+            builder.OpenComponent(0, typeof(MudTextField<string>));
+            builder.AddAttribute(1, "Label", label);
+            builder.AddAttribute(2, "Value", (string)value);
+            builder.AddAttribute(3, "ValueChanged", EventCallback.Factory.Create<string>(this, v => propertyInfo.SetValue(updateUser, v)));
+            builder.AddAttribute(4, "Required", true);
+            builder.CloseComponent();
+        }
+        else if (propertyType == typeof(DateTime))
+        {
+            builder.OpenComponent(0, typeof(MudDatePicker));
+            builder.AddAttribute(1, "Label", label);
+            builder.AddAttribute(2, "Value", (DateTime?)value);
+            builder.AddAttribute(3, "ValueChanged", EventCallback.Factory.Create<DateTime?>(this, v => propertyInfo.SetValue(updateUser, v)));
+            builder.AddAttribute(4, "Required", true);
+            builder.CloseComponent();
+        }
+        else if (propertyType == typeof(int))
+        {
+            builder.OpenComponent(0, typeof(MudTextField<int>));
+            builder.AddAttribute(1, "Label", label);
+            builder.AddAttribute(2, "Value", (int?)value ?? 0);
+            builder.AddAttribute(3, "ValueChanged", EventCallback.Factory.Create<int>(this, v => propertyInfo.SetValue(updateUser, v)));
+            builder.AddAttribute(4, "Required", true);
+            builder.CloseComponent();
+        }
+        else
+        {
+            builder.AddContent(0, $"Unsupported type: {propertyType.Name}");
+        }
+    };
+
+    private void Close() => MudDialog.Cancel();
+
+    private async Task UpdateUser()
+    {
+        try
+        {
+            var response = await httpClient.PutAsJsonAsync($"User/Update/{UserId}", updateUser);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Данные успешно изменены", Severity.Success);
+                StateHasChanged();
+                MudDialog.Close(DialogResult.Ok(updateUser));
+            }
+            else
+            {
+                errorResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+                Snackbar.Add($"Ошибка обновления пользователя: {errorResponse.ErrorMessage}", Severity.Error);
+                MudDialog.Close(DialogResult.Ok(updateUser));
+            }
+        }
+        catch (HttpRequestException ex)
+        {
+            Snackbar.Add($"Ошибка сети: {ex.Message}", Severity.Error);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Произошла ошибка: {ex.Message}", Severity.Error);
+        }
+    }
+}

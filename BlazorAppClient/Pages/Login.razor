@@ -1,0 +1,62 @@
+﻿@page "/login"
+@inject ISnackbar Snackbar
+@inject HttpClient httpClient
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+<PageTitle>Вход</PageTitle>
+
+<h1>Login</h1>
+
+<EditForm Model="@User" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Почта" HelperText="Введите почту"
+                                  @bind-Value="User.Email" For="@(() => User.Email)" />
+                    
+                    <MudTextField Label="Пароль" HelperText="Введите пароль" Class="mt-3"
+                                  @bind-Value="User.Password" For="@(() => User.Password)" InputType="InputType.Password" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="Save">Войти</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
+
+
+@code {
+    LoginUser User = new LoginUser();
+    bool success;
+
+    private void OnValidSubmit(EditContext context)
+    {
+
+        success = true;
+        StateHasChanged();
+    }
+
+    private async Task Save()
+    {
+        try
+        {
+            var resultLog = await AuthService.LoginAsync(User);
+            if (resultLog)
+            {
+                StateHasChanged();
+                Snackbar.Add("Вы успешно вошли!", Severity.Success);
+                NavigationManager.NavigateTo("users");
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+}

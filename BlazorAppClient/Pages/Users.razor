@@ -1,0 +1,59 @@
+﻿@page "/users"
+@using Microsoft.AspNetCore.Authorization
+@inject HttpClient httpClient
+@inject NavigationManager NavigationManager
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+@inject IMapper Mapper
+@attribute [Authorize(Policy = "RequireAdminRole")]
+<PageTitle>Пользователи</PageTitle>
+
+
+<h1>Пользователи</h1>
+@if(isError)
+{
+    <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">Произошла ошибка: @ErrorMessage</MudAlert>
+}
+<MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="AddNewUserAsync">Добавить пользователя</MudButton>
+<MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="AddNewRoleAsync">Добавить новую роль</MudButton>
+
+<MudTable Items="@users">
+    <HeaderContent>
+                    @foreach (var item in userProp)
+                    {
+                        <MudTh Style="cursor:pointer" @onclick="() => SortTableByColumn(item)">
+                            @columnHeaders[item]
+
+                        </MudTh>
+                    }
+                <MudTh>Роли</MudTh>
+                <MudTh>Редактировать</MudTh>
+                <MudTh>Заблокировать</MudTh>
+    </HeaderContent>
+            <RowTemplate Context="rowContext">
+                @foreach (var prop in userProp)
+                {
+                    <MudTd DataLabel="@columnHeaders[prop]">
+                        @rowContext.GetType().GetProperty(prop)?.GetValue(rowContext)?.ToString()
+                    </MudTd>
+                }
+            <MudTd DataLabel="Роли">
+                    <MudIcon Style="cursor:pointer" @onclick="@(() => ViewUserRolesAsync(rowContext))" Icon="@Icons.Material.Outlined.PeopleAlt" Title="Просмотр ролей" />
+            </MudTd>
+            <MudTd DataLabel="Редактировать">
+                        <MudIcon Style="cursor:pointer" @onclick="@(() => UpdateUserAsync(rowContext))" Icon="@Icons.Material.Filled.Edit" Title="Редактирование" />
+            </MudTd>
+            <MudTd DataLabel="Заблокировать">
+                        <MudIcon Style="cursor:pointer" @onclick="@(() => BlockUserAsync(rowContext))" Icon="@Icons.Material.Filled.Block" Title="Блокировка" />
+            </MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager />
+    </PagerContent>
+</MudTable>
+@if (isLoading)
+{
+    <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
+}
+
+
