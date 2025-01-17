@@ -16,12 +16,12 @@ namespace Application.Models
         [DefaultValue("Bobster777")]
         public string UserName { get; set; }
         [Required]
-        [Length(6, 64, ErrorMessage = "Мин. 2 символов, макс 64")]
+        [Length(2, 64, ErrorMessage = "Мин. 2 символов, макс 64")]
         [RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Поле должно содержать только буквы.")]
         [DefaultValue("Аркадий")]
         public string FirstName { get; set; }
         [Required]
-        [Length(6, 64, ErrorMessage = "Мин. 2 символов, макс 64")]
+        [Length(2, 64, ErrorMessage = "Мин. 2 символов, макс 64")]
         [RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Поле должно содержать только буквы.")]
         [DefaultValue("Паровозов")]
         public string LastName { get; set; }

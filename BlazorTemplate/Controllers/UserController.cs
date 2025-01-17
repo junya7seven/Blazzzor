@@ -1,6 +1,7 @@
 using Application.Models;
 using AutoMapper;
 using BlazorTemplate.Models;
+using BlazorTemplateAPI.Models;
 using BlazorTemplateAPI.Models.DTO;
 using Entities.Interfaces;
 using Entities.Models;
@@ -27,10 +28,47 @@ namespace BlazorTemplate.Controllers
         // GET /user
         // Всегда возвращает список (может быть пустым)
         [HttpGet]
-        public async Task<IEnumerable<UserDTO?>> Get()
+        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(int page, int pageSize)
         {
 
-            var users = await _userManager.GetAllUsersAsync();
+            var (users, lastPage) = await _userManager.GetAllUsersAsync(page, pageSize);
+            var userDTO = new List<UserDTO>();
+            foreach (var item in users)
+            {
+
+                //var user = _mapper.Map<UserDTO>(item);
+
+                var user = new UserDTO
+                {
+                    UserId = item.UserId,
+                    UserName = item.UserName,
+                    Email = item.Email,
+                    LastName = item.LastName,
+                    FirstName = item.FirstName,
+                    Password = item.PasswordHash,
+                    CreatedAt = item.CreatedAt,
+                    LastUpdateAt = item.LastUpdateAt,
+                    isLocked = item.IsLocked,
+                    BlockedUntil = item.BlockedUntil,
+                    Roles = item.UserRoles.Select(ur => ur.Role).ToList()
+                };
+                userDTO.Add(user);
+            }
+
+            var response = new PagginatedModel<UserDTO>
+            {
+                Items = userDTO,
+                LastPage = lastPage,
+            };
+            return Ok(response);
+        }
+        [HttpGet("role")]
+        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(string roles, int page, int pageSize)
+        {
+
+            var rolesArray = roles.Split(',');
+
+            var (users, lastPage) = await _userManager.GetUsersByRole(page, pageSize, rolesArray);
             var userDTO = new List<UserDTO>();
             foreach (var item in users)
             {
@@ -50,29 +88,13 @@ namespace BlazorTemplate.Controllers
                 };
                 userDTO.Add(user);
             }
-            return userDTO;
-        }
-        // GET: api/user/[id]
-        [HttpGet("{userId:Guid}")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> GetUserById(Guid userId)
-        {
-            var user = await _userManager.GetUserByIdAsync(userId);
-            if (user == null)
+
+            var response = new PagginatedModel<UserDTO>
             {
-                throw new KeyNotFoundException("Пользователь не найден!");
-            }
-            var userDTO = new UserDTO
-            {
-                UserName = user.UserName,
-                Email = user.Email,
-                LastName = user.LastName,
-                FirstName = user.FirstName,
-                Password = user.PasswordHash,
-                Roles = user.UserRoles.Select(ur => ur.Role).ToList()
+                Items = userDTO,
+                LastPage = lastPage,
             };
-            return Ok(userDTO);
+            return Ok(response);
         }
         // GET api/user/[email]
         [HttpGet("{email}")]

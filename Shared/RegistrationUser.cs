@@ -17,13 +17,13 @@ namespace Shared
         [Display(Name = "Пользовательское имя")]
         public string UserName { get; set; }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        [Length(6, 64, ErrorMessage = "Длина имени может быть от 2 до 64 символов")]
+        [Length(2, 64, ErrorMessage = "Длина имени может быть от 2 до 64 символов")]
         [RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Поле должно содержать только буквы.")]
         [DefaultValue("Аркадий")]
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        [Length(6, 64, ErrorMessage = "Длина фамилии может быть от 2 до 64 символов")]
+        [Length(2, 64, ErrorMessage = "Длина фамилии может быть от 2 до 64 символов")]
         [RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Поле должно содержать только буквы.")]
         [DefaultValue("Паровозов")]
         [Display(Name = "Фамилия")]

@@ -14,10 +14,51 @@ namespace Infrasrtucture.Managers
     public class UserManager<TUser> : IUserManager<TUser> where TUser : User
     {
         private readonly ApplicationDbContext<TUser> _context;
-
         public UserManager(ApplicationDbContext<TUser> context)
         {
             _context = context;
+        }
+        public async Task<(IEnumerable<TUser>, int)> GetAllUsersAsync(int page, int pageSize)
+        {
+            int lastPage = await _context.Users.CountAsync() / pageSize;
+
+            var users = await _context.Users
+            .Include(u => u.UserRoles)
+            .ThenInclude(ur => ur.Role)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+            return (users ?? Enumerable.Empty<TUser>(), lastPage);
+        }
+
+        public async Task<(IEnumerable<TUser>, int)> GetUsersByRole(int page, int pageSize, params string[] roleNames)
+        {
+            if (roleNames == null || roleNames.Length == 0)
+            {
+                return (Enumerable.Empty<TUser>(), 0);
+            }
+
+            foreach (var roleName in roleNames)
+            {
+                roleName.ToLower();
+            }
+
+            int lastPage = await _context.Users
+                .Include(u => u.UserRoles)
+                .ThenInclude(ur => ur.Role)
+                .Where(u => u.UserRoles.Any(ur => roleNames.Contains(ur.Role.NormalName)))
+                .CountAsync() / pageSize + 1;
+
+            var users = await _context.Users
+                .Include(u => u.UserRoles)
+                .ThenInclude(ur => ur.Role)
+                .Where(u => u.UserRoles.Any(ur => roleNames.Contains(ur.Role.NormalName)))
+                .OrderBy(u => u.UserRoles.FirstOrDefault().Role.NormalName)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return (users ?? Enumerable.Empty<TUser>(), lastPage);
         }
 
 
@@ -38,6 +79,8 @@ namespace Infrasrtucture.Managers
         }
         public async Task<TUser?> GetUserByEmailAsync(string email)
         {
+ 
+
             var user = await _context.Users.FirstOrDefaultAsync(x => x.NormalEmail == email.ToLower());
             return user;
         }

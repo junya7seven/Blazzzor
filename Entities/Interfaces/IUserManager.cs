@@ -9,7 +9,8 @@ namespace Entities.Interfaces
 {
     public interface IUserManager<TUser> where TUser : User
     {
-        Task<IEnumerable<TUser?>> GetAllUsersAsync();
+        Task<(IEnumerable<TUser>, int)> GetAllUsersAsync(int page, int pageSize);
+        Task<(IEnumerable<TUser>, int)> GetUsersByRole(int page, int pageSize, params string[] roleNames);
         Task<TUser?> GetUserByIdAsync(Guid id);
         Task<TUser?> GetUserByEmailAsync(string email);
         Task<TUser> CreateUserAsync(TUser user);

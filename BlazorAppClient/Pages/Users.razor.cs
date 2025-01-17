@@ -12,6 +12,8 @@ namespace BlazorAppClient.Pages
 {
     public partial class Users
     {
+
+
         private bool isError { get; set; } = false;
         public string ErrorMessage { get; set; }
 
@@ -25,14 +27,40 @@ namespace BlazorAppClient.Pages
         private Dictionary<string, string> columnHeaders = new();
         private Dictionary<string, bool> sortDirections = new();
 
+        private int totalItems;
+
         protected override async Task OnInitializedAsync()
         {
             isLoading = true;
             GetUserProperties();
-            await GetUserData();
             isLoading = false;
         }
+        private async Task<TableData<UserDTO>> LoadServerData(TableState state, CancellationToken cancellationToken)
+        {
+            isLoading = true;
 
+            try
+            {
+                int currentPage = state.Page + 1;
+                int pageSize = state.PageSize;
+
+                var response = await httpClient.GetFromJsonAsync<PagginationModel<UserDTO>>(
+                    $"user?page={currentPage}&pageSize={pageSize}");
+
+                users = response.Items.ToList();
+                totalItems = response.LastPage * pageSize;
+
+                return new TableData<UserDTO>
+                {
+                    Items = users,
+                    TotalItems = totalItems
+                };
+            }
+            finally
+            {
+                isLoading = false;
+            }
+        }
         private void GetUserProperties()
         {
             var properties = typeof(UserDTO).GetProperties();
@@ -50,25 +78,6 @@ namespace BlazorAppClient.Pages
         private async Task ReloadPage()
         {
             await OnInitializedAsync();
-        }
-
-        private async Task GetUserData()
-        {
-            try
-            {
-                var response = await httpClient.GetAsync("user");
-                if (!response.IsSuccessStatusCode)
-                {
-                    isError = true;
-                    ErrorMessage = response.StatusCode.ToString();
-                }
-                users = await response.Content.ReadFromJsonAsync<List<UserDTO>>();
-            }
-            catch (Exception ex)
-            {
-                isError = true;
-                ErrorMessage = ex.Message;
-            }
         }
 
         private async Task ViewUserRolesAsync(UserDTO user)
