@@ -27,6 +27,8 @@ namespace BlazorAppClient.Pages
         private Dictionary<string, string> columnHeaders = new();
         private Dictionary<string, bool> sortDirections = new();
 
+        private List<Role> Roels = new List<Role>();
+
         private int totalItems;
 
         protected override async Task OnInitializedAsync()
