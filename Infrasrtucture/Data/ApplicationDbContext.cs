@@ -26,6 +26,5 @@ namespace Infrasrtucture.Data
 
             ModelBuilderExtensions.ApplyDataBaseExtension(modelBuilder);
         }
-
     }
 }

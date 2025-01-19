@@ -34,3 +34,5 @@ C:\Users\junya\Source\Repos\Blazzzor\Infrasrtucture\obj\Debug\net8.0\refint\Infr
 C:\Users\junya\Source\Repos\Blazzzor\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.pdb
 C:\Users\junya\Source\Repos\Blazzzor\Infrasrtucture\obj\Debug\net8.0\Infrasrtucture.genruntimeconfig.cache
 C:\Users\junya\Source\Repos\Blazzzor\Infrasrtucture\obj\Debug\net8.0\ref\Infrasrtucture.dll
+C:\Users\junya\source\repos\Blazzzor\Infrasrtucture\bin\Debug\net8.0\Application.dll
+C:\Users\junya\source\repos\Blazzzor\Infrasrtucture\bin\Debug\net8.0\Application.pdb

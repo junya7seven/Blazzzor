@@ -80,7 +80,9 @@ namespace BlazorTemplate.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
@@ -100,11 +102,15 @@ namespace BlazorTemplate.Migrations
 
                     b.Property<string>("NormalEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComputedColumnSql("LOWER([Email])");
 
                     b.Property<string>("NormalUserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComputedColumnSql("LOWER([UserName])");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
@@ -145,11 +151,15 @@ namespace BlazorTemplate.Migrations
                     b.ToTable("UserRoles");
                 });
 
-            modelBuilder.Entity("BlazorTemplate.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Application.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Entities.Models.User");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

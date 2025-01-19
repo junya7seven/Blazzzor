@@ -1,12 +1,12 @@
 using BlazorTemplate;
-using BlazorTemplate.Models;
 using BlazorTemplateAPI;
 using Application;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
-using BlazorTemplateAPI.Mapper;
+using Application.Models;
+using Infrasrtucture;
+using Application.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,14 +42,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
-builder.Services.AddDbContext<MyDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
-
-builder.Services.AddApplicationServices<ApplicationUser>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
-builder.Services.AddAutoMapper(typeof(UserProfile));
-
 builder.Services.AddJwtAuthentication<ApplicationUser>(options =>
 {
     options.Issuer = "https://localhost:7234";
@@ -58,6 +50,24 @@ builder.Services.AddJwtAuthentication<ApplicationUser>(options =>
     options.TokenValidityMinutes = 90;
     options.RefreshTokenValidityDays = 7;
 });
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
+
+
+
+
+
+builder.Services.AddManagers<ApplicationUser>();
+builder.Services.AddAutoMapper(typeof(UserMappingProfile));
+builder.Services.AddQuartz();
+
+
+
+
+builder.Services.AddApplicationServices<ApplicationUser>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
+
+
 
 
 

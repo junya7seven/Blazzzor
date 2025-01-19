@@ -107,12 +107,12 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Authorization/8.0.11": {
+      "Microsoft.AspNetCore.Authorization/8.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "8.0.11",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
-          "Microsoft.Extensions.Options": "8.0.2"
+          "Microsoft.AspNetCore.Metadata": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Authorization.dll": {
@@ -125,11 +125,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components/8.0.11": {
+      "Microsoft.AspNetCore.Components/8.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "8.0.11",
-          "Microsoft.AspNetCore.Components.Analyzers": "8.0.11"
+          "Microsoft.AspNetCore.Authorization": "8.0.0",
+          "Microsoft.AspNetCore.Components.Analyzers": "8.0.0"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Components.dll": {
@@ -142,33 +142,16 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/8.0.11": {
+      "Microsoft.AspNetCore.Components.Analyzers/8.0.0": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Authorization/8.0.11": {
+      "Microsoft.AspNetCore.Components.Forms/8.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "8.0.11",
-          "Microsoft.AspNetCore.Components": "8.0.11"
-        },
-        "compile": {
-          "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Components.Forms/8.0.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.10"
+          "Microsoft.AspNetCore.Components": "8.0.0"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -181,14 +164,14 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Web/8.0.10": {
+      "Microsoft.AspNetCore.Components.Web/8.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.10",
-          "Microsoft.AspNetCore.Components.Forms": "8.0.10",
-          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.AspNetCore.Components": "8.0.0",
+          "Microsoft.AspNetCore.Components.Forms": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "Microsoft.Extensions.Primitives": "8.0.0",
-          "Microsoft.JSInterop": "8.0.10",
+          "Microsoft.JSInterop": "8.0.0",
           "System.IO.Pipelines": "8.0.0"
         },
         "compile": {
@@ -202,7 +185,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Metadata/8.0.11": {
+      "Microsoft.AspNetCore.Metadata/8.0.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Metadata.dll": {
@@ -864,36 +847,67 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Localization/8.0.8": {
+      "Microsoft.Extensions.Diagnostics.Abstractions/8.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
-          "Microsoft.Extensions.Localization.Abstractions": "8.0.8",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
-          "Microsoft.Extensions.Options": "8.0.2"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0",
+          "System.Diagnostics.DiagnosticSource": "8.0.0"
         },
         "compile": {
-          "lib/net8.0/Microsoft.Extensions.Localization.dll": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Microsoft.Extensions.Localization.dll": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Localization.Abstractions/8.0.8": {
+      "Microsoft.Extensions.FileProviders.Abstractions/8.0.0": {
         "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
         "compile": {
-          "lib/net8.0/Microsoft.Extensions.Localization.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Microsoft.Extensions.Localization.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Hosting.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Diagnostics.Abstractions": "8.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.Logging/9.0.0": {
@@ -1102,7 +1116,7 @@
           }
         }
       },
-      "Microsoft.JSInterop/8.0.10": {
+      "Microsoft.JSInterop/8.0.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.JSInterop.dll": {
@@ -1178,28 +1192,55 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
-      "MudBlazor/7.15.0": {
+      "Quartz/3.13.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.8",
-          "Microsoft.AspNetCore.Components.Web": "8.0.8",
-          "Microsoft.Extensions.Localization": "8.0.8"
+          "Microsoft.Extensions.Logging.Abstractions": "2.1.1"
         },
         "compile": {
-          "lib/net8.0/MudBlazor.dll": {
+          "lib/net6.0/Quartz.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/MudBlazor.dll": {
+          "lib/net6.0/Quartz.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Quartz.Extensions.DependencyInjection/3.13.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0",
+          "Quartz": "3.13.1"
+        },
+        "compile": {
+          "lib/net8.0/Quartz.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
         },
-        "build": {
-          "buildTransitive/MudBlazor.props": {}
+        "runtime": {
+          "lib/net8.0/Quartz.Extensions.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Quartz.Extensions.Hosting/3.13.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
+          "Quartz.Extensions.DependencyInjection": "3.13.1"
         },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/MudBlazor.props": {}
+        "compile": {
+          "lib/net8.0/Quartz.Extensions.Hosting.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Quartz.Extensions.Hosting.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Swashbuckle.AspNetCore/6.6.2": {
@@ -1867,10 +1908,11 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "AutoMapper": "13.0.1",
           "Blazored.LocalStorage": "4.5.0",
           "Entities": "1.0.0",
-          "Infrasrtucture": "1.0.0",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.11"
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.11",
+          "Quartz": "3.13.1"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -1893,41 +1935,19 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Application": "1.0.0",
           "Entities": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "9.0.0"
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "9.0.0",
+          "Quartz": "3.13.1",
+          "Quartz.Extensions.DependencyInjection": "3.13.1",
+          "Quartz.Extensions.Hosting": "3.13.1"
         },
         "compile": {
           "bin/placeholder/Infrasrtucture.dll": {}
         },
         "runtime": {
           "bin/placeholder/Infrasrtucture.dll": {}
-        }
-      },
-      "LibaryModalDialogPages/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "AutoMapper": "13.0.1",
-          "Microsoft.AspNetCore.Components.Authorization": "8.0.11",
-          "Microsoft.AspNetCore.Components.Web": "8.0.10",
-          "MudBlazor": "7.15.0",
-          "Shared": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/LibaryModalDialogPages.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LibaryModalDialogPages.dll": {}
-        }
-      },
-      "Shared/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/Shared.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Shared.dll": {}
         }
       }
     }
@@ -2035,10 +2055,10 @@
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authorization/8.0.11": {
-      "sha512": "ACaLyjBSz9WUzbaJe0Sv09/FihRNHYlRUIj3uQ8CZFFByf6Qwv3+PXnbltidFKz2iOyqdvppQias3emdQUY2nA==",
+    "Microsoft.AspNetCore.Authorization/8.0.0": {
+      "sha512": "OGIGJMnlWvQgcweHcv1Mq/P24Zx/brUHeEdD05NzqkSXmQSnFomTvVyCuBtCXT4JPfv2m70y1RSocmd9bIbJRg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authorization/8.0.11",
+      "path": "microsoft.aspnetcore.authorization/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2050,14 +2070,14 @@
         "lib/net8.0/Microsoft.AspNetCore.Authorization.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.8.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.8.0.0.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components/8.0.11": {
-      "sha512": "kyhSQcVEQvMnv2BNRn7JRgYCr+PIO5Uh1mhIFdCNycxE/k8NsI72sV693s1KVmVebMA8g3hTBmfBEheWb3hhww==",
+    "Microsoft.AspNetCore.Components/8.0.0": {
+      "sha512": "kqspqWo3lT+rrSd39kvrV7SZYl0znYZQbQ8SJaHjDA8ffMPV6BkfVe0i6LvxRPwq/agwSWdIDq2j4x+78Frypg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components/8.0.11",
+      "path": "microsoft.aspnetcore.components/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2065,14 +2085,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net8.0/Microsoft.AspNetCore.Components.dll",
         "lib/net8.0/Microsoft.AspNetCore.Components.xml",
-        "microsoft.aspnetcore.components.8.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.components.8.0.0.nupkg.sha512",
         "microsoft.aspnetcore.components.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Analyzers/8.0.11": {
-      "sha512": "4JtFt5IR0ixuFpwY6D2Xi5R+vZQ6iykd2EuG3puHETCOZOgYG8M538LCY1lbgQTkHOL04YKDjQTQu8PU/BaXRQ==",
+    "Microsoft.AspNetCore.Components.Analyzers/8.0.0": {
+      "sha512": "lJMa9kQDw3vkqcMMbuicIpyax7QH6imQFbLRzVqJzrGs5LN954IPaJVkDzRCEXFVAN24Cml6g4mEF3b0D7Oa+Q==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/8.0.11",
+      "path": "microsoft.aspnetcore.components.analyzers/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2081,29 +2101,14 @@
         "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
         "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.8.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.8.0.0.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Authorization/8.0.11": {
-      "sha512": "K1OES99Yj+nMg6ulpXOY+iAK/0RUXEMtdjVzM26IixYKaXFwcKHzMljgv/sZoU3TgQNgp4FD4f38JrUZXUvEgA==",
+    "Microsoft.AspNetCore.Components.Forms/8.0.0": {
+      "sha512": "iiYB/7Sl/vTURO4EiTUCmfIXujlJOl+Gh7nknCFhvFQ+kKMFFXYcrszYwLN9aQSolpswc/A9a78KL59/UIezig==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.authorization/8.0.11",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.txt",
-        "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll",
-        "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.xml",
-        "microsoft.aspnetcore.components.authorization.8.0.11.nupkg.sha512",
-        "microsoft.aspnetcore.components.authorization.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Components.Forms/8.0.10": {
-      "sha512": "YOdsdG/da7xc5uA0dRIe8qUz1rVbbptnYA2CrsxPNka3Nv7Sbh3rArlACGWPBkST3qTRollCx4dLEXpwg/6eEw==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/8.0.10",
+      "path": "microsoft.aspnetcore.components.forms/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2111,14 +2116,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net8.0/Microsoft.AspNetCore.Components.Forms.dll",
         "lib/net8.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.8.0.0.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Web/8.0.10": {
-      "sha512": "gJa07Ni77Eoer/+3tocjnCzxfRcL0TJbKnzBP5auk/cxO5nxzJEHuTADX8gAzlyuLvdrnrtfqRAhR66MGkHmww==",
+    "Microsoft.AspNetCore.Components.Web/8.0.0": {
+      "sha512": "aokUKvFoNqxR6bf0+iKrDfQ79OLHWYn5UGYp5MU65/il1vuRK7MAF18oGj7QgiZJUu3cMAZjCFkHbsWLhQxCsA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.web/8.0.10",
+      "path": "microsoft.aspnetcore.components.web/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2126,14 +2131,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net8.0/Microsoft.AspNetCore.Components.Web.dll",
         "lib/net8.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.8.0.0.nupkg.sha512",
         "microsoft.aspnetcore.components.web.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Metadata/8.0.11": {
-      "sha512": "cy04xnMSTXTkRPjEwseRz57R5zjR/CWsdEOHH6NhWbNl97k+U1w6dSjqIOC7kv08tyzmM30FzIilSDtE5HdL/A==",
+    "Microsoft.AspNetCore.Metadata/8.0.0": {
+      "sha512": "OmuSztiZMitRTYlbMNDkBk3BinSsVcOApSNBAsrw+KYNJh6ALarPhWLlKdtvMgrKzpyCY06xtLAjTmQLURHSlQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.metadata/8.0.11",
+      "path": "microsoft.aspnetcore.metadata/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2145,7 +2150,7 @@
         "lib/net8.0/Microsoft.AspNetCore.Metadata.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
-        "microsoft.aspnetcore.metadata.8.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.8.0.0.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
@@ -3727,42 +3732,93 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Localization/8.0.8": {
-      "sha512": "n32ZGmc2UOv9R/xsBHQPOxBsqCSAAJSoMtFqoQ8zOegB2P+H6+773OyCWg4jRBkO/3dmCyBJXB0yLAOVW2/C/w==",
+    "Microsoft.Extensions.Diagnostics.Abstractions/8.0.0": {
+      "sha512": "JHYCQG7HmugNYUhOl368g+NMxYE/N/AiclCYRNlgCY9eVyiBkOHMwK4x60RYMxv9EL3+rmj1mqHvdCiPpC+D4Q==",
       "type": "package",
-      "path": "microsoft.extensions.localization/8.0.8",
+      "path": "microsoft.extensions.diagnostics.abstractions/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
+        "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net462/Microsoft.Extensions.Localization.dll",
-        "lib/net462/Microsoft.Extensions.Localization.xml",
-        "lib/net8.0/Microsoft.Extensions.Localization.dll",
-        "lib/net8.0/Microsoft.Extensions.Localization.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Localization.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Localization.xml",
-        "microsoft.extensions.localization.8.0.8.nupkg.sha512",
-        "microsoft.extensions.localization.nuspec"
+        "buildTransitive/net461/Microsoft.Extensions.Diagnostics.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Diagnostics.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "microsoft.extensions.diagnostics.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.diagnostics.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Localization.Abstractions/8.0.8": {
-      "sha512": "WYIsqP/A6dH/LWJznrvgoNPc7Q+CUJD0E78765GL3aonBtyFK1BKtPzBvvlnrr3SVqSO2r6xJCLgCEiCMG1gfA==",
+    "Microsoft.Extensions.FileProviders.Abstractions/8.0.0": {
+      "sha512": "ZbaMlhJlpisjuWbvXr4LdAst/1XxH3vZ6A0BsgTphZ2L4PGuxRLz7Jr/S7mkAAnOn78Vu0fKhEgNF5JO3zfjqQ==",
       "type": "package",
-      "path": "microsoft.extensions.localization.abstractions/8.0.8",
+      "path": "microsoft.extensions.fileproviders.abstractions/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net462/Microsoft.Extensions.Localization.Abstractions.dll",
-        "lib/net462/Microsoft.Extensions.Localization.Abstractions.xml",
-        "lib/net8.0/Microsoft.Extensions.Localization.Abstractions.dll",
-        "lib/net8.0/Microsoft.Extensions.Localization.Abstractions.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Localization.Abstractions.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Localization.Abstractions.xml",
-        "microsoft.extensions.localization.abstractions.8.0.8.nupkg.sha512",
-        "microsoft.extensions.localization.abstractions.nuspec"
+        "buildTransitive/net461/Microsoft.Extensions.FileProviders.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.FileProviders.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/8.0.0": {
+      "sha512": "AG7HWwVRdCHlaA++1oKDxLsXIBxmDpMPb3VoyOoAghEWnkUvEAdYQUwnV4jJbAaa/nMYNiEh5ByoLauZBEiovg==",
+      "type": "package",
+      "path": "microsoft.extensions.hosting.abstractions/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Hosting.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Hosting.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "microsoft.extensions.hosting.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.hosting.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.Logging/9.0.0": {
@@ -4114,10 +4170,10 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.JSInterop/8.0.10": {
-      "sha512": "VxiFlNValVtpRQomua6h1FOUBK0fiyQbNIh+PMRs9DMHczOHIZpLJmm5LO5h9voBXjW+V/cUE8aNH2GcWps40A==",
+    "Microsoft.JSInterop/8.0.0": {
+      "sha512": "qQqASbHxWIddssdEBKUQ/49j21SEstiho6VAepPQa9eISLCBCE6wq0m3YaB6cpdF5U+AWX5F3FvDfmssql3xtw==",
       "type": "package",
-      "path": "microsoft.jsinterop/8.0.10",
+      "path": "microsoft.jsinterop/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4125,7 +4181,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net8.0/Microsoft.JSInterop.dll",
         "lib/net8.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.8.0.10.nupkg.sha512",
+        "microsoft.jsinterop.8.0.0.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
       ]
     },
@@ -4208,30 +4264,63 @@
         "readme.md"
       ]
     },
-    "MudBlazor/7.15.0": {
-      "sha512": "b2+hO7ZTGwsGhu9SoowuNe2ETeF1GzExpg/hIYR++rSh+vy4v/QD0iOsrATWv3LdFJXSgk3d1+XIr5srW3jBiA==",
+    "Quartz/3.13.1": {
+      "sha512": "0S4/gYb/FRQfek65OPAmszbdEmtc4Fq/jSeA5XFnvMIjYL9Zr8g9jWoKneEFzAFJGlESjFULtaUFzValHvqu4A==",
       "type": "package",
-      "path": "mudblazor/7.15.0",
+      "path": "quartz/3.13.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE",
-        "Nuget.png",
-        "README.md",
-        "analyzers/dotnet/cs/MudBlazor.Analyzers.dll",
-        "build/Microsoft.AspNetCore.StaticWebAssets.props",
-        "build/MudBlazor.props",
-        "build/MudBlazor.targets",
-        "buildMultiTargeting/MudBlazor.props",
-        "buildTransitive/MudBlazor.props",
-        "lib/net7.0/MudBlazor.dll",
-        "lib/net7.0/MudBlazor.xml",
-        "lib/net8.0/MudBlazor.dll",
-        "lib/net8.0/MudBlazor.xml",
-        "mudblazor.7.15.0.nupkg.sha512",
-        "mudblazor.nuspec",
-        "staticwebassets/MudBlazor.min.css",
-        "staticwebassets/MudBlazor.min.js"
+        "lib/net462/Quartz.dll",
+        "lib/net462/Quartz.xml",
+        "lib/net472/Quartz.dll",
+        "lib/net472/Quartz.xml",
+        "lib/net6.0/Quartz.dll",
+        "lib/net6.0/Quartz.xml",
+        "lib/netstandard2.0/Quartz.dll",
+        "lib/netstandard2.0/Quartz.xml",
+        "quartz-logo-small.png",
+        "quartz.3.13.1.nupkg.sha512",
+        "quartz.nuspec",
+        "quick-start.md"
+      ]
+    },
+    "Quartz.Extensions.DependencyInjection/3.13.1": {
+      "sha512": "I3uXVIYMEo00TrEzzHG3koWNTGdinPGjvgBWse7SqMt3ZW7qlKBXB4a5bJsxkKSMjAs4i2Ykx2cJSi/r6zhiCw==",
+      "type": "package",
+      "path": "quartz.extensions.dependencyinjection/3.13.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Quartz.Extensions.DependencyInjection.dll",
+        "lib/net6.0/Quartz.Extensions.DependencyInjection.xml",
+        "lib/net8.0/Quartz.Extensions.DependencyInjection.dll",
+        "lib/net8.0/Quartz.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Quartz.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Quartz.Extensions.DependencyInjection.xml",
+        "microsoft-di-integration.md",
+        "quartz-logo-small.png",
+        "quartz.extensions.dependencyinjection.3.13.1.nupkg.sha512",
+        "quartz.extensions.dependencyinjection.nuspec"
+      ]
+    },
+    "Quartz.Extensions.Hosting/3.13.1": {
+      "sha512": "pwGofFs0VoIwq8JFXBEeEKFrA/6wJDFekLzQA5oev7+Ow0+lqBlZlzBpPd10hkgVAItL+uZ2SEjP8Ual3QZTww==",
+      "type": "package",
+      "path": "quartz.extensions.hosting/3.13.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "hosted-services-integration.md",
+        "lib/net6.0/Quartz.Extensions.Hosting.dll",
+        "lib/net6.0/Quartz.Extensions.Hosting.xml",
+        "lib/net8.0/Quartz.Extensions.Hosting.dll",
+        "lib/net8.0/Quartz.Extensions.Hosting.xml",
+        "lib/netstandard2.0/Quartz.Extensions.Hosting.dll",
+        "lib/netstandard2.0/Quartz.Extensions.Hosting.xml",
+        "quartz-logo-small.png",
+        "quartz.extensions.hosting.3.13.1.nupkg.sha512",
+        "quartz.extensions.hosting.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/6.6.2": {
@@ -5389,16 +5478,6 @@
       "type": "project",
       "path": "../Infrasrtucture/Infrasrtucture.csproj",
       "msbuildProject": "../Infrasrtucture/Infrasrtucture.csproj"
-    },
-    "LibaryModalDialogPages/1.0.0": {
-      "type": "project",
-      "path": "../LibaryModalDialogPages/LibaryModalDialogPages.csproj",
-      "msbuildProject": "../LibaryModalDialogPages/LibaryModalDialogPages.csproj"
-    },
-    "Shared/1.0.0": {
-      "type": "project",
-      "path": "../Shared/Shared.csproj",
-      "msbuildProject": "../Shared/Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5407,7 +5486,6 @@
       "AutoMapper >= 13.0.1",
       "Entities >= 1.0.0",
       "Infrasrtucture >= 1.0.0",
-      "LibaryModalDialogPages >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.0",
@@ -5426,7 +5504,7 @@
       "projectName": "BlazorTemplateAPI",
       "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\BlazorTemplateAPI.csproj",
       "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\BlazorTemplate\\obj\\",
+      "outputPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\BlazorTemplate\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5455,9 +5533,6 @@
             },
             "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj": {
               "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Infrasrtucture\\Infrasrtucture.csproj"
-            },
-            "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj": {
-              "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\LibaryModalDialogPages\\LibaryModalDialogPages.csproj"
             }
           }
         }

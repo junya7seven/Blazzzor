@@ -183,32 +183,41 @@
         "tags": [
           "User"
         ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserDTO"
-                  }
+                  "$ref": "#/components/schemas/UserDTOPagginationModel"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserDTO"
-                  }
+                  "$ref": "#/components/schemas/UserDTOPagginationModel"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserDTO"
-                  }
+                  "$ref": "#/components/schemas/UserDTOPagginationModel"
                 }
               }
             }
@@ -275,6 +284,63 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/User/byroles": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "roles",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTOPagginationModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTOPagginationModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTOPagginationModel"
                 }
               }
             }
@@ -368,7 +434,7 @@
       }
     },
     "/User/Update/{userId}": {
-      "put": {
+      "post": {
         "tags": [
           "User"
         ],
@@ -387,17 +453,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUser"
+                "$ref": "#/components/schemas/UserDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUser"
+                "$ref": "#/components/schemas/UserDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUser"
+                "$ref": "#/components/schemas/UserDTO"
               }
             }
           }
@@ -429,7 +495,7 @@
         }
       }
     },
-    "/User/Block/{userId}/{duration}": {
+    "/User/block": {
       "post": {
         "tags": [
           "User"
@@ -437,8 +503,7 @@
         "parameters": [
           {
             "name": "userId",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -446,95 +511,21 @@
           },
           {
             "name": "duration",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
+              "type": "string",
+              "format": "date-time"
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
+          "200": {
+            "description": "OK"
           }
         }
       }
     },
-    "/User/Block/{email}/{duration}": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "duration",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/User/UnBlock/{userId}": {
+    "/User/unblock": {
       "post": {
         "tags": [
           "User"
@@ -542,8 +533,7 @@
         "parameters": [
           {
             "name": "userId",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -551,28 +541,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -590,7 +560,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Role"
+                    "$ref": "#/components/schemas/RoleDTO"
                   }
                 }
               },
@@ -598,7 +568,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Role"
+                    "$ref": "#/components/schemas/RoleDTO"
                   }
                 }
               },
@@ -606,7 +576,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Role"
+                    "$ref": "#/components/schemas/RoleDTO"
                   }
                 }
               }
@@ -637,188 +607,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/UserRole/{email}": {
-      "get": {
-        "tags": [
-          "UserRole"
-        ],
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/UserRole/Users/{roleName}": {
-      "get": {
-        "tags": [
-          "UserRole"
-        ],
-        "parameters": [
-          {
-            "name": "roleName",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/UserRole/Users/{userId}/{roleName}": {
-      "post": {
-        "tags": [
-          "UserRole"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "roleName",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/UserRole/Users/{email}/{roleName}": {
-      "post": {
-        "tags": [
-          "UserRole"
-        ],
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "roleName",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request",
             "content": {
               "text/plain": {
                 "schema": {
@@ -887,99 +675,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/UserRole/Users/Revoke/{userId}/{roleName}": {
-      "post": {
-        "tags": [
-          "UserRole"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "roleName",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/UserRole/{roleName}": {
-      "post": {
-        "tags": [
-          "UserRole"
-        ],
-        "parameters": [
-          {
-            "name": "roleName",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
           }
         }
       }
@@ -1134,37 +829,15 @@
         },
         "additionalProperties": false
       },
-      "UpdateUser": {
+      "RoleDTO": {
         "type": "object",
         "properties": {
-          "userName": {
-            "maxLength": 64,
-            "minLength": 6,
-            "pattern": "^[a-zA-Zа-яА-Я0-9]+$",
+          "name": {
             "type": "string",
-            "default": "Bobster777",
             "nullable": true
           },
-          "firstName": {
-            "maxLength": 64,
-            "minLength": 6,
-            "pattern": "^[a-zA-Zа-яА-Я]+$",
+          "normalName": {
             "type": "string",
-            "default": "Аркадий",
-            "nullable": true
-          },
-          "lastName": {
-            "maxLength": 64,
-            "minLength": 6,
-            "pattern": "^[a-zA-Zа-яА-Я]+$",
-            "type": "string",
-            "default": "Паровозов",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "default": "Arkady2007@gmail.com",
             "nullable": true
           }
         },
@@ -1248,11 +921,12 @@
             "type": "string",
             "nullable": true
           },
-          "email": {
+          "fullName": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "readOnly": true
           },
-          "password": {
+          "email": {
             "type": "string",
             "nullable": true
           },
@@ -1277,6 +951,23 @@
               "$ref": "#/components/schemas/Role"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDTOPagginationModel": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserDTO"
+            },
+            "nullable": true
+          },
+          "latPage": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

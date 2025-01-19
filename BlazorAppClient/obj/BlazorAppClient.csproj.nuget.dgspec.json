@@ -236,7 +236,7 @@
         "projectName": "Shared",
         "projectPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\junya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\junya\\Source\\Repos\\Blazzzor\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\junya\\source\\repos\\Blazzzor\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

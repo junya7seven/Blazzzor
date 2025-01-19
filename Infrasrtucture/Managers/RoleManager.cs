@@ -12,11 +12,9 @@ namespace Infrasrtucture.Managers
 {
     public class RoleManager<TUser> : IRoleManager<TUser> where TUser : User
     {
-        private readonly UserManager<TUser> _UserManager;
         private readonly ApplicationDbContext<TUser> _context;
-        public RoleManager(UserManager<TUser> userManager, ApplicationDbContext<TUser> context)
+        public RoleManager(ApplicationDbContext<TUser> context)
         {
-            _UserManager = userManager;
             _context = context;
         }
 
@@ -30,7 +28,7 @@ namespace Infrasrtucture.Managers
             var existRole = await _context.Roles.AnyAsync(r => r.NormalName == roleName.ToLower());
             if (existRole)
             {
-                return 0;
+                throw new ArgumentException($"{roleName} - уже существует");
             }
             var role = new Role
             {
@@ -53,52 +51,11 @@ namespace Infrasrtucture.Managers
                 .ToListAsync();
             return roles;
         }
-        public async Task<List<string>> GetUserRolesByEmailAsync(string Email)
-        {
-            var existUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == Email);
-            if (existUser == null)
-            {
-                throw new KeyNotFoundException($"Такой пользователь не существует");
-            }
-            var roles = await _context.UserRoles
-               .Where(ur => ur.UserId == existUser.UserId)
-               .Select(ur => ur.Role.NormalName)
-               .ToListAsync();
-            return roles;
-        }
-        public async Task<IEnumerable<TUser>> GetUsersByRoleAsync(string role)
-        {
-            var existRole = await _context.Roles.AnyAsync(r => r.NormalName == role.ToLower());
-            if (!existRole)
-            {
-                throw new KeyNotFoundException($"Такой роли не существует");
-            }
-
-            var roleId = await _context.Roles
-                .Where(r => r.NormalName == role.ToLower())
-                .Select(r => r.Id)
-                .FirstOrDefaultAsync();
-
-            var users = await _context.UserRoles
-                .Where(ur => ur.RoleId == roleId)
-                .Select(ur => ur.User) 
-                .ToListAsync();
-
-            return users.Cast<TUser>(); 
-        }
 
 
-        /// <summary>
-        /// Назначение роли пользователю. Если роль не существует, она создастся. Если не будет найден пользователь по его userId выбросится исключение
-        /// ArgumentException. При успешном добавлении роли пользователю вернется - 1, в ином случае - 0
-        /// </summary>
-        /// <param name="userId">id пользователя</param>
-        /// <param name="roleName">название роли</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
+
         public async Task<int> AssignRoleByIdAsync(Guid userId, string roleName)
         {
-            // Находим пользователя по идентификатору
             var existUser = await _context.Users.FindAsync(userId);
             if (existUser == null)
             {

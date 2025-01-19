@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "Application.Models.LoginModel",
+        "Type": "Application.Models.AuthModels.LoginModel",
         "IsRequired": true
       }
     ],
@@ -90,7 +90,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "Application.Models.RegistrationModel",
+        "Type": "Application.Models.AuthModels.RegistrationModel",
         "IsRequired": true
       }
     ],
@@ -123,10 +123,21 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "offset",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BlazorTemplateAPI.Models.DTO.UserDTO, BlazorTemplateAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "BlazorTemplateAPI.Models.PagginationModel\u00601[[Application.Models.DTO.UserDTO, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -146,7 +157,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "Application.Models.RegistrationModel",
+        "Type": "Application.Models.AuthModels.RegistrationModel",
         "IsRequired": true
       }
     ],
@@ -235,44 +246,8 @@
   },
   {
     "ContainingType": "BlazorTemplate.Controllers.UserController",
-    "Method": "DeleteUserByEmail",
-    "RelativePath": "User/Block/{email}/{duration}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "duration",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ]
-  },
-  {
-    "ContainingType": "BlazorTemplate.Controllers.UserController",
-    "Method": "DeleteUserById",
-    "RelativePath": "User/Block/{userId}/{duration}",
+    "Method": "BlockUser",
+    "RelativePath": "User/block",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -280,35 +255,56 @@
       {
         "Name": "userId",
         "Type": "System.Guid",
-        "IsRequired": true
+        "IsRequired": false
       },
       {
         "Name": "duration",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BlazorTemplate.Controllers.UserController",
+    "Method": "Get",
+    "RelativePath": "User/byroles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
+      },
+      {
+        "Name": "offset",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "roles",
+        "Type": "System.String[]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "Type": "BlazorTemplateAPI.Models.PagginationModel\u00601[[Application.Models.DTO.UserDTO, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
-        "StatusCode": 400
+        "StatusCode": 200
       }
     ]
   },
   {
     "ContainingType": "BlazorTemplate.Controllers.UserController",
-    "Method": "UnblockUserById",
-    "RelativePath": "User/UnBlock/{userId}",
+    "Method": "UnblockUser",
+    "RelativePath": "User/unblock",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -316,31 +312,16 @@
       {
         "Name": "userId",
         "Type": "System.Guid",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BlazorTemplate.Controllers.UserController",
     "Method": "UpdateUser",
     "RelativePath": "User/Update/{userId}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -351,7 +332,7 @@
       },
       {
         "Name": "updateUser",
-        "Type": "Application.Models.UpdateUser",
+        "Type": "Application.Models.DTO.UserDTO",
         "IsRequired": true
       }
     ],
@@ -382,75 +363,13 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Entities.Models.Role, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Application.Models.DTO.RoleDTO, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BlazorTemplate.Controllers.UserRoleController",
-    "Method": "Get",
-    "RelativePath": "UserRole/{email}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "BlazorTemplate.Controllers.UserRoleController",
-    "Method": "CreateRole",
-    "RelativePath": "UserRole/{roleName}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roleName",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
       }
     ]
   },
@@ -505,139 +424,5 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BlazorTemplate.Controllers.UserRoleController",
-    "Method": "AssignRoleByEmail",
-    "RelativePath": "UserRole/Users/{email}/{roleName}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "roleName",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ]
-  },
-  {
-    "ContainingType": "BlazorTemplate.Controllers.UserRoleController",
-    "Method": "GetUsersByRole",
-    "RelativePath": "UserRole/Users/{roleName}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roleName",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Entities.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BlazorTemplate.Controllers.UserRoleController",
-    "Method": "AssignRoleById",
-    "RelativePath": "UserRole/Users/{userId}/{roleName}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "roleName",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ]
-  },
-  {
-    "ContainingType": "BlazorTemplate.Controllers.UserRoleController",
-    "Method": "RevokeRole",
-    "RelativePath": "UserRole/Users/Revoke/{userId}/{roleName}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "roleName",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ]
   }
 ]

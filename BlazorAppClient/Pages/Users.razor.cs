@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using static MudBlazor.CategoryTypes;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using Shareds;
 
 
 namespace BlazorAppClient.Pages
@@ -24,12 +25,94 @@ namespace BlazorAppClient.Pages
 
         private Dictionary<string, string> columnHeaders = new();
         private Dictionary<string, bool> sortDirections = new();
+        private int totalItems;
+
+
+        private List<Role> Roles { get; set; }
+        private string _stringValue;
+        private string stringValue
+        {
+            get => _stringValue;
+            set
+            {
+                _stringValue = value == "Убрать роли" ? null : value;
+                _ = table?.ReloadServerData(); 
+            }
+        }
+
+
+        private MudTable<UserDTO> table;
+
+        private async Task GetRoles()
+        {
+            try
+            {
+                var response = await httpClient.GetAsync("userrole");
+
+                var roles = await response.Content.ReadFromJsonAsync<List<Role>>();
+                Roles = roles.ToList() ?? new List<Role>();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+
+        private async Task GetUsersByRole(int currentPage, int pageSize)
+        {
+            try
+            {
+                var response = await httpClient.GetAsync($"userrole/getusersbyrole?page={currentPage}&offset={pageSize}&roles={stringValue}");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private async Task OnRoleChanged(string selectedRole)
+        {
+            stringValue = selectedRole == "Убрать роли" ? null : selectedRole;
+            await table.ReloadServerData();
+        }
+
+        private async Task<TableData<UserDTO>> LoadServerData(TableState state, CancellationToken cancellationToken)
+        {
+            isLoading = true;
+
+            try
+            {
+                int currentPage = state.Page + 1;
+                int pageSize = state.PageSize;
+
+                string url = stringValue == null
+                    ? $"user?page={currentPage}&offset={pageSize}"
+                    : $"userrole/getusersbyrole?page={currentPage}&offset={pageSize}&roles={stringValue}";
+
+                var response = await httpClient.GetFromJsonAsync<PagginationModel<UserDTO>>(url, cancellationToken);
+                users = response.Items.ToList();
+                totalItems = response.LatPage * pageSize;
+
+                return new TableData<UserDTO>
+                {
+                    Items = users,
+                    TotalItems = totalItems
+                };
+            }
+            finally
+            {
+                isLoading = false;
+            }
+        }
+
 
         protected override async Task OnInitializedAsync()
         {
             isLoading = true;
             GetUserProperties();
-            await GetUserData();
+            await GetRoles();
             isLoading = false;
         }
 
@@ -56,7 +139,7 @@ namespace BlazorAppClient.Pages
         {
             try
             {
-                var response = await httpClient.GetAsync("user");
+                var response = await httpClient.GetAsync($"user?page={1}&offset={10}");
                 if (!response.IsSuccessStatusCode)
                 {
                     isError = true;

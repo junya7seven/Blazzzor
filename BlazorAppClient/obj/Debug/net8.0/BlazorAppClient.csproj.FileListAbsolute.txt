@@ -2085,8 +2085,6 @@ C:\Users\junya\Source\Repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\BlazorAppC
 C:\Users\junya\Source\Repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\refint\BlazorAppClient.dll
 C:\Users\junya\Source\Repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\BlazorAppClient.pdb
 C:\Users\junya\Source\Repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\ref\BlazorAppClient.dll
-C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\a2i7a8qj52-iizaiibs4f.gz
-C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\c5r3gbczxo-4wmj4rky1m.gz
 C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\uuqrwvzytj-fgi1l05bvr.gz
 C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\o3sq0nvjze-4tebkgrdgm.gz
 C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\o48jmc7d6r-z5tte9hbl9.gz
@@ -2254,8 +2252,10 @@ C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed
 C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\jyts0p2j4g-twlt8rxgl3.gz
 C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\9eh8ddjbgk-mq4q4k2a4q.gz
 C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\ccep5k88px-rcys532pwr.gz
-C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\h9tpra319l-vplzu5j42i.gz
-C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\u3ckqx3pjz-d12nc16fkm.gz
-C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\tvxv9jqhk7-jnjfp319c9.gz
-C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\vviso6ufq2-0cn5uo20nv.gz
-C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\3netbqkmci-kpdn03td8w.gz
+C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\h9tpra319l-suita61x0z.gz
+C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\a2i7a8qj52-6zwl5uj5zd.gz
+C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\u3ckqx3pjz-ace08hpasb.gz
+C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\c5r3gbczxo-29uqd13myo.gz
+C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\tvxv9jqhk7-8o6d6pxnlt.gz
+C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\vviso6ufq2-nnx6uw0flq.gz
+C:\Users\junya\source\repos\Blazzzor\BlazorAppClient\obj\Debug\net8.0\compressed\3netbqkmci-kyckxkg83b.gz
