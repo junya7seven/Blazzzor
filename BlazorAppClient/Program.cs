@@ -17,7 +17,8 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddMudServices();
-
+builder.Services.AddScoped(sp => 
+new HttpClient { BaseAddress = new Uri("https://localhost:7063") });
 builder.Services.AddScoped(sp =>
 {
     var handler = new HttpClientHandler
