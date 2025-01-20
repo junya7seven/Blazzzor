@@ -1,5 +1,6 @@
 @inject ISnackbar Snackbar
 @inject HttpClient httpClient
+@inject IDialogService DialogService
 
 <MudDialog>
     <TitleContent>
@@ -9,8 +10,7 @@
         </MudText>
     </TitleContent>
     <DialogContent>
-        <MudTextField @bind-Value="Days" Label="Дни" ReadOnly="@Default" />
-        <MudTextField @bind-Value="Hours" Label="Часы" ReadOnly="@Default" />
+        <MudDatePicker Label="Flexible Date" Editable="true" Date="duration" ImmediateText="true" Placeholder="day.month.year" DateFormat="@_dateFormat" TextChanged="DatePickerTextChanged" HelperText="@_bound" Clearable="true" />
         <MudCheckBox @bind-Value="Default" Color="Color.Secondary">Блокировать навсегда</MudCheckBox>
     </DialogContent>
     <DialogActions>
@@ -27,9 +27,12 @@
     [Parameter]
     public UserDTO User { get; set; } = new UserDTO();
 
+    private DateTime? duration = DateTime.Now;
+    private string _dateFormat = "dd.MM.yyyy";
+    private string _bound = "not set";
+
+
     public bool Default { get; set; } = false;
-    public int Hours { get; set; } = 0;
-    public int Days { get; set; } = 7;
     private ErrorResponse errorResponse;
 
     private void Cancel() => MudDialog.Cancel();
@@ -38,13 +41,15 @@
     {
         try
         {
-            int time = 0;
-            if (!Default)
+            if (duration <= DateTime.Now && Default == false)
             {
-                time = Days * 24 + Hours;
+                Snackbar.Add($"Ошибка при блокировке пользователя: дата не может быть прошлым.", Severity.Error);
+                MudDialog.Close(DialogResult.Ok(User));
+                return;
             }
 
-            var response = await httpClient.PostAsync($"User/Block/{User.UserId}/{time}", null);
+
+            var response = await httpClient.PostAsync($"User/block/{User.UserId}/{duration.Value.ToString("yyyy-MM-ddTHH:mm:ss")}", null);
             if (response.IsSuccessStatusCode)
             {
                 Snackbar.Add("Пользователь заблокирован", Severity.Success);
@@ -52,7 +57,6 @@
             }
             else
             {
-                errorResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
                 Snackbar.Add($"Ошибка при блокировке пользователя: {errorResponse.ErrorMessage}", Severity.Error);
                 MudDialog.Close(DialogResult.Ok(User));
             }
@@ -70,7 +74,7 @@
     {
         try
         {
-            var response = await httpClient.PostAsync($"User/UnBlock/{User.UserId}", null);
+            var response = await httpClient.PostAsync($"User/unblock/{User.UserId}", null);
             if (response.IsSuccessStatusCode)
             {
                 Snackbar.Add("Пользователь разблокирован", Severity.Success);
@@ -92,13 +96,32 @@
             Snackbar.Add($"Произошла ошибка: {ex.Message}", Severity.Error);
         }
     }
-    private void HandleDefaultChange(bool value)
+    private void DatePickerTextChanged(string value)
     {
-        Default = value;
-        if (Default)
+        if (value == null || value.Length < 6)
         {
-            Days = 0;
-            Hours = 0;
+            duration = null;
+        }
+        else
+        {
+            string[] formats = { "ddMMyy", "dd.MM.yyyy", "dd.M.yyyy", "d.MM.yyyy", "d.M.yyyy", "dd.MM.yy", "dd.M.yy", "d.MM.yy", "d.M.yy" };
+            if (DateTime.TryParseExact(value, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime validDate))
+            {
+                duration = validDate;
+            }
+            else
+            {
+                duration = null;
+            }
+        }
+
+        if (duration.HasValue)
+        {
+            _bound = duration.Value.ToString(_dateFormat);
+        }
+        else
+        {
+            _bound = "not set";
         }
     }
 }

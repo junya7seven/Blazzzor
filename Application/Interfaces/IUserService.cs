@@ -54,7 +54,7 @@ namespace Application.Interfaces
         /// <param name="userId">Идентификатор пользователя.</param>
         /// <param name="user">Данные пользователя для создания.</param>
         /// <returns>Обновленный пользователь в виде DTO.</returns>
-        Task<UserDTO> UpdateUserAsync(Guid userId, UserDTO user);
+        Task<UserDTO> UpdateUserAsync(Guid userId, UpdateUserDTO user);
 
         /// <summary>
         /// Создать несколько пользователей.

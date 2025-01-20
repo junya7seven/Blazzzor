@@ -68,10 +68,8 @@ namespace Infrasrtucture
         {
             services.AddScoped<IUserManager<TUser>, UserManager<TUser>>();
 
-            // Регистрация RoleManager, который зависит от UserManager
             services.AddScoped<IRoleManager<TUser>, RoleManager<TUser>>();
 
-            // Другие сервисы, которые зависят от UserManager или RoleManager
             services.AddScoped<IRefreshTokenManager, RefreshTokenManager<TUser>>();
 
             services.AddScoped<IUserRoleService, UserRoleService>();
@@ -106,10 +104,6 @@ namespace Infrasrtucture
             {
                 o.WaitForJobsToComplete = true;
             });*/
-
-
-
-
             return services;
         }
 

@@ -23,29 +23,43 @@
     private MudDialogInstance MudDialog { get; set; }
 
     public string RoleName { get; set; }
+    private ErrorResponse errorResponse;
+
 
     private void Cancel() => MudDialog.Cancel();
 
     private async Task AddRole()
     {
-        if (!string.IsNullOrEmpty(RoleName) && !new RegularExpressionAttribute(@"^[a-zA-Zа-яА-Я0-9]+$").IsValid(RoleName))
+        try
         {
-            Snackbar.Add($"Роль должна содержать только a-zA-Zа-яА-Я0-9 ", Severity.Error);
-            MudDialog.Close(DialogResult.Ok(RoleName));
-            return;
-        }
-        var response = await httpClient.PostAsync($"UserRole/{RoleName}", null);
+            if (!string.IsNullOrEmpty(RoleName) && !new RegularExpressionAttribute(@"^[a-zA-Zа-яА-Я0-9]+$").IsValid(RoleName))
+            {
+                Snackbar.Add($"Роль должна содержать только a-zA-Zа-яА-Я0-9 ", Severity.Error);
+                MudDialog.Close(DialogResult.Ok(RoleName));
+                return;
+            }
+            var response = await httpClient.PostAsync($"UserRole/{RoleName}", null);
 
-        if (response.IsSuccessStatusCode)
-        {
-            Snackbar.Add("Роль успешно добавлена!", Severity.Success);
-            MudDialog.Close(DialogResult.Ok(RoleName));
+            if (response.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Роль успешно добавлена!", Severity.Success);
+                StateHasChanged();
+                MudDialog.Close(DialogResult.Ok(RoleName));
+            }
+            else
+            {
+                errorResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+                Snackbar.Add($"Ошибка создания роли: {errorResponse.ErrorMessage}", Severity.Error);
+                MudDialog.Close(DialogResult.Ok(RoleName));
+            }
         }
-        else
+        catch (HttpRequestException ex)
         {
-            var error = await response.Content.ReadAsStringAsync();
-            Snackbar.Add(error, Severity.Error);
-            MudDialog.Close();
+            Snackbar.Add($"Ошибка сети: {ex.Message}", Severity.Error);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Произошла ошибка: {ex.Message}", Severity.Error);
         }
     }
 }

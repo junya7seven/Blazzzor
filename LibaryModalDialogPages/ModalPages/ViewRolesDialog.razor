@@ -50,7 +50,7 @@
     private void Cancel() => MudDialog.Cancel();
     private async Task Accept()
     {
-        var response = await httpClient.PostAsJsonAsync($"UserRole/AddRange/{User.UserId}", roles);
+        var response = await httpClient.PostAsJsonAsync($"UserRole/updateroles/{User.UserId}", roles);
         if (response.IsSuccessStatusCode)
         {
             Snackbar.Add("Роли изменены!", Severity.Success);

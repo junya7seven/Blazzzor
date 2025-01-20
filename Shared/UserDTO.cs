@@ -12,6 +12,9 @@ namespace Shared
         public string FirstName { get; set; }
         [Display(Name = "Фамилия")]
         public string LastName { get; set; }
+        [Display(Name = "Полное имя")]
+        public string FullName { get; set; }
+
         [Display(Name = "Почта")]
         public string Email { get; set; }
         [Display(Name = "Дата регистрации")]
@@ -24,5 +27,4 @@ namespace Shared
         public DateTime BlockedUntil { get; set; }
         public List<Role> Roles { get; set; } = new List<Role>();
     }
-    
 }

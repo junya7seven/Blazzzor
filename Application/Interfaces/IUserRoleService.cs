@@ -24,8 +24,8 @@ namespace Application.Interfaces
         /// Создать роль.
         /// </summary>
         /// <param name="roleName">Название роли.</param>
-        /// <returns>1 или 0</returns>
-        Task<int> CreateRoleAsync(string roleName);
+        /// <returns>true или false</returns>
+        Task<bool> CreateRoleAsync(string roleName);
         /// <summary>
         /// Назначить или отозвать роль пользователя по идентификатору.
         /// </summary>

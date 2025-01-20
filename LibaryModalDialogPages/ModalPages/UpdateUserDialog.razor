@@ -95,7 +95,7 @@
     {
         try
         {
-            var response = await httpClient.PutAsJsonAsync($"User/Update/{UserId}", updateUser);
+            var response = await httpClient.PostAsJsonAsync($"User/Update/{UserId}", updateUser);
 
             if (response.IsSuccessStatusCode)
             {

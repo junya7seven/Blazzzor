@@ -27,13 +27,13 @@ namespace BlazorTemplate.Controllers
 
         // GET /users
         [HttpGet]
-        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(int page, int offset)
+        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(int page, int pageSize)
         {
-            if (page <= 0 || offset <= 0)
+            if (page <= 0 || pageSize <= 0)
             {
-                return BadRequest("Ñòðàíèöà èëè ðàçìåð ñòðàíèöû íå ìîæåò áûòü îòðèöàòåëüíà èëè ðàâíî íóëþ");
+                return BadRequest("Страница или размер страницы не может быть отрицательной или равна нулю");
             }
-            var (users, totalPage) = await _userService.GetAllUsersAsync(page, offset);
+            var (users, totalPage) = await _userService.GetAllUsersAsync(page, pageSize);
 
             var result = new PagginatedModel<UserDTO>
             {
@@ -44,9 +44,9 @@ namespace BlazorTemplate.Controllers
         }
         // GET /user/byroles
         [HttpGet("byroles")]
-        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(int page, int offset, [FromQuery] string[] roles)
+        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(int page, int pageSize, [FromQuery] string[] roles)
         {
-            if (page <= 0 || offset <= 0)
+            if (page <= 0 || pageSize <= 0)
             {
                 return BadRequest("Страница или размер страницы не может быть отрицательной или равна нулю");
             }
@@ -54,7 +54,7 @@ namespace BlazorTemplate.Controllers
             {
                 return BadRequest("Список ролей пуст, используйте другой запрос.");
             }
-            var (users, totalPage) = await _userService.GetUsersByAllRolesAsync(page, offset, roles);
+            var (users, totalPage) = await _userService.GetUsersByAllRolesAsync(page, pageSize, roles);
 
             var result = new PagginatedModel<UserDTO>
             {
@@ -113,36 +113,28 @@ namespace BlazorTemplate.Controllers
         [HttpPost("Update/{userId}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> UpdateUser(Guid userId, [FromBody] UserDTO updateUser)
+        public async Task<IActionResult> UpdateUser(Guid userId, [FromBody] UpdateUserDTO updateUser)
         {
 
             var result = await _userService.UpdateUserAsync(userId, updateUser);
             if (result == null)
             {
-                return BadRequest();
+                throw new ArgumentNullException("Пользователь для обновления не может быть пуст.");
             }
             return NoContent();
         }
-        [HttpPost("block")]
+        [HttpPost("block/{userId:guid}/{duration:datetime}")]
         public async Task<IActionResult> BlockUser(Guid userId, DateTime duration)
         {
-
             await _userService.BlockUserAsync(userId, duration);
             return Ok();
         }
 
-        [HttpPost("unblock")]
+        [HttpPost("unblock/{userId:guid}")]
         public async Task<IActionResult> UnblockUser(Guid userId)
         {
-            try
-            {
-                await _userService.UnblockUserAsync(userId);
-                return Ok($"User {userId} unblocked successfully.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error unblocking user: {ex.Message}");
-            }
+            await _userService.UnblockUserAsync(userId);
+            return Ok();
         }
     }
 }

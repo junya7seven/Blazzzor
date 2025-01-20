@@ -6,6 +6,7 @@ using static MudBlazor.CategoryTypes;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using LibaryModalDialogPages.ModalPages;
+using System.Runtime.CompilerServices;
 
 
 namespace BlazorAppClient.Pages
@@ -36,8 +37,6 @@ namespace BlazorAppClient.Pages
             GetUserProperties();
             isLoading = false;
         }
-
-       
 
         private async Task<TableData<UserDTO>> LoadServerData(TableState state, CancellationToken cancellationToken)
         {
@@ -154,12 +153,12 @@ namespace BlazorAppClient.Pages
 
             var dialog = await DialogService.ShowAsync<UpdateUserDialog>("Пользователь", parameters);
             var result = await dialog.Result;
+            await ReloadPage();
 
             if (!result.Canceled)
             {
                 Guid.TryParse(result.Data.ToString(), out Guid deletedServer);
             }
-            await ReloadPage();
         }
 
         private async Task SortTableByColumn(string column)

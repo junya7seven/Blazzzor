@@ -30,9 +30,9 @@ namespace Application.Service
             return _mapper.Map<IEnumerable<RoleDTO>>(roles);
         }
 
-        public async Task<int> CreateRoleAsync(string roleName)
+        public async Task<bool> CreateRoleAsync(string roleName)
         {
-            return await _roleManager.CreateRoleAsync(roleName);
+            return await _roleManager.CreateRoleAsync(roleName) > 0;
         }
 
         public async Task<List<string>> GetUserRolesByIdAsync(Guid userId)

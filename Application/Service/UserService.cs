@@ -67,7 +67,7 @@ namespace Application.Service
             return _mapper.Map<UserDTO>(createdUser);
         }
 
-        public async Task<UserDTO> UpdateUserAsync(Guid userId, UserDTO userDto)
+        public async Task<UserDTO> UpdateUserAsync(Guid userId, UpdateUserDTO userDto)
         {
             var existingUser = await _userManager.GetUserByIdAsync(userId);
             if (existingUser == null)

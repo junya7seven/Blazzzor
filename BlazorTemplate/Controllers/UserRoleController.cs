@@ -45,10 +45,20 @@ namespace BlazorTemplate.Controllers
         }
 
 
-        [HttpPost("AddRange/{userId:guid}")]
+        [HttpPost("updateroles/{userId:guid}")]
         public async Task<IActionResult> AssygnRoleRange(Guid userId, [FromBody] Dictionary<string, bool> roles)
         {
             var result = await _userRoleService.AssingRangeRolesAsync(userId, roles);
+            if (result)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [HttpPost("{roleName}")]
+        public async Task<IActionResult> CreateRole(string roleName)
+        {
+            var result = await _userRoleService.CreateRoleAsync(roleName);
             if (result)
             {
                 return Ok();
