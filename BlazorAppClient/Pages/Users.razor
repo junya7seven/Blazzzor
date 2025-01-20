@@ -5,7 +5,6 @@
 @inject IDialogService DialogService
 @inject ISnackbar Snackbar
 @inject IMapper Mapper
-@attribute [Authorize(Policy = "RequireAdminRole")]
 <PageTitle>Пользователи</PageTitle>
 
 
@@ -16,24 +15,24 @@
 }
 <MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="AddNewUserAsync">Добавить пользователя</MudButton>
 <MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="AddNewRoleAsync">Добавить новую роль</MudButton>
-
-
-
-
-
-
-
-<MudSelect @bind-Value="stringValue" Label="Select Role" HelperText="Filter by Role" Placeholder="Please Select" AdornmentIcon="@Icons.Material.Filled.Fastfood" AdornmentColor="Color.Primary">
-    <MudSelectItem Value="@("Убрать роли")">Убрать роли</MudSelectItem>
-
-    @if(Roles != null)
-    {
-        @foreach (var role in Roles)
+<MudStack Direction="Row" AlignItems="AlignItems.Center">
+    <!-- MudSelect -->
+    <MudSelect @bind-Value="stringValue" Label="Select Role" HelperText="Filter by Role" Placeholder="Please Select">
+        <MudSelectItem Value="@("Убрать роли")">Убрать роли</MudSelectItem>
+        @if (Roles != null && Roles.Any())
         {
-            <MudSelectItem Value="@role.NormalName">@role.NormalName</MudSelectItem>
+            @foreach (var role in Roles)
+            {
+                <MudSelectItem Value="@role.NormalName">@role.NormalName</MudSelectItem>
+            }
         }
-    }
-</MudSelect>
+    </MudSelect>
+
+    <MudTextField @bind-Value="searchQuery" Placeholder="Search by name or email" Immediate="true"
+                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                  OnKeyUp="SearchUsers" />
+</MudStack>
+
 
 <MudTable Items="@users" ServerData="LoadServerData" @ref="table">
     <HeaderContent>

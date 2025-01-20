@@ -199,6 +199,13 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "searchQuery",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -321,6 +328,13 @@
               "items": {
                 "type": "string"
               }
+            }
+          },
+          {
+            "name": "searchQuery",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],

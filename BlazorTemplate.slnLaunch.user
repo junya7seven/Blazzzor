@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "BlazorTemplate\\BlazorTemplateAPI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "BlazorAppClient\\BlazorAppClient.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

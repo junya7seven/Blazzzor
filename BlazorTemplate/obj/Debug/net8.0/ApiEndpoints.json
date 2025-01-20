@@ -133,6 +133,11 @@
         "Name": "offset",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "searchQuery",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -286,6 +291,11 @@
       {
         "Name": "roles",
         "Type": "System.String[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "searchQuery",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

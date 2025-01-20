@@ -28,13 +28,13 @@ namespace BlazorTemplate.Controllers
         // GET /user
         // ¬сегда возвращает список (может быть пустым)
         [HttpGet]
-        public async Task<ActionResult<PagginationModel<UserDTO>>> Get(int page, int offset)
+        public async Task<ActionResult<PagginationModel<UserDTO>>> Get(int page, int offset, string? searchQuery)
         {
             if (page <= 0 || offset <= 0)
             {
                 return BadRequest("—траница или размер страницы не может быть отрицательна или равно нулю");
             }
-            var (users, totalPage) = await _userService.GetAllUsersAsync(page, offset);
+            var (users, totalPage) = await _userService.GetAllUsersAsync(page, offset, searchQuery);
 
             var result = new PagginationModel<UserDTO>
             {
@@ -46,7 +46,7 @@ namespace BlazorTemplate.Controllers
         // GET /user/byroles
         // ¬сегда возвращает список (может быть пустым)
         [HttpGet("byroles")]
-        public async Task<ActionResult<PagginationModel<UserDTO>>> Get(int page, int offset, [FromQuery]string[] roles)
+        public async Task<ActionResult<PagginationModel<UserDTO>>> Get(int page, int offset, [FromQuery]string[] roles, string? searchQuery)
         {
             if (page <= 0 || offset <= 0)
             {
@@ -56,7 +56,7 @@ namespace BlazorTemplate.Controllers
             {
                 return BadRequest("—писок ролей не может быть пуст.");
             }
-            var (users, totalPage) = await _userService.GetUsersByAllRolesAsync(page, offset,roles);
+            var (users, totalPage) = await _userService.GetUsersByAllRolesAsync(page, offset,roles, searchQuery);
 
             var result = new PagginationModel<UserDTO>
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,17 +30,37 @@ namespace Application.Service
             _tokenManager = tokenManager;
         }
 
-        public async Task<(IEnumerable<UserDTO>, int)> GetAllUsersAsync(int page, int offset)
+        public async Task<(IEnumerable<UserDTO>, int)> GetAllUsersAsync(int page, int offset, string searchQuery)
         {
-            var (users, totalPages) = await _userManager.GetAllUsersAsync(page, offset);
+
+            Expression<Func<ApplicationUser, bool>> filter = null;
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                filter = user =>
+                    (user.FirstName.Contains(searchQuery) ||
+                     user.LastName.Contains(searchQuery)) ||
+                    user.Email.Contains(searchQuery);
+            }
+
+            var (users, totalPages) = await _userManager.GetAllUsersAsync(page, offset, filter);
 
             return (_mapper.Map<IEnumerable<UserDTO>>(users),totalPages);
 
         }
 
-        public async Task<(IEnumerable<UserDTO>, int)> GetUsersByAllRolesAsync(int page, int offset, string[] roles)
+        public async Task<(IEnumerable<UserDTO>, int)> GetUsersByAllRolesAsync(int page, int offset, string[] roles, string searchQuery)
         {
-            var (users,totalPages) = await _userManager.GetUsersByAllRolesAsync(page, offset, roles);
+            Expression<Func<ApplicationUser, bool>> filter = null;
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                filter = user =>
+                    (user.FirstName.Contains(searchQuery) ||
+                     user.LastName.Contains(searchQuery)) ||
+                    user.Email.Contains(searchQuery);
+            }
+            var (users,totalPages) = await _userManager.GetUsersByAllRolesAsync(page, offset, roles, filter);
             return users == null ? (Enumerable.Empty<UserDTO>(),0) : (_mapper.Map<IEnumerable<UserDTO>>(users), totalPages);
         }
 

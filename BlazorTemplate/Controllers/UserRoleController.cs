@@ -13,7 +13,6 @@ namespace BlazorTemplate.Controllers
 
     [ApiController]
     [Route("[controller]")]
-    [Authorize(Roles = "admin")]
     public class UserRoleController : ControllerBase
     {
         private readonly IUserRoleService _userRoleService;

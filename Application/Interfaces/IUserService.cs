@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Models;
@@ -17,7 +18,7 @@ namespace Application.Interfaces
         /// <param name="page">Текущая страница.</param>
         /// <param name="offset">Количество пользователей на странице.</param>
         /// <returns>Список пользователей и общее количество страниц.</returns>
-        Task<(IEnumerable<UserDTO>, int)> GetAllUsersAsync(int page, int offset);
+        Task<(IEnumerable<UserDTO>, int)> GetAllUsersAsync(int page, int offset, string searchQuery);
 
         /// <summary>
         /// Получить список всех пользователь по указанным ролям с пагинацией.
@@ -26,7 +27,7 @@ namespace Application.Interfaces
         /// <param name="offset">Количество пользоваталей на странице.</param>
         /// <param name="roles">Список ролей</param>
         /// <returns>Список пользователей по указанным ролям и общее количество страниц.</returns>
-        Task<(IEnumerable<UserDTO>, int)> GetUsersByAllRolesAsync(int page, int offset, string[] roles);
+        Task<(IEnumerable<UserDTO>, int)> GetUsersByAllRolesAsync(int page, int offset, string[] roles, string searchQuery);
         /// <summary>
         /// Получить пользователя по идентификатору.
         /// </summary>

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,36 +21,54 @@ namespace Infrasrtucture.Managers
         }
 
 
-        public async Task<(IEnumerable<TUser>,int)> GetAllUsersAsync(int page, int offset)
+        public async Task<(IEnumerable<TUser>, int)> GetAllUsersAsync(int page, int offset, Expression<Func<TUser, bool>> filter = null)
         {
-            var lastPage = await _context.Users
-            .CountAsync() / offset;
-
-            var users = await _context.Users
-            .Include(u => u.UserRoles)
-            .ThenInclude(ur => ur.Role)
-            .Skip((page - 1) * offset)
-            .Take(offset)
-            .ToListAsync();
-            return (users ?? Enumerable.Empty<TUser>(),lastPage);
-        }
-
-        public async Task<(IEnumerable<TUser>, int)> GetUsersByAllRolesAsync(int page, int offset, string[] roles)
-        {
-            var query = _context.Users
+            IQueryable<TUser> query = _context.Users
                 .Include(u => u.UserRoles)
-                .ThenInclude(ur => ur.Role)
-                .Where(u => roles.All(r => u.UserRoles.Any(ur => ur.Role.NormalName == r.ToLower())));
+                .ThenInclude(ur => ur.Role);
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
 
             var totalUsers = await query.CountAsync();
+
+            var lastPage = (int)Math.Ceiling(totalUsers / (double)offset);
 
             var users = await query
                 .Skip((page - 1) * offset)
                 .Take(offset)
                 .ToListAsync();
 
-            return (users, totalUsers);
+            return (users, lastPage);
         }
+
+
+        public async Task<(IEnumerable<TUser>, int)> GetUsersByAllRolesAsync(int page, int offset, string[] roles, Expression<Func<TUser, bool>> filter = null)
+        {
+            IQueryable<TUser> query = _context.Users
+                .Include(u => u.UserRoles)
+                .ThenInclude(ur => ur.Role)
+                .Where(u => roles.All(r => u.UserRoles.Any(ur => ur.Role.NormalName == r.ToLower())));
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            var totalUsers = await query.CountAsync();
+
+            var lastPage = (int)Math.Ceiling(totalUsers / (double)offset);
+
+            var users = await query
+                .Skip((page - 1) * offset)
+                .Take(offset)
+                .ToListAsync();
+
+            return (users, lastPage);
+        }
+
 
         public async Task<TUser?> GetUserByIdAsync(Guid userId)
         {

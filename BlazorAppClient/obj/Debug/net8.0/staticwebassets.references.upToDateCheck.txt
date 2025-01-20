@@ -37,3 +37,12 @@ C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\sta
 C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\junya\source\repos\Blazzzor\LibaryModalDialogPages\obj\Debug\net8.0\staticwebassets.build.json
