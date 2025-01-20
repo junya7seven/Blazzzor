@@ -27,13 +27,26 @@ namespace Infrasrtucture.Data
                 entity.HasIndex(u => u.UserName)
                 .IsUnique();
 
+                entity.Property(u => u.NormalUserName)
+                .HasComputedColumnSql("LOWER([UserName])");
+
                 entity.Property(u => u.Email)
                 .IsRequired()
                 .HasMaxLength(128);
 
                 entity.HasIndex(u => u.Email)
                 .IsUnique();
+
+
+                entity.Property(u => u.NormalEmail)
+                .HasComputedColumnSql("LOWER([Email])");
+
+                entity.Property(u => u.CreatedAt)
+                .HasDefaultValueSql("GETDATE()");
+
             });
+
+
             modelBuilder.Entity<UserRole>()
             .HasKey(ur => new { ur.UserId, ur.RoleId });
 

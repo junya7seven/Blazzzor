@@ -29,5 +29,22 @@ namespace Infrasrtucture.Managers
             return await _context.SaveChangesAsync() > 0;
 
         }
+        public async Task RevokeAllRefreshTokens(Guid userId)
+        {
+            var existUser = await _context.Users.AnyAsync(u => u.UserId == userId);
+            if (!existUser)
+            {
+                throw new KeyNotFoundException($"Такой пользователь не найден ");
+            }
+            var refreshTokens = _context.RefreshTokens.Where(rt => !rt.IsRevoked);
+
+            foreach (var token in refreshTokens)
+            {
+                token.IsRevoked = true;
+            }
+
+            var updatedCount = await _context.SaveChangesAsync();
+
+        }
     }
 }

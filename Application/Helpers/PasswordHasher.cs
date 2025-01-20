@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrasrtucture.Helpers
+namespace Application.Helpers
 {
     public static class PasswordHasher
     {
@@ -15,12 +15,12 @@ namespace Infrasrtucture.Helpers
 
         public static string HashPassword(string password)
         {
-            if(string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(password))
             {
                 throw new ArgumentException("Неверный формат пароля");
             }
             var salt = GenerateSalt();
-            var hash = GenerateHash(password,salt);
+            var hash = GenerateHash(password, salt);
             return $"{Convert.ToBase64String(salt)}.{Convert.ToBase64String(hash)}";
         }
 
@@ -34,7 +34,7 @@ namespace Infrasrtucture.Helpers
 
         private static byte[] GenerateHash(string password, byte[] salt)
         {
-            using var bytes = new Rfc2898DeriveBytes(password,salt,Iterations,HashAlgorithmName.SHA256);
+            using var bytes = new Rfc2898DeriveBytes(password, salt, Iterations, HashAlgorithmName.SHA256);
             return bytes.GetBytes(KeySize);
         }
 

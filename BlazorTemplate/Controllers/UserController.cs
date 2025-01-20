@@ -1,11 +1,11 @@
+﻿using Application.Interfaces;
 using Application.Models;
+using Application.Models.AuthModels;
+using Application.Models.DTO;
 using AutoMapper;
-using BlazorTemplate.Models;
 using BlazorTemplateAPI.Models;
-using BlazorTemplateAPI.Models.DTO;
 using Entities.Interfaces;
 using Entities.Models;
-using Infrasrtucture.Managers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.CompilerServices;
@@ -16,85 +16,67 @@ namespace BlazorTemplate.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IUserService _userService;
         private readonly IMapper _mapper;
 
-        public UserController(UserManager<ApplicationUser> userManager, IMapper mapper)
+        public UserController(IUserService userService, IMapper mapper)
         {
-            _userManager = userManager;
+            _userService = userService;
             _mapper = mapper;
         }
 
-        // GET /user
-        // ������ ���������� ������ (����� ���� ������)
+        // GET /users
         [HttpGet]
-        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(int page, int pageSize)
+        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(int page, int offset)
         {
-
-            var (users, lastPage) = await _userManager.GetAllUsersAsync(page, pageSize);
-            var userDTO = new List<UserDTO>();
-            foreach (var item in users)
+            if (page <= 0 || offset <= 0)
             {
-
-                //var user = _mapper.Map<UserDTO>(item);
-
-                var user = new UserDTO
-                {
-                    UserId = item.UserId,
-                    UserName = item.UserName,
-                    Email = item.Email,
-                    LastName = item.LastName,
-                    FirstName = item.FirstName,
-                    Password = item.PasswordHash,
-                    CreatedAt = item.CreatedAt,
-                    LastUpdateAt = item.LastUpdateAt,
-                    isLocked = item.IsLocked,
-                    BlockedUntil = item.BlockedUntil,
-                    Roles = item.UserRoles.Select(ur => ur.Role).ToList()
-                };
-                userDTO.Add(user);
+                return BadRequest("Ñòðàíèöà èëè ðàçìåð ñòðàíèöû íå ìîæåò áûòü îòðèöàòåëüíà èëè ðàâíî íóëþ");
             }
+            var (users, totalPage) = await _userService.GetAllUsersAsync(page, offset);
 
-            var response = new PagginatedModel<UserDTO>
+            var result = new PagginatedModel<UserDTO>
             {
-                Items = userDTO,
-                LastPage = lastPage,
+                Items = users,
+                LastPage = totalPage
             };
-            return Ok(response);
+            return Ok(result);
         }
-        [HttpGet("role")]
-        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(string roles, int page, int pageSize)
+        // GET /user/byroles
+        [HttpGet("byroles")]
+        public async Task<ActionResult<PagginatedModel<UserDTO>>> Get(int page, int offset, [FromQuery] string[] roles)
         {
-
-            var rolesArray = roles.Split(',');
-
-            var (users, lastPage) = await _userManager.GetUsersByRole(page, pageSize, rolesArray);
-            var userDTO = new List<UserDTO>();
-            foreach (var item in users)
+            if (page <= 0 || offset <= 0)
             {
-                var user = new UserDTO
-                {
-                    UserId = item.UserId,
-                    UserName = item.UserName,
-                    Email = item.Email,
-                    LastName = item.LastName,
-                    FirstName = item.FirstName,
-                    Password = item.PasswordHash,
-                    CreatedAt = item.CreatedAt,
-                    LastUpdateAt = item.LastUpdateAt,
-                    isLocked = item.IsLocked,
-                    BlockedUntil = item.BlockedUntil,
-                    Roles = item.UserRoles.Select(ur => ur.Role).ToList()
-                };
-                userDTO.Add(user);
+                return BadRequest("Страница или размер страницы не может быть отрицательной или равна нулю");
             }
-
-            var response = new PagginatedModel<UserDTO>
+            if (!roles.Any())
             {
-                Items = userDTO,
-                LastPage = lastPage,
+                return BadRequest("Список ролей пуст, используйте другой запрос.");
+            }
+            var (users, totalPage) = await _userService.GetUsersByAllRolesAsync(page, offset, roles);
+
+            var result = new PagginatedModel<UserDTO>
+            {
+                Items = users,
+                LastPage = totalPage
             };
-            return Ok(response);
+            return Ok(result);
+        }
+        //GET: api/user/[id]
+        [HttpGet("{userId:Guid}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetUserById(Guid userId)
+        {
+            var user = await _userService.GetUserByIdAsync(userId);
+
+            if (user == null)
+            {
+                return NotFound("Пользователь не найден.");
+            }
+            return Ok(user);
+
         }
         // GET api/user/[email]
         [HttpGet("{email}")]
@@ -102,22 +84,13 @@ namespace BlazorTemplate.Controllers
         [ProducesResponseType(404)]
         public async Task<IActionResult> GetUserByEmail(string email)
         {
-            var user = await _userManager.GetUserByEmailAsync(email);
+            var user = await _userService.GetUserByEmailAsync(email);
+
             if (user == null)
             {
-                throw new KeyNotFoundException("������������ �� ������!");
+                return NotFound("Пользователь не найден.");
             }
-            var userDTO = new UserDTO
-            {
-                UserId = user.UserId,
-                UserName = user.UserName,
-                Email = user.Email,
-                LastName = user.LastName,
-                FirstName = user.FirstName,
-                Password = user.PasswordHash,
-                Roles = user.UserRoles.Select(ur => ur.Role).ToList()
-            };
-            return Ok(userDTO);
+            return Ok(user);
         }
         // POST: api/user
         // BODY: User (JSON)
@@ -131,72 +104,45 @@ namespace BlazorTemplate.Controllers
                 return BadRequest();
             }
 
-            var user = _mapper.Map<ApplicationUser>(model);
+            var user = await _userService.CreateUserAsync(model);
 
-            var result = await _userManager.CreateUserAsync(user);
-            return Ok();
+            return CreatedAtAction(nameof(CreateUser), user);
         }
         // PUT api/user/[userId]
         // BODY: (JSON)
-        [HttpPut("Update/{userId}")]
+        [HttpPost("Update/{userId}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> UpdateUser(Guid userId, [FromBody] UpdateUser updateUser)
+        public async Task<IActionResult> UpdateUser(Guid userId, [FromBody] UserDTO updateUser)
         {
 
-            var user = _mapper.Map<ApplicationUser>(updateUser);
-
-
-            var result = await _userManager.UpdateUserAsync(userId, user);
-            if (result <= 0)
+            var result = await _userService.UpdateUserAsync(userId, updateUser);
+            if (result == null)
             {
                 return BadRequest();
             }
             return NoContent();
         }
-
-        // POST api/user/[userId]/[duration]
-        // Default 100 years
-        [HttpPost("Block/{userId:guid}/{duration}")]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        public async Task<IActionResult> DeleteUserById(Guid userId, int duration = default)
+        [HttpPost("block")]
+        public async Task<IActionResult> BlockUser(Guid userId, DateTime duration)
         {
-            if (duration == default || duration <= 0)
-            {
-                await _userManager.BlockUserByIdAsync(userId, default);
-            }
-            TimeSpan timeSpan = TimeSpan.FromHours(duration);
-            var _ = await _userManager.BlockUserByIdAsync(userId, timeSpan);
-            return NoContent();
+
+            await _userService.BlockUserAsync(userId, duration);
+            return Ok();
         }
 
-        // POST api/user/[userId]/[duration] UnblockUserByIdAsync
-        [HttpPost("Block/{email}/{duration:int}")]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        public async Task<IActionResult> DeleteUserByEmail(string email, int duration = default)
+        [HttpPost("unblock")]
+        public async Task<IActionResult> UnblockUser(Guid userId)
         {
-            if (duration == default || duration <= 0)
+            try
             {
-                await _userManager.BlockUserByEmailAsync(email, default);
+                await _userService.UnblockUserAsync(userId);
+                return Ok($"User {userId} unblocked successfully.");
             }
-            TimeSpan timeSpan = TimeSpan.FromHours(duration);
-            var _ = await _userManager.BlockUserByEmailAsync(email, timeSpan);
-            return NoContent();
-        }
-        // POST api/user/[userId]/[duration] UnblockUserByIdAsync
-        [HttpPost("UnBlock/{userId:guid}")]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        public async Task<IActionResult> UnblockUserById(Guid userId)
-        {
-            var result = await _userManager.UnblockUserByIdAsync(userId);
-            if(result <= 0)
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest($"Error unblocking user: {ex.Message}");
             }
-            return NoContent();
         }
     }
 }

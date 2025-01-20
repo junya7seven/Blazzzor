@@ -1,8 +1,8 @@
 ﻿using Application;
 using Application.Models;
+using Application.Models.AuthModels;
 using Application.Service;
 using AutoMapper;
-using BlazorTemplate.Models;
 using BlazorTemplateAPI.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,14 +12,12 @@ namespace BlazorTemplateAPI.Controllers
     [Route("[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly AccessControl<ApplicationUser> _accessControl;
+        private readonly AccessControl _accessControl;
         private readonly JwtSettings _jwtSettings;
-        private readonly IMapper _mapper;
-        public AuthController(AccessControl<ApplicationUser> accessControl, JwtSettings jwtSettings, IMapper mapper)
+        public AuthController(AccessControl accessControl, JwtSettings jwtSettings)
         {
             _accessControl = accessControl;
             _jwtSettings = jwtSettings;
-            _mapper = mapper;
         }
 
         [HttpPost("Registration")]
@@ -33,11 +31,7 @@ namespace BlazorTemplateAPI.Controllers
             {
                 return BadRequest();
             }
-
-            var user = _mapper.Map<ApplicationUser>(model);
-
-
-            var result = await _accessControl.RegistrationAsync(user);
+            var result = await _accessControl.RegistrationAsync(model);
             if (result <= 0)
             {
                 throw new Exception($"Регистрация не удалась");
@@ -67,11 +61,7 @@ namespace BlazorTemplateAPI.Controllers
 
             Response.Cookies.Append("refreshToken", res.RefreshToken, cookieOptions);
 
-            var refreshTokenFromCookies = Request.Cookies["refreshToken"];
-            /*if (refreshTokenFromCookies != res.RefreshToken)
-            {
-                return StatusCode(500, new { Message = "Не удалось сохранить рефреш-токен в куках" });
-            }*/
+            var refreshToken = Request.Cookies["refreshToken"];
             return Ok(new RequestAccess
             {
                 AccessToken = res.AccessToken,
@@ -112,7 +102,7 @@ namespace BlazorTemplateAPI.Controllers
             Response.Cookies.Append("refreshToken", newTokens.RefreshToken, cookieOptions);
 
             return Ok(new
-            {   AccessToken = newTokens.AccessToken});
+            { AccessToken = newTokens.AccessToken });
         }
     }
 }

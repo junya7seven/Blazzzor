@@ -1,7 +1,6 @@
 ﻿using Entities.Interfaces;
 using Entities.Models;
 using Infrasrtucture.Data;
-using Infrasrtucture.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,61 +13,44 @@ namespace Infrasrtucture.Managers
     public class UserManager<TUser> : IUserManager<TUser> where TUser : User
     {
         private readonly ApplicationDbContext<TUser> _context;
+
         public UserManager(ApplicationDbContext<TUser> context)
         {
             _context = context;
         }
-        public async Task<(IEnumerable<TUser>, int)> GetAllUsersAsync(int page, int pageSize)
+
+
+        public async Task<(IEnumerable<TUser>, int)> GetAllUsersAsync(int page, int offset)
         {
-            int lastPage = await _context.Users.CountAsync() / pageSize;
+            var lastPage = await _context.Users
+            .CountAsync() / offset;
 
             var users = await _context.Users
             .Include(u => u.UserRoles)
             .ThenInclude(ur => ur.Role)
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
+            .Skip((page - 1) * offset)
+            .Take(offset)
             .ToListAsync();
             return (users ?? Enumerable.Empty<TUser>(), lastPage);
         }
 
-        public async Task<(IEnumerable<TUser>, int)> GetUsersByRole(int page, int pageSize, params string[] roleNames)
+        public async Task<(IEnumerable<TUser>, int)> GetUsersByAllRolesAsync(int page, int offset, string[] roles)
         {
-            if (roleNames == null || roleNames.Length == 0)
-            {
-                return (Enumerable.Empty<TUser>(), 0);
-            }
-
-            foreach (var roleName in roleNames)
-            {
-                roleName.ToLower();
-            }
-
-            int lastPage = await _context.Users
+            var query = _context.Users
                 .Include(u => u.UserRoles)
                 .ThenInclude(ur => ur.Role)
-                .Where(u => u.UserRoles.Any(ur => roleNames.Contains(ur.Role.NormalName)))
-                .CountAsync() / pageSize + 1;
+                .Where(u => roles.All(r => u.UserRoles.Any(ur => ur.Role.NormalName == r.ToLower())));
 
-            var users = await _context.Users
-                .Include(u => u.UserRoles)
-                .ThenInclude(ur => ur.Role)
-                .Where(u => u.UserRoles.Any(ur => roleNames.Contains(ur.Role.NormalName)))
-                .OrderBy(u => u.UserRoles.FirstOrDefault().Role.NormalName)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
+            var totalUsers = await query.CountAsync();
+
+            var users = await query
+                .Skip((page - 1) * offset)
+                .Take(offset)
                 .ToListAsync();
 
-            return (users ?? Enumerable.Empty<TUser>(), lastPage);
+            return (users, totalUsers);
         }
 
-
-        public async Task<IEnumerable<TUser>> GetAllUsersAsync()
-        {
-            var users = await _context.Users
-            .Include(u => u.UserRoles)
-            .ThenInclude(ur => ur.Role).ToListAsync();
-            return users ?? Enumerable.Empty<TUser>();
-        }
         public async Task<TUser?> GetUserByIdAsync(Guid userId)
         {
             var user = await _context.Users
@@ -79,163 +61,62 @@ namespace Infrasrtucture.Managers
         }
         public async Task<TUser?> GetUserByEmailAsync(string email)
         {
- 
-
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.NormalEmail == email.ToLower());
+            var user = await _context.Users
+            .Include(u => u.UserRoles)
+            .ThenInclude(ur => ur.Role)
+            .FirstOrDefaultAsync(u => u.NormalEmail == email.ToLower());
             return user;
         }
+
+        public async Task<bool> IsUserExistAsync(string email, string userName)
+        {
+            return await _context.Users.AnyAsync(u =>
+                u.NormalEmail == email.ToLower() ||
+                u.NormalUserName == userName.ToLower());
+        }
+
         public async Task<TUser> CreateUserAsync(TUser user)
         {
-            var existUser = await _context.Users.AnyAsync(u =>
-            u.NormalUserName == user.Email.ToLower()
-            || u.NormalUserName == user.UserName.ToLower());
-
-            if (existUser)
-            {
-                throw new ArgumentException($"Такой пользователь уже зарегистрирован");
-            }
-
-            user.NormalEmail = user.Email.ToLower();
-            user.NormalUserName = user.UserName.ToLower();
-            user.PasswordHash = PasswordHasher.HashPassword(user.PasswordHash);
-
-            user.CreatedAt = DateTime.Now;
-            user.IsLocked = false;
-
-            await _context.Users.AddAsync(user);
+            var existUser = await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
-            return user;
+
+            return existUser.Entity;
         }
-        public async Task<int> CreateUserRangeAsync(params TUser[] users)
+        public async Task CreateUserRangeAsync(params TUser[] users)
         {
-            if (!users.Any())
+            foreach (var user in users)
             {
-                throw new ArgumentNullException("User не может быть пустым");
-            }
-            foreach (var item in users)
-            {
-                item.NormalUserName = item.UserName.ToLower();
-                item.NormalEmail = item.Email.ToLower();
-            }
-            await _context.Users.AddRangeAsync(users);
-            return await _context.SaveChangesAsync();
-        }
-
-
-        public async Task<int> UpdateUserAsync(Guid userId, TUser user)
-        {
-            var existUser = await GetUserByIdAsync(userId);
-            if (existUser == null)
-            {
-                throw new KeyNotFoundException($"Такой пользователь не найден");
+                user.NormalEmail = user.Email.ToLower();
+                user.NormalUserName = user.UserName.ToLower();
             }
 
-            var checkData = await _context.Users.AnyAsync(u => (u.NormalUserName == user.UserName.ToLower()
-            || u.NormalEmail == user.Email.ToLower())
-            && u.UserId != existUser.UserId);
-
-            if (checkData)
-            {
-                throw new ArgumentException($"Такие почта или имя уже зарегистрированы");
-            }
-
-            if (user.UserName != null)
-            {
-                existUser.UserName = user.UserName;
-                existUser.NormalUserName = user.UserName.ToLower();
-            }
-            if (user.Email != null)
-            {
-                existUser.Email = user.Email;
-                existUser.NormalEmail = user.Email.ToLower();
-            }
-            existUser.LastUpdateAt = DateTime.Now;
-            _context.Update(existUser);
-            return await _context.SaveChangesAsync();
-        }
-
-        public async Task<int> BlockUserByEmailAsync(string email, TimeSpan duration = default)
-        {
-            if (duration == default)
-            {
-                duration = TimeSpan.FromDays(365 * 100);
-            }
-            var existUser = await GetUserByEmailAsync(email);
-            if (existUser == null)
-            {
-                throw new KeyNotFoundException($"Такой пользователь не найден");
-            }
-
-            existUser.IsLocked = true;
-            existUser.BlockedUntil = DateTime.Now.Add(duration);
-            if (await CheckUserSessions(existUser.UserId))
-            {
-                return await _context.SaveChangesAsync();
-            }
-            return 0;
-        }
-        public async Task<int> BlockUserByIdAsync(Guid userId, TimeSpan duration = default)
-        {
-            if (duration == default)
-            {
-                duration = TimeSpan.FromDays(365 * 100);
-            }
-            var existUser = await GetUserByIdAsync(userId);
-            if (existUser == null)
-            {
-                throw new KeyNotFoundException($"Такой пользователь не найден");
-            }
-
-            existUser.IsLocked = true;
-            existUser.BlockedUntil = DateTime.Now.Add(duration);
-            if(await BlockAllTokens(existUser.UserId))
-            {
-                return await _context.SaveChangesAsync();
-            }
-            return 0;
-        }
-        private async Task<bool> BlockAllTokens(Guid userId)
-        {
-            var refreshTokens = await _context.RefreshTokens.Where(x => x.UserId == userId && !x.IsRevoked && x.ExpiryDate > DateTime.UtcNow).ToListAsync();
-            foreach(var item in refreshTokens)
-            {
-                item.IsRevoked = true;
-            }
+            await _context.Set<TUser>().AddRangeAsync(users);
             await _context.SaveChangesAsync();
-            return true;
         }
 
-        public async Task<int> UnblockUserByIdAsync(Guid userId)
+        public async Task UpdateUserAsync(Guid userId, TUser user)
         {
-            var existUser = await GetUserByIdAsync(userId);
-            if (existUser == null )
+            var existingUser = await _context.Set<TUser>().FindAsync(userId);
+            if (existingUser == null)
             {
-                throw new KeyNotFoundException($"Такой пользователь не найден ");
+                throw new ArgumentException($"Пользователь с ID {userId} не найден.");
             }
-            if(existUser.IsLocked == false)
-            {
-                throw new ArgumentException("Пользователь не заблокирован");
-            }
-            existUser.IsLocked = false;
-            existUser.BlockedUntil = DateTime.MinValue;
-            return await _context.SaveChangesAsync();
+
+            existingUser.LastUpdateAt = DateTime.Now;
+
+            var entry = _context.Entry(existingUser);
+
+            entry.CurrentValues.SetValues(user);
+
+            entry.Property(e => e.UserId).IsModified = false;
+
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> CheckUserSessions(Guid userId)
+        public async Task<IEnumerable<TUser>> GetAllLockedUsersAsync()
         {
-            var refreshTokens = await _context.RefreshTokens.Where(x => x.UserId == userId && !x.IsRevoked && x.ExpiryDate > DateTime.UtcNow).ToListAsync();
-            if(refreshTokens.Count > 3)
-            {
-                foreach (var item in refreshTokens)
-                {
-                    item.IsRevoked = true;
-                }
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            return false;
+            var lockUsers = await _context.Users.Where(u => u.IsLocked == true).ToListAsync();
+            return lockUsers;
         }
-
-
     }
 }

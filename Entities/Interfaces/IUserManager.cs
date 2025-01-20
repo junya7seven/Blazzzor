@@ -9,15 +9,15 @@ namespace Entities.Interfaces
 {
     public interface IUserManager<TUser> where TUser : User
     {
-        Task<(IEnumerable<TUser>, int)> GetAllUsersAsync(int page, int pageSize);
-        Task<(IEnumerable<TUser>, int)> GetUsersByRole(int page, int pageSize, params string[] roleNames);
+        Task<(IEnumerable<TUser>, int)> GetAllUsersAsync(int page, int offset);
+        Task<(IEnumerable<TUser>, int)> GetUsersByAllRolesAsync(int page, int offset, string[] roles);
         Task<TUser?> GetUserByIdAsync(Guid id);
         Task<TUser?> GetUserByEmailAsync(string email);
+        Task<IEnumerable<TUser>> GetAllLockedUsersAsync();
+
+        Task<bool> IsUserExistAsync(string email, string userName);
         Task<TUser> CreateUserAsync(TUser user);
-        Task<int> CreateUserRangeAsync(params TUser[] user);
-        Task<int> UpdateUserAsync(Guid userId, TUser user);
-        Task<int> BlockUserByEmailAsync(string email, TimeSpan duration);
-        Task<int> BlockUserByIdAsync(Guid id, TimeSpan duration);
-        Task<bool> CheckUserSessions(Guid userId);
+        Task CreateUserRangeAsync(params TUser[] user);
+        Task UpdateUserAsync(Guid userId, TUser user);
     }
 }

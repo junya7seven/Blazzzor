@@ -24,10 +24,5 @@ namespace Shared
         public DateTime BlockedUntil { get; set; }
         public List<Role> Roles { get; set; } = new List<Role>();
     }
-    public class Role
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string NormalName { get; set; }
-    }
+    
 }

@@ -10,6 +10,7 @@ namespace Entities.Interfaces
     public interface IRefreshTokenManager
     {
         Task<RefreshToken?> GetRefreshTokenAsync(string refreshToken, Guid userId);
+        Task RevokeAllRefreshTokens(Guid userId);
         Task<bool> AddRefreshTokenAsync(RefreshToken refreshToken);
     }
 }

@@ -1,19 +1,25 @@
-﻿using Application.Service;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Application;
+using Application.Models;
+using Application.Service;
 using Entities.Interfaces;
 using Entities.Models;
 using Infrasrtucture.Data;
 using Infrasrtucture.Managers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Quartz.Impl;
+using Quartz.Spi;
+using Quartz;
+using Microsoft.Extensions.Hosting;
+using Application.Interfaces;
 
-namespace Application
+namespace Infrasrtucture
 {
     public static class ServiceCollectionExtensions
     {
@@ -22,9 +28,6 @@ namespace Application
          Action<DbContextOptionsBuilder> dbContextOptions) where TUser : User
         {
             services.AddDbContext<ApplicationDbContext<TUser>>(dbContextOptions);
-
-            services.AddScoped(typeof(UserManager<>));
-            services.AddScoped(typeof(RoleManager<>));
             return services;
 
         }
@@ -41,7 +44,7 @@ namespace Application
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })  
+            })
         .AddJwtBearer(options =>
         {
             options.RequireHttpsMetadata = false;
@@ -59,21 +62,56 @@ namespace Application
                 ClockSkew = TimeSpan.Zero,
             };
         });
-
-
-            services.AddScoped(typeof(IUserManager<TUser>), typeof(UserManager<TUser>));
-            services.AddScoped(typeof(IRoleManager<TUser>), typeof(RoleManager<TUser>));
-            services.AddScoped<IRefreshTokenManager, RefreshTokenManager<TUser>>();
-
-            services.AddScoped<AccessControl<TUser>>(provider =>
-            {
-                var roleManager = provider.GetRequiredService<IRoleManager<TUser>>();
-                var userManager = provider.GetRequiredService<IUserManager<TUser>>();
-                var tokenManager = provider.GetRequiredService<IRefreshTokenManager>();
-
-                return new AccessControl<TUser>(jwtSettings, roleManager, userManager, tokenManager);
-            });
             return services;
         }
+        public static IServiceCollection AddManagers<TUser>(this IServiceCollection services) where TUser : User
+        {
+            services.AddScoped<IUserManager<TUser>, UserManager<TUser>>();
+
+            // Регистрация RoleManager, который зависит от UserManager
+            services.AddScoped<IRoleManager<TUser>, RoleManager<TUser>>();
+
+            // Другие сервисы, которые зависят от UserManager или RoleManager
+            services.AddScoped<IRefreshTokenManager, RefreshTokenManager<TUser>>();
+
+            services.AddScoped<IUserRoleService, UserRoleService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<AccessControl>();
+
+            return services;
+        }
+        public static IServiceCollection AddQuartz(this IServiceCollection services)
+        {
+            /*services.AddQuartz(q =>
+            {
+                q.UseMicrosoftDependencyInjectionJobFactory();
+            });
+
+            services.AddScoped<IJobScheduler, JobScheduler>();
+
+            services.AddHostedService<QuartzHostedService>();*/
+
+
+            /*services.AddQuartz(o =>
+            {
+
+                var jobKey = JobKey.Create("Unlock");
+                o.AddJob<UnlockUserJob>(jobKey)
+                .AddTrigger(t =>
+                t.ForJob(jobKey)
+                .WithSimpleSchedule(s => s.WithIntervalInSeconds(2).RepeatForever()));
+            });
+            services.AddQuartzHostedService(o =>
+            {
+                o.WaitForJobsToComplete = true;
+            });*/
+
+
+
+
+            return services;
+        }
+
     }
 }

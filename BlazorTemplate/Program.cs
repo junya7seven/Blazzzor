@@ -1,27 +1,20 @@
-using BlazorTemplate;
-using BlazorTemplate.Models;
+ï»¿using BlazorTemplate;
 using BlazorTemplateAPI;
 using Application;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using BlazorTemplateAPI.Mapper;
+using Application.Helpers;
+using Infrasrtucture;
+using Application.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSpecificOrigin", policy =>
-    {
-        policy.WithOrigins("https://localhost:7234")
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
-    });
-});
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -32,7 +25,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Óêàæèòå òîêåí àâòîðèçàöèè",
+        Description = "Ã“ÃªÃ Ã¦Ã¨Ã²Ã¥ Ã²Ã®ÃªÃ¥Ã­ Ã Ã¢Ã²Ã®Ã°Ã¨Ã§Ã Ã¶Ã¨Ã¨",
     });
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
@@ -50,26 +43,35 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
-builder.Services.AddDbContext<MyDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
-
-builder.Services.AddApplicationServices<ApplicationUser>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
-builder.Services.AddAutoMapper(typeof(UserProfile));
-
 builder.Services.AddJwtAuthentication<ApplicationUser>(options =>
 {
-    options.Issuer = "https://localhost:7063";
-    options.Audience = "https://localhost:7063";
+    options.Issuer = "https://localhost:7234";
+    options.Audience = "https://localhost:7234";
     options.SecretKey = "MySecretKey123456789asdasdasdas0";
     options.TokenValidityMinutes = 90;
     options.RefreshTokenValidityDays = 7;
 });
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
+
+builder.Services.AddManagers<ApplicationUser>();
+builder.Services.AddAutoMapper(typeof(UserMappingProfile));
+builder.Services.AddQuartz();
+
+builder.Services.AddApplicationServices<ApplicationUser>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
 
 
-
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", policy =>
+    {
+        policy.WithOrigins("https://localhost:7234")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
 
 
 var app = builder.Build();

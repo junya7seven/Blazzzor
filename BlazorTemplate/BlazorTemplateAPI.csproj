@@ -25,7 +25,6 @@
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
     <ProjectReference Include="..\Infrasrtucture\Infrasrtucture.csproj" />
-    <ProjectReference Include="..\LibaryModalDialogPages\LibaryModalDialogPages.csproj" />
   </ItemGroup>
 
 </Project>

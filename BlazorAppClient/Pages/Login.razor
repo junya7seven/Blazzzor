@@ -46,13 +46,17 @@
     {
         try
         {
-            var resultLog = await AuthService.LoginAsync(User);
-            if (resultLog)
+            if(success == true)
             {
-                StateHasChanged();
-                Snackbar.Add("Вы успешно вошли!", Severity.Success);
-                NavigationManager.NavigateTo("users");
+                var resultLog = await AuthService.LoginAsync(User);
+                if (resultLog)
+                {
+                    StateHasChanged();
+                    Snackbar.Add("Вы успешно вошли!", Severity.Success);
+                    NavigationManager.NavigateTo("users");
+                }
             }
+            
         }
         catch (Exception ex)
         {

@@ -1,7 +1,6 @@
 ﻿using Entities.Models;
 using Infrasrtucture.Data;
 using Microsoft.EntityFrameworkCore;
-using BlazorTemplate.Models;
 using Microsoft.Identity.Client;
 using Application.Models;
 

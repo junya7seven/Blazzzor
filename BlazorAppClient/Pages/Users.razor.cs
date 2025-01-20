@@ -1,11 +1,11 @@
-﻿using LibaryModalDialogPages.ModalPages;
-using MudBlazor;
+﻿using MudBlazor;
 using System.Net.Http.Json;
 using Shared;
 using System.Linq.Expressions;
 using static MudBlazor.CategoryTypes;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using LibaryModalDialogPages.ModalPages;
 
 
 namespace BlazorAppClient.Pages
@@ -20,14 +20,13 @@ namespace BlazorAppClient.Pages
         private bool isDesc = false;
 
         private bool isLoading;
-
+        private string stringValue { get; set; }
         private IEnumerable<string> userProp { get; set; }
         private List<UserDTO> users = new List<UserDTO>();
 
         private Dictionary<string, string> columnHeaders = new();
         private Dictionary<string, bool> sortDirections = new();
 
-        private List<Role> Roels = new List<Role>();
 
         private int totalItems;
 
@@ -37,6 +36,9 @@ namespace BlazorAppClient.Pages
             GetUserProperties();
             isLoading = false;
         }
+
+       
+
         private async Task<TableData<UserDTO>> LoadServerData(TableState state, CancellationToken cancellationToken)
         {
             isLoading = true;
