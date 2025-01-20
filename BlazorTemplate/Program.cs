@@ -11,6 +11,7 @@ using Application.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
@@ -21,8 +22,6 @@ builder.Services.AddCors(options =>
               .AllowCredentials();
     });
 });
-
-
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
@@ -35,7 +34,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Óêàæèòå òîêåí àâòîðèçàöèè",
+        Description = "Укажите токен авторизации",
     });
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
@@ -52,6 +51,8 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
+
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VillageContext")));
 
@@ -61,23 +62,14 @@ builder.Services.AddAutoMapper(typeof(UserMappingProfile));
 
 builder.Services.AddJwtAuthentication<ApplicationUser>(options =>
 {
-    options.Issuer = "https://localhost:7234";
-    options.Audience = "https://localhost:7234";
+    options.Issuer = "https://localhost:7063";
+    options.Audience = "https://localhost:7063";
     options.SecretKey = "MySecretKey123456789asdasdasdas0";
     options.TokenValidityMinutes = 90;
     options.RefreshTokenValidityDays = 7;
 });
-
-
 builder.Services.AddManagers<ApplicationUser>();
 builder.Services.AddQuartz();
-
-
-
-
-
-
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -107,3 +99,10 @@ app.MapControllers();
 app.MapFallbackToFile("index.html");
 
 app.Run();
+
+
+
+
+
+
+
